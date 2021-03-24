@@ -7,8 +7,7 @@ const  WeatherSource={
 
         // Here we replace longitude and respectively latitude for the place were we want our weather forecast
 
-        let url_call = BASE_SMHI_URL.replace("{longitude}", params.longitude)
-        url_call = url_call.replace("{latitude}", params.latitude)
+        let url_call = BASE_SMHI_URL.replace("{longitude}", params.longitude).replace("{latitude}", params.latitude);
 
         // The actual fetch
         return fetch(url_call, {
