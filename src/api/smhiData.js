@@ -30,7 +30,7 @@ const  WeatherSource={
     },
 
     getWeatherDetails(longitude, latitude){
-        // this function calls the apiCall and pass the asked longitude and latitude coordinates
+        // this function calls the apiCall and pass the asked longitude and latitude coordinates to the call.
         return WeatherSource.apiCall({longitude:longitude,latitude:latitude})
     }
 }
