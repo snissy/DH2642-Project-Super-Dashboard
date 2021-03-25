@@ -1,6 +1,22 @@
 # DH2642-Project-Super-Dashboard
 This is the project repot for group 20 in the course DH2642
 
+##### How to install and run the project
+clone the repository. 
+Open up your terminal, navigate to the folder **super_dash**.
+Run the followng command in directory 
+
+```
+yarn install
+```
+Now yarn has installed all the required dependencies for the project. 
+To run the application type the following command in the terminal in the super dash folder.
+
+```
+yarn start
+```
+
+
 ##### Dependancies
 - javascript
 - bootstrap
