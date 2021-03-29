@@ -5,13 +5,12 @@ const omniGetter = require('./omniGetter.js');
 
 app.get('/news',(req, res) =>{
 
-    console.log("I've received a news request")
     let newsItems = omniGetter.fetchNewsArticles();
     newsItems.then(finalNewItems=>{
         res.json(finalNewItems)
-        console.log("I've finalized news request, sending data")
+        console.log("I've finalized news request, sending data\n#---------------------------#\n")
     })
-
+    console.log("<--------------------------->\nI've received a news request")
 })
 
 app.listen(port, ()=>{

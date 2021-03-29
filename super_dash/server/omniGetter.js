@@ -2,8 +2,8 @@ const axios  = require("axios").default;
 const cheerio = require('cheerio');
 
 function fetchNewsArticles(){
+    // TODO
     // all nyhetsdata ligger i divar som har classen "teaser teaser--small "
-    // TODO kanske placera detta i separat fil. Jo men det ska vi göra.
     // Structuren på detta är kankse inte helt hundra än.
 
     let omniRequest = axios.get('https://omni.se/senaste')
@@ -24,8 +24,16 @@ function fetchNewsArticles(){
         let $ = cheerio.load(rawHtml);
 
         $(".teaser").each((index, element) => {
-            console.log($(element).text())
-
+            let articleDiv = $(element)
+            let articleImg = articleDiv.find("img")
+            let article = {
+                title:articleDiv.find(".resource--title").text(),
+                text:articleDiv.find(".resource--text").text(),
+                href:"https://omni.se"+articleDiv.find(".article-link").attr("href"),
+                imgSrc:articleImg.attr("src"),
+                imgTitle:articleImg.attr("title"),
+            }
+            newsItems.articles.push(article)
         })
 
         return newsItems
