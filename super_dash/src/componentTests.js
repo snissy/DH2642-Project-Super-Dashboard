@@ -1,5 +1,6 @@
 import React from "react";
 import TodoView from "./views/todoView";
+import BootstrapExampleView from "./views/bootstrap_example";
 
 // Use this component to test TodoView
 function TopLevelTodo() {
@@ -18,3 +19,12 @@ function TopLevelTodo() {
 // Create new components below and export them to test them.
 
 export default TopLevelTodo;
+
+
+// T
+export function TopLevelBootstrapExample(){
+    return (
+        <BootstrapExampleView />
+    )
+}
+

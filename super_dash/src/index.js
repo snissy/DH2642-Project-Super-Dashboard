@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import TopLevelTodo from './componentTests';
+import {TopLevelTodo, TopLevelBootstrapExample} from './componentTests';
 
 ReactDOM.render(
   <React.StrictMode>
