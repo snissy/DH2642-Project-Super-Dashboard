@@ -7,13 +7,13 @@ Open up your terminal, navigate to the folder **super_dash**.
 Run the followng command in directory 
 
 ```
-yarn install
+npm install
 ```
 Now yarn has installed all the required dependencies for the project. 
 To run the application type the following command in the terminal in the super dash folder.
 
 ```
-yarn start
+npm start
 ```
 
 
