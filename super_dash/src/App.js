@@ -1,7 +1,10 @@
+import Clock from './views/clock';
 function App() {
   return (
       <div className="App">
-          <p>Hello World</p>
+          <div className="clock">
+              <Clock></Clock>
+          </div>
       </div>
   );
 }
