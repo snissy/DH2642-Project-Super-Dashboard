@@ -8,10 +8,11 @@ function SearchBarView(props) {
                 <Form inline>
                     <FormControl onChange={e=> props.onText(e)} type="text" placeholder="Google Search" className=" mr-sm-2" />
                     <Button onClick={()=>props.onSearch()}>
-                        <span class="material-icons md-8 iconAlign buttonTopRight">search</span> 
+                        search
                     </Button>
                 </Form>
             </Navbar>
+            <span class="material-icons md-8 iconAlign buttonTopRight">search</span> 
         </div>
 
     );
