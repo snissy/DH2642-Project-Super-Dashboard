@@ -5,7 +5,7 @@ import {TopLevelTodo, TopLevelBootstrapExample, TopLevelSearchBar} from './compo
 
 ReactDOM.render(
   <React.StrictMode>
-    <TopLevelSearchBar/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
