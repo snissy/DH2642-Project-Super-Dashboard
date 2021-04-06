@@ -4,7 +4,7 @@ import BootstrapExampleView from "./views/bootstrap_example";
 import Clock from "./views/clockView";
 
 // Use this component to test TodoView
-function TopLevelTodo() {
+/*function TopLevelTodo() {
 
     let Tasks = ['städa', 'Träna', 'Tvätta', 'Handla'];
     const [currentTasks, setTasks] = React.useState(Tasks);
@@ -27,10 +27,13 @@ export function TopLevelBootstrapExample(){
     return (
         <BootstrapExampleView />
     )
-}
-export function TopLevelClock(){    
+}*/
+ function TopLevelClock(){   
+    const [time, setTime] = React.useState() 
     return(
-        <Clock />
+        <Clock  time = {time} 
+                updateTime = {setTime}/>
     )
 }
+export default TopLevelClock;
 

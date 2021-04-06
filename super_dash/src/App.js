@@ -1,7 +1,8 @@
+import TopLevelClock from "./componentTests.js"
 function App() {
     return (
         <div className="App">
-            <p>Hello World</p>
+            <TopLevelClock />
         </div>
     );
   }
