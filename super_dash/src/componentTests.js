@@ -1,7 +1,7 @@
 import React from "react";
 import TodoView from "./views/todoView";
 import BootstrapExampleView from "./views/bootstrap_example";
-import Clock from "./views/clock";
+import Clock from "./views/clockView";
 
 // Use this component to test TodoView
 function TopLevelTodo() {
@@ -30,7 +30,7 @@ export function TopLevelBootstrapExample(){
 }
 export function TopLevelClock(){    
     return(
-        <Clock></Clock>
+        <ClockPresenter />
     )
 }
 
