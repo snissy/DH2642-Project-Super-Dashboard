@@ -30,7 +30,7 @@ export function TopLevelBootstrapExample(){
 }
 export function TopLevelClock(){    
     return(
-        <ClockPresenter />
+        <Clock />
     )
 }
 
