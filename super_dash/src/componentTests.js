@@ -1,6 +1,7 @@
 import React from "react";
 import TodoView from "./views/todoView";
 import BootstrapExampleView from "./views/bootstrap_example";
+import SearchBarPresenter from "./presenters/searchBarPresenter";
 
 // Use this component to test TodoView
 function TopLevelTodo() {
@@ -28,3 +29,9 @@ export function TopLevelBootstrapExample(){
     )
 }
 
+// Search bar view
+export function TopLevelSearchBar(){
+    return (
+        <SearchBarPresenter test="hej123"/>
+    )
+}
