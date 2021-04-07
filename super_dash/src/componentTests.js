@@ -3,6 +3,7 @@ import TodoView from "./views/todoView";
 import BootstrapExampleView from "./views/bootstrap_example";
 import Clock from "./views/clockView";
 import ClockPresenter from "./presenters/clockPresenter";
+import SearchBarPresenter from "./presenters/searchBarPresenter";
 
 // Use this component to test TodoView
 export function TopLevelTodo() {
@@ -39,3 +40,9 @@ export function TopLevelBootstrapExample(){
 }
 export default TopLevelClock;
 
+// Search bar view
+export function TopLevelSearchBar(){
+    return (
+        <SearchBarPresenter test="hej123"/>
+    )
+}
