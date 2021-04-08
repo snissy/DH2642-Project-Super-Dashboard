@@ -1,10 +1,12 @@
 import React from "react";
 import TodoView from "./views/todoView";
 import BootstrapExampleView from "./views/bootstrap_example";
+import Clock from "./views/clockView";
+import ClockPresenter from "./presenters/clockPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 
 // Use this component to test TodoView
-function TopLevelTodo() {
+export function TopLevelTodo() {
 
     let Tasks = ['städa', 'Träna', 'Tvätta', 'Handla'];
     const [currentTasks, setTasks] = React.useState(Tasks);
@@ -19,7 +21,7 @@ function TopLevelTodo() {
 
 // Create new components below and export them to test them.
 
-export default TopLevelTodo;
+
 
 
 // T
@@ -28,6 +30,15 @@ export function TopLevelBootstrapExample(){
         <BootstrapExampleView />
     )
 }
+//Clock component
+ function TopLevelClock(){   
+    const [time, setTime] = React.useState() 
+    return(
+        <ClockPresenter  time = {time} 
+                updateTime = {setTime}/>
+    )
+}
+export default TopLevelClock;
 
 // Search bar view
 export function TopLevelSearchBar(){
