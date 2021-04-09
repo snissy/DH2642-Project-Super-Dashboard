@@ -52,13 +52,19 @@ export function TopLevelSearchBar(){
 // ------- Testing code for the SWAPI API ---------
 export function TopLevelSWAPI(){
     const [num, setNum] = React.useState(5);
+    
     // promise is initially set to null and setPromise is called to change the promise state.
     const [promise, setPromise] = React.useState(null);
 
-    // On component creation: initial random search results with params = {}
+    // On component creation
     React.useEffect( function(){ 
-        setPromise(SwapiSource.getSwapiDetails("people", 1)); 
+        setPromise(SwapiSource.getSwapiDetails("people", num)); 
     }, [] ); 
+
+    // Get new data when number is updated.
+    React.useEffect(function(){
+        setPromise(SwapiSource.getSwapiDetails("people", num));
+    },[num]);
 
     // data and error are derived states from the promise state
     const [data, setData] = React.useState(null);
@@ -73,10 +79,14 @@ export function TopLevelSWAPI(){
         if(promise){   
 
             promise.then( function(dt) {
-                if(!cancelled) setData(dt);
-
+                if(!cancelled){
+                    setData(dt);
+                    console.log(data.name);
+                }
             }).catch( function(er){ 
-                if(!cancelled) setError(er);
+                if(!cancelled){
+                    setError(er);
+                }
             });
         }
         
@@ -85,12 +95,10 @@ export function TopLevelSWAPI(){
         };
     }, [promise] ); // stateMember
 
-    if(data)
-        console.log(data);
-
     return(
         <div>
-            It's working!
+            {num}
+            <button onClick={e=>setNum(num+1)}>+</button>
         </div>
     )
 }

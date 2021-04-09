@@ -1,7 +1,7 @@
 const SWAPI_ROOT_URL = "https://swapi.dev/api/{stat_type}/{number}/";
-
+const ALLOWED_STAT_TYPES = ["people","planets","films","species","vehicles","starships"];
 /*  
-    -- Allowed stat_types : numbers -- 
+    -- stat_types : numbers -- 
     People: 82
     Planets: 60
     Films: 6
@@ -14,12 +14,9 @@ const SwapiSource={
 
     // This function makes the actual api call to SWAPI
     apiCall(props) {
-        console.log(props.stat_type)
-        console.log(props.number)
-        
+
         let url_call = SWAPI_ROOT_URL.replace("{stat_type}", props.stat_type).replace("{number}", props.number);
-        console.log(url_call)
-        console.log("https://swapi.dev/api/people/1/")
+
         // The actual fetch
         return fetch(url_call, {
             "method": "GET"
@@ -40,6 +37,14 @@ const SwapiSource={
     },
 
     getSwapiDetails(type_parameter, number_parameter){
+
+        if (!(ALLOWED_STAT_TYPES.includes(type_parameter))){
+            throw new Error("Swapi not called: Invalid stat type.")
+        }
+
+        if (number_parameter < 1)
+            throw new Error("Swapi not called: Number must be above 0.")
+        
         // this function calls the apiCall and pass the asked type and number to the call.
         return SwapiSource.apiCall({stat_type:type_parameter,number:number_parameter})
     }
