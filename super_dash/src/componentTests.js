@@ -97,6 +97,7 @@ export function TopLevelSWAPI(){
 
     return(
         <div>
+            <button onClick={e=>setNum(num-1)}>-</button>
             {num}
             <button onClick={e=>setNum(num+1)}>+</button>
         </div>
