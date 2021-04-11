@@ -7,7 +7,8 @@ function TodoView(props) {
 
     const addByKey = (event) => {
         if(event.code === 'Enter') {
-         props.addTask(event.target.value);
+         let t = event.target.value;
+         props.addTask(t);
         }}
 
     // we only want to add the listener the first time the component is rendered
@@ -17,16 +18,32 @@ function TodoView(props) {
     ))
 
     return (
-        <div>
-            <h3>Todo</h3>
+        <div className={"container rounded col-sm-2 p-3 my-3 bg-dark text-white"}>
             <Container>
+                <h3>Todo</h3>
                 {[...props.tasks].map(t => {
-                    return <Row><Form><Form.Check type={"checkbox"}/></Form><Col>{t}</Col>
-                           <Col><Button className={'btn btn-light'} onClick={e => {props.removeTask(t);}}>x</Button></Col></Row>})
+                    return <Row>
+                                <Col sm={1}><Form.Check className={"checkbox"} type={"checkbox"}/></Col>
+                                <Col sm={8}>{t}</Col>
+                                <Col sm={2}>
+                                    <Button className={'btn btn-outline-dark'}
+                                            style={{backgroundColor:"transparent", borderColor:"transparent"}}
+                                            onClick={e => {props.removeTask(t);}}>x</Button></Col>
+                          </Row>})
                 }
+                <Row>
+                    <Col sm={8}>
+                        <input type="text" className={"form-control"} id="myInput" placeholder="new task..."
+                               style={{backgroundColor:"transparent",
+                                       color:"#F8F8FF",
+                                       border: "none"}}
+                               maxLength={16}
+                               onFocus={e => {e.target.value = '';}}
+                               onBlur={e => {props.addTask(e.target.value);}}/>
+                    </Col>
+                </Row>
             </Container>
-            <input type="text" id="myInput" placeholder="new task..." onBlur={e => {props.addTask(e.target.value);}}/>
-            </div>
+        </div>
         )
 }
 export default TodoView;
