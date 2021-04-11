@@ -1,0 +1,17 @@
+.App {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.Searchbar {
+    position: relative;
+    left: 500px;
+    top: 800px;
+}
+.Todo-list {
+    position: relative;
+    left: -300px;
+    top: 300px;
+}
