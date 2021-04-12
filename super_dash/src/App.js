@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background from "./img/Hoth.png"
 import {TopLevelSearchBar, TopLevelTodo,} from "./componentTests"
 import './css/App.css'
+import TopLevelClock from "./componentTests.js"
 
 function App(props) {
   return (
@@ -14,4 +15,3 @@ function App(props) {
   );
 }
 export default App;
-
