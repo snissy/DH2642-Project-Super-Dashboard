@@ -4,6 +4,7 @@ import BootstrapExampleView from "./views/bootstrap_example";
 import ClockPresenter from "./presenters/clockPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import SwapiSource from './api/starwarsAPI'
+import promiseNoData from './api/promiseNoData'
 
 // Use this component to test TodoView
 export function TopLevelTodo() {
@@ -39,7 +40,7 @@ export function TopLevelSearchBar(){
 }
 
 // ------- Testing code for the SWAPI API ---------
-export function TopLevelSWAPI(){
+export function TopLevelSWAPI(props){
     const [num, setNum] = React.useState(5);
     
     // promise is initially set to null and setPromise is called to change the promise state.
@@ -70,7 +71,7 @@ export function TopLevelSWAPI(){
             promise.then( function(dt) {
                 if(!cancelled){
                     setData(dt);
-                    console.log(data.name);
+                    props.model.setCharacter(dt);       // update model
                 }
             }).catch( function(er){ 
                 if(!cancelled){
@@ -87,7 +88,7 @@ export function TopLevelSWAPI(){
     return(
         <div>
             <button onClick={e=>setNum(num-1)}>-</button>
-            {num}
+            {promiseNoData(promise,data,error) || props.model.character_name}
             <button onClick={e=>setNum(num+1)}>+</button>
         </div>
     )
