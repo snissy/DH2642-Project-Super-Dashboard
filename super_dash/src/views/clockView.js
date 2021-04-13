@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Container, Col,Row} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 
 function Clock (props) {
    
