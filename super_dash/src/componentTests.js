@@ -5,6 +5,8 @@ import ClockPresenter from "./presenters/clockPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import SwapiSource from './api/starwarsAPI'
 import promiseNoData from './api/promiseNoData'
+import SideBarPresenter from "./presenters/sidebarPresenter";
+
 
 // Use this component to test TodoView
 export function TopLevelTodo() {
@@ -23,14 +25,14 @@ export function TopLevelBootstrapExample(){
 }
 
 //Clock component
- function TopLevelClock(){   
+export  function TopLevelClock(){   
     const [time, setTime] = React.useState() 
     return(
         <ClockPresenter  time = {time} 
                 updateTime = {setTime}/>
     )
 }
-export default TopLevelClock;
+
 
 // Search bar view
 export function TopLevelSearchBar(){
@@ -93,3 +95,12 @@ export function TopLevelSWAPI(props){
         </div>
     )
 }
+export function  TopSidebar()  {
+
+
+
+
+
+    return (<SideBarPresenter />)
+
+  }
