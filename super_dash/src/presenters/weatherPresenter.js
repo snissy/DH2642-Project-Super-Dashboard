@@ -8,7 +8,7 @@ function WeatherPresenter(props){
     // TODO Jag vet inte om det är är korrekt. Man kan säkert göra en generallt case för detta. Vill disskutera detta med Hector och Adam.
     const [promise, setPromise] = useState(null);
 
-    React.useEffect(()=>{
+    useEffect(()=>{
         setPromise(WeatherSource.getWeatherDetails(18.123,59.042))
     },[])
 
