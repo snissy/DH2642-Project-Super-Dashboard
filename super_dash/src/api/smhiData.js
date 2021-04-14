@@ -33,3 +33,4 @@ const  WeatherSource={
         return WeatherSource.apiCall({longitude:longitude,latitude:latitude})
     }
 }
+export default WeatherSource;
