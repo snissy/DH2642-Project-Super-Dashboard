@@ -9,7 +9,7 @@ function WeatherPresenter(props){
     const [promise, setPromise] = useState(null);
 
     useEffect(()=>{
-        setPromise(WeatherSource.getWeatherDetails(18.123,59.042))
+        setPromise(WeatherSource.getWeatherDetails(props.longitude, props.latitude))
     },[])
 
     const [data, error] = PromiseHook(promise);
