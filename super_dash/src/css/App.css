@@ -22,7 +22,7 @@
     src: url('fonts/Starjhol.ttf');
     font-style: normal;
 }
-h1 {
+h2 {
     font-family: sw, serif;
     position: fixed;
     font-size: 80px;
@@ -31,3 +31,9 @@ h1 {
     text-align: center;
     top: 0;
 }
+.Clock {
+    font-family: arial, serif;
+    position: relative;
+    top: 10%;
+}
+

@@ -4,7 +4,6 @@ import BootstrapExampleView from "./views/bootstrap_example";
 import ClockPresenter from "./presenters/clockPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import SwapiSource from './api/starwarsAPI'
-import "./styles/sidebar.css"
 import SideBarPresenter from "./presenters/sidebarPresenter";
 
 
