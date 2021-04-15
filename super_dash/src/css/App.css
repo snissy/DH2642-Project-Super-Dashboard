@@ -8,7 +8,6 @@
 #Searchbar {
     position: relative;
     display: flex;
-    border: 1px solid;
     width: 20%;
     justify-content: center;
     margin: auto;
@@ -22,7 +21,6 @@
     padding-right: 10px;
     padding-bottom: 10px;
     justify-content: center;
-    border: 1px solid;
     top: 10%;
     left: 10%;
 }
