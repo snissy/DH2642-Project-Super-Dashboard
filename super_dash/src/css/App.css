@@ -5,17 +5,26 @@
     background-size: cover;
     background-position: center;
 }
-.Searchbar {
+#Searchbar {
     position: relative;
-    left: 40%;
-    top: 70%;
+    display: flex;
+    border: 1px solid;
+    width: 20%;
+    justify-content: center;
+    margin: auto;
+    top: 50%;
 }
-.Todo-list {
+#Todo-list {
     position: relative;
-    height: auto;
-    width: auto;
-    left: -25%;
-    top: 25%;
+    height: 400px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    border: 1px solid;
+    top: 10%;
+    left: 10%;
 }
 @font-face {
     font-family: sw;
@@ -31,9 +40,10 @@ h2 {
     text-align: center;
     top: 0;
 }
-.Clock {
+#Clock {
     font-family: arial, serif;
+    font-size: 60px;
     position: relative;
-    top: 10%;
+    top: 20%;
 }
 
