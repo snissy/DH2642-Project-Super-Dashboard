@@ -4,13 +4,20 @@ import background from "./img/Hoth.png"
 import {TopLevelSearchBar, TopLevelSWAPI, TopLevelClock} from "./componentTests"
 import './css/App.css'
 import TodoPresenter from "./presenters/todoPresenter";
+import WeatherPresenter from "./presenters/weatherPresenter";
+import SideBarPresenter from "./presenters/sidebarPresenter";
+import SearchBarPresenter from "./presenters/searchBarPresenter";
+import SearchBarView from "./views/searchBarView";
 
 function App(props) {
   return (
+
       <div className={'App'} style={{backgroundImage: `url(${background})`}}>
-          <h1>Super Dash</h1>
-          <div className={'Searchbar'}><TopLevelSearchBar/></div>
-          <div className={'Todo-list'}><TodoPresenter model={props.model}/></div>
+          <h2>Super Dash</h2>
+          <div><SideBarPresenter/></div>
+          <div id={'Clock'}><TopLevelClock/></div>
+          <div id={'Searchbar'}><SearchBarView/></div>
+          <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
       </div>
   );
 }

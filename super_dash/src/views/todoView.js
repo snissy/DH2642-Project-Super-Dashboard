@@ -18,7 +18,7 @@ function TodoView(props) {
     ))
 
     return (
-        <div className={"container rounded col-sm-2 p-3 my-3 bg-dark text-white"}>
+        <div className={"container rounded p-3 my-3 bg-dark text-white"} style={{border: '1px solid'}}>
             <Container>
                 <h3>Todo</h3>
                 {[...props.tasks].map(t => {
