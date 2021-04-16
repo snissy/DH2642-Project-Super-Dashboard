@@ -10,7 +10,7 @@ function TodoView(props) {
             <Container>
                 <h3>Todo</h3>
                 {[...props.tasks].map(t => {
-                    return <Row>
+                    return <Row key={t}>
                                 <Col sm={1}><Form.Check className={"checkbox"} type={"checkbox"}/></Col>
                                 <Col sm={8}>{t}</Col>
                                 <Col sm={2}>

@@ -16,7 +16,7 @@ function TodoPresenter(props) {
     // this is solved with useEffect
     React.useEffect(() => (
         window.addEventListener('keydown', addByKey)
-    ))
+    ), [])
 
     return (
         <TodoView tasks={currentTasks}
