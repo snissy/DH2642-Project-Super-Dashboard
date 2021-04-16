@@ -88,7 +88,7 @@ function pickDataPoints(timeSeries){
 
     toRender.forEach(day=> day.calcDisplayData())
 
-    return [dayOne, dayTwo, dayThree]
+    return [dayOne]
 }
 
 function WeatherView(props) {
