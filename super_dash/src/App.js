@@ -8,6 +8,7 @@ import WeatherPresenter from "./presenters/weatherPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import SearchBarView from "./views/searchBarView";
+import ClockPresenter from "./presenters/clockPresenter";
 
 function App(props) {
   return (
@@ -16,7 +17,7 @@ function App(props) {
           <h2>Super Dash</h2>
           <div><SideBarPresenter/></div>
           <div id={'Clock'}><TopLevelClock/></div>
-          <div id={'Searchbar'}><SearchBarView/></div>
+          <div id={'Searchbar'}><SearchBarPresenter/></div>
           <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
       </div>
   );

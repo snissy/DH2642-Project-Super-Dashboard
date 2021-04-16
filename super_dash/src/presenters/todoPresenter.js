@@ -3,7 +3,6 @@ import React from "react";
 
 function TodoPresenter(props) {
 
-    // let Tasks = ['Destroy Deathstar', 'Kill Vader', 'Buy new Lightsaber', 'Save baby Yoda'];
     const [currentTasks, setTasks] = React.useState(props.model.tasks);
 
     return (
