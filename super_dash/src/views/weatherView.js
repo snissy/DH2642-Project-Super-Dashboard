@@ -1,6 +1,6 @@
 import {Container, Row, Col} from "react-bootstrap";
 import {maxFunc, meanFunc, mostFrequentFunc, sumFunc} from "../helpFunctions/arrayMethods";
-import {days} from "../helpFunctions/usefuleConstants";
+import {days} from "../helpFunctions/usefulConstants";
 
 /*
     t =         C ,      Air temperature, Decimal number, one decimal

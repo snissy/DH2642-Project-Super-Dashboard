@@ -4,7 +4,7 @@ import BootstrapExampleView from "./views/bootstrap_example";
 import ClockPresenter from "./presenters/clockPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import SwapiSource from './api/starwarsAPI'
-import promiseNoData from './api/promiseNoData'
+import promiseNoData from "./presenters/promiseNoDataPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 
 
@@ -96,10 +96,6 @@ export function TopLevelSWAPI(props){
     )
 }
 export function  TopSidebar()  {
-
-
-
-
 
     return (<SideBarPresenter />)
 
