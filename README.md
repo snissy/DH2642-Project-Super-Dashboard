@@ -1,7 +1,40 @@
 # DH2642-Project-Super-Dashboard
-This is the project repot for group 20 in the course DH2642
+This is the project repository for group 20 in the course DH2642
 
-##### How to install and run the project
+##### Mid Project Review Description
+In this project we are creating a dashboard with interactive widgets for Star Wars fanatics. We want users to keep the dashboard as their homepage in their browser so that they are met by the force every time they open a new window or tab. The goal is for the dashboard to be personizable, persisting each users personal preferences between sessions. 
+
+##### So far we have created a few widgets:
+- To-Do List: The tasks added by the user will be persisted in the model.
+- Clock: A must-have.
+- Search Bar: Similar to the regular google search bar.
+- Weather: The weather widget is using data from the SMHI API.
+- Sidebar: The retractable sidebar will be used to change the preferences, more specifically what Star Wars character and planet (background) to display.
+
+##### There are many more widgets and features that we are going to implement. Some examples:
+- Star Wars Character with quote, also information about the character from the Star Wars API when clicked. 
+- Google App Sidebar
+- Weather pop-up: Starting as a small widget with information about today but expands when clicked to display weather forecast for multiple days. 
+- News: A news widget based on API or web scrape.
+- ...and more!
+
+Here's a mock-up to get a rough idea of what we had in mind while planning: 
+https://www.figma.com/file/QtAtcYcekScPrsxRS4nadq/Star-Wars-Dashboard?node-id=0%3A1 
+
+
+##### Project Structure 
+We are using React in the presenters and some bootstrap.js for the views. We are using the model application state, similar to the one in the lab. Thus we have a model that the presenters will observe to know if they need to re-render. Every widgets has its own view and presenter, potentially multiple views for one widget when needed. 
+
+The index.js file finds the root-div in the index.html file where it places the App from App.js that also receives the model: 
+ ```
+ <App model={model}/>
+ ```
+The App then holds the different presenters that based on their CSS class receives a designated spot in the dashboard. Since it is a dashboard for computer screens it will not be adjusted to narrower screens, but this is of course a potential feature in the future. We are also looking into using the bootstrap grid instead of only CSS for the placement of the widgets, and we might even consider implementing drag-and-drop so that you can places the widgets as you like in the dashboard. 
+
+The API's are similar to the one we used in the lab, we also created a promiseHook to remove some duplicate code but it's not implemented in the Star Wars API yet.
+
+
+## How to install and run the project
 clone the repository. 
 Open up your terminal, navigate to the folder **super_dash**.
 Run the followng command in directory 
