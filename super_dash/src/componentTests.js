@@ -26,7 +26,7 @@ export function TopLevelBootstrapExample(){
 
 //Clock component
 export  function TopLevelClock(){   
-    const [time, setTime] = React.useState() 
+    const [time, setTime] = React.useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))
     return(
         <ClockPresenter  time = {time} 
                 updateTime = {setTime}/>
