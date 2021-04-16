@@ -13,14 +13,6 @@
     margin: auto;
     top: 50%;
 }
-#Weather-deploy {
-    position: relative;
-    float: right;
-    width: 500px;
-    display: flex;
-    background-color: whitesmoke;
-    justify-content: center;
-}
 #Todo-list {
     position: relative;
     height: 400px;

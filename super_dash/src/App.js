@@ -6,7 +6,6 @@ import './css/App.css'
 import TodoPresenter from "./presenters/todoPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
-import WeatherPresenter from "./presenters/weatherPresenter";
 
 function App(props) {
   return (
@@ -16,10 +15,7 @@ function App(props) {
           <div><SideBarPresenter/></div>
           <div id={'Clock'}><TopLevelClock/></div>
           <div id={'Searchbar'}><SearchBarPresenter/></div>
-          <div id={'Weather-deploy'}><WeatherPresenter latitude={59} longitude={18}/></div>
           <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
-          
-          
       </div>
   );
 }
