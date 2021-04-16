@@ -12,11 +12,10 @@ function TodoPresenter(props) {
             setTasks(props.model.tasks);
         }}
 
-    // we only want to add the listener the first time the component is rendered
-    // this is solved with useEffect
-    React.useEffect(() => (
+    React.useEffect( function () {
+        props.model.addObserver(() => {setTasks(props.model.tasks);})
         window.addEventListener('keydown', addByKey)
-    ), [])
+        }, [])
 
     return (
         <TodoView tasks={currentTasks}
