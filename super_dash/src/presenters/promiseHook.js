@@ -1,9 +1,9 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 function PromiseHook(promise){
 
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
+    const [data, setData] = React.useState(null);
+    const [error, setError] = React.useState(null);
 
     useEffect(()=>{
 
