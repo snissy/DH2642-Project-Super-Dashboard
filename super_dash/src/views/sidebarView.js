@@ -39,7 +39,7 @@ function SideBarView (props) {
                 pullRight={true}           //property for putting the sidebar on the right side
             >
 
-                <img onClick={() => props.setopen(true)} src={SettingIcon} height="75px" class="float-right m-1"   />
+                <img onClick={() => props.setopen(true)} src={SettingIcon} height="75px" className="float-right m-1" alt={'cogwheel icon'}/>
 
             </Sidebar>
 

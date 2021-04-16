@@ -6,7 +6,7 @@ function SearchBarPresenter(props) {
     const [searchQuery, setSearchQuery] = React.useState("");
 
     function googleSearch(){
-        window.location.replace("https://www.google.com/search?q="+searchQuery);
+        window.location.href = "https://www.google.com/search?q="+searchQuery;
     }
 
     const enterButtonSearch = (event) => {
