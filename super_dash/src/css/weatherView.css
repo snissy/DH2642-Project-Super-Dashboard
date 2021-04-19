@@ -1,0 +1,31 @@
+.weather-container{
+    justify-content:  space-around;
+}
+.weather-dayOne{
+    background-color: #fef9e4;
+    border: 5px solid #7693a7;
+    border-radius: 10px;
+    margin: 0.2em;
+}
+.weather-dayFollowing{
+}
+.weather-dayCard{
+    background-color: #fef9e4;
+    border: 5px solid #7693a7;
+    border-radius: 10px;
+    width: 100px;
+    margin: 0.75em;
+}
+.weather-IconMedium{
+    width: 95px;
+}
+.weather-IconSmall{
+    width: 60px;
+    height: 60px;
+}
+.weather-title{
+    font-size: 1em;
+}
+.weather-title-small{
+    font-size: 0.75em;
+}
