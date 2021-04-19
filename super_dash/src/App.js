@@ -4,15 +4,10 @@ import background from "./img/Hoth.png"
 import {TopLevelSearchBar, TopLevelSWAPI, TopLevelClock} from "./componentTests"
 import './css/App.css'
 import TodoPresenter from "./presenters/todoPresenter";
+import WeatherPresenter from "./presenters/weatherPresenter";
 
 function App(props) {
-  return (
-      <div className={'App'} style={{backgroundImage: `url(${background})`}}>
-          <h1>Super Dash</h1>
-          <div className={'Searchbar'}><TopLevelSearchBar/></div>
-          <div className={'Todo-list'}><TodoPresenter model={props.model}/></div>
-      </div>
-  );
+  return (<div className={'weather'}><WeatherPresenter latitude={59.295273} longitude ={18.094105}/></div>);
 }
 
 /* SWAPI Test code
