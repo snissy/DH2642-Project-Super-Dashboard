@@ -91,67 +91,53 @@ function ExtendedWeatherView(props) {
 }
 
 function WeatherView(props) {
-    console.log(props.weatherDays)
     const dayOne = props.weatherDays[0];
-    const comingDays = [props.weatherDays[1], props.weatherDays[2]];
-    return(<div className="weather-view">
-        <Container className="weather-container" >
-            <Row className="weather-row">
-                <Col className="weather-icon" >
+    const comingDays = [props.weatherDays[1], props.weatherDays[2], props.weatherDays[3]];
+    return(<Container className="weather-container weather-view" >
+            <Row className="weather-dayOne">
+                <Col>
+                    <img className="weather-IconMedium" src={require('../assets/svg/weatherIcons/'+dayOne.Wsymb2+".svg").default} alt=""/>
+                    <p className="weather-title">{dayOne.day}</p>
+                </Col>
+                <Col>
                     <Row>
-                        <img src={require('../assets/svg/weatherIcons/'+dayOne.Wsymb2+".svg").default} alt=""/>
+                        <Col>
+                            <p className="weather-title">Temp</p>
+                        </Col>
+                        <Col>
+                            <p className="weather-title">{dayOne.t[0].toFixed(1)}</p>
+                        </Col>
                     </Row>
                     <Row>
-                        <p className="weather-title">{dayOne.day}</p>
-                        </Row>
-                </Col>
-                <Col className="weather-temp" >
-                        <Row>
-                            <p className="weather-title">Temp</p>
-                        </Row>
-                        <Row>
-                            <p className="weather-value">{dayOne.tMax}°</p>
-                        </Row>
-                    </Col>
-                <Col className="weather-rainfall" >
-                        <Row>
+                        <Col>
                             <p className="weather-title">Rain</p>
-                        </Row>
-                        <Row>
-                            <p className="weather-value">{dayOne.pmeanSum}mm</p>
-                        </Row>
-                    </Col>
+                        </Col>
+                        <Col>
+                            <p className="weather-title">{dayOne.pmean[0].toFixed(1)}</p>
+                        </Col>
+                    </Row>
+                </Col>
             </Row>
-            <Row className="weather-row">
-                <Col>
-                    <Col className="weather-icon" sm="1">
+
+            <Row className="weather-dayFollowing">
+                {comingDays.map(day =>{
+                    return (<Col className="weather-dayCard">
                         <Row>
-                            <img src={require('../assets/svg/weatherIcons/'+comingDays[0].Wsymb2+".svg").default} alt=""/>
+                            <img className="weather-IconSmall" src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt=""/>
                         </Row>
                         <Row>
-                            <p className="weather-title">{comingDays[0].day}</p>
+                            <Col>
+                                <p className="weather-title-small">{day.day}</p>
+                            </Col>
+                            <Col>
+                                <p className="weather-title-small">{day.tMax}</p>
+                            </Col>
                         </Row>
-                    </Col>
-                    <Col className="weather-temp">
-                        <p className="weather-value">{comingDays[0].tMax}°</p>
-                    </Col>
-                </Col>
-                <Col>
-                    <Col className="weather-icon">
-                        <Row>
-                            <img src={require('../assets/svg/weatherIcons/'+comingDays[1].Wsymb2+".svg").default} alt=""/>
-                        </Row>
-                        <Row>
-                            <p className="weather-title">{comingDays[1].day}</p>
-                        </Row>
-                    </Col>
-                    <Col className="weather-temp">
-                        <p className="weather-value">{comingDays[1].tMax}°</p>
-                    </Col>
-                </Col>
+                    </Col>)
+                })}
             </Row>
         </Container>
-    </div>)
+)
 }
 
 export default WeatherView;
