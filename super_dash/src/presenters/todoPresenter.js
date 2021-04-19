@@ -8,8 +8,10 @@ function TodoPresenter(props) {
     const addByKey = (event) => {
         if(event.code === 'Enter' && event.target.id === 'task') {
             let t = event.target.value;
+            event.target.value = "";
             props.model.addTask(t);
             setTasks(props.model.tasks);
+
         }}
 
     React.useEffect( function () {
@@ -19,7 +21,7 @@ function TodoPresenter(props) {
 
     return (
         <TodoView tasks={currentTasks}
-                  addTask={x => {props.model.addTask(x); setTasks(props.model.tasks);} }
+                  addTask={x => {props.model.addTask(x); setTasks(props.model.tasks);}}
                   removeTask={x => {props.model.removeTask(x); setTasks(props.model.tasks);}}/>)
 }
 
