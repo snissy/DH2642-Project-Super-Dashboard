@@ -5,24 +5,12 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 
 function TodoView(props) {
 
-    const addByKey = (event) => {
-        if(event.code === 'Enter') {
-         let t = event.target.value;
-         props.addTask(t);
-        }}
-
-    // we only want to add the listener the first time the component is rendered
-    // this is solved with useEffect
-    React.useEffect(() => (
-        window.addEventListener('keydown', addByKey)
-    ))
-
     return (
-        <div className={"container rounded col-sm-2 p-3 my-3 bg-dark text-white"}>
+        <div className={"container rounded p-3 my-3 bg-dark text-white"} style={{border: '1px solid'}}>
             <Container>
                 <h3>Todo</h3>
                 {[...props.tasks].map(t => {
-                    return <Row>
+                    return <Row key={t}>
                                 <Col sm={1}><Form.Check className={"checkbox"} type={"checkbox"}/></Col>
                                 <Col sm={8}>{t}</Col>
                                 <Col sm={2}>
@@ -33,7 +21,7 @@ function TodoView(props) {
                 }
                 <Row>
                     <Col sm={8}>
-                        <input type="text" className={"form-control"} id="myInput" placeholder="new task..."
+                        <input type="text" className={"form-control"} id="task" placeholder="new task..."
                                style={{backgroundColor:"transparent",
                                        color:"#F8F8FF",
                                        border: "none"}}

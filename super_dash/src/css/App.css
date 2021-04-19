@@ -5,24 +5,31 @@
     background-size: cover;
     background-position: center;
 }
-.Searchbar {
+#Searchbar {
     position: relative;
-    left: 40%;
-    top: 70%;
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    margin: auto;
+    top: 50%;
 }
-.Todo-list {
+#Todo-list {
     position: relative;
-    height: auto;
-    width: auto;
-    left: -25%;
-    top: 25%;
+    height: 400px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    top: 10%;
+    left: 10%;
 }
 @font-face {
     font-family: sw;
     src: url('fonts/Starjhol.ttf');
     font-style: normal;
 }
-h1 {
+h2 {
     font-family: sw, serif;
     position: fixed;
     font-size: 80px;
@@ -31,3 +38,10 @@ h1 {
     text-align: center;
     top: 0;
 }
+#Clock {
+    font-family: arial, serif;
+    font-size: 60px;
+    position: relative;
+    top: 20%;
+}
+

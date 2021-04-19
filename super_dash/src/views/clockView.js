@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container} from 'react-bootstrap'
 
@@ -22,7 +22,7 @@ function Clock (props) {
             <Container> 
                 
                   
-                    <h1 class="text-center m-3 display-1"> {props.time}</h1>
+                    <h1 className="text-center m-3 display-1 "> {props.time}</h1>
                
             </Container>
             )

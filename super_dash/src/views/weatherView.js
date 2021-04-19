@@ -1,5 +1,6 @@
 import {Container, Row, Col} from "react-bootstrap";
 
+
 function ExtendedWeatherView(props) {
     return(<div className="weather-view-extended">
         <Container className="weather-container">

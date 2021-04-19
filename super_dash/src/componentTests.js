@@ -4,7 +4,7 @@ import BootstrapExampleView from "./views/bootstrap_example";
 import ClockPresenter from "./presenters/clockPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import SwapiSource from './api/starwarsAPI'
-import promiseNoData from './api/promiseNoData'
+import promiseNoData from "./presenters/promiseNoDataPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 
 
@@ -26,7 +26,7 @@ export function TopLevelBootstrapExample(){
 
 //Clock component
 export  function TopLevelClock(){   
-    const [time, setTime] = React.useState() 
+    const [time, setTime] = React.useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))
     return(
         <ClockPresenter  time = {time} 
                 updateTime = {setTime}/>
@@ -96,10 +96,6 @@ export function TopLevelSWAPI(props){
     )
 }
 export function  TopSidebar()  {
-
-
-
-
 
     return (<SideBarPresenter />)
 

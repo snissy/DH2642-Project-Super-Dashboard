@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {TopLevelTodo, TopLevelBootstrapExample, TopLevelSearchBar, TopLevelSWAPI, TopLevelClock, TopSidebar} from './componentTests';
 import DashBoardModel from "./DashBoardModel";
 
 

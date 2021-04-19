@@ -13,6 +13,7 @@ class DashBoardModel {
         "created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"http://swapi.dev/api/people/9/"}
         */
         this.planet_selected = null;
+        this.observers = [];
 
     }
 
@@ -22,9 +23,33 @@ class DashBoardModel {
         this.character_name = json_response.name;
     }
 
-    addTask(task) {if(task && !this.tasks.includes(task)) {this.tasks = [task, ...this.tasks];}}
+    addTask(task) { if(task && !this.tasks.includes(task))
+                  { this.tasks = [task, ...this.tasks]; }
+                    this.notifyObservers();
+    }
 
-    removeTask(task) {if(this.tasks.find(t => t === task)) {this.tasks = this.tasks.filter(t => t !== task);}}
+    removeTask(task) { if(this.tasks.find(t => t === task))
+                     { this.tasks = this.tasks.filter(t => t !== task);}
+                       this.notifyObservers();}
+
+    addObserver(callback) {
+        this.observers = [...this.observers, callback]
+    }
+
+    removeObserver(callback) {
+        this.observers = this.observers.filter(obs => obs !== callback)
+    }
+
+    notifyObservers() {
+        this.observers.forEach(callback => {
+                try {
+                    callback()
+                } catch (err) {
+                    console.error("Error", err, callback);
+                }
+            }
+        )
+    }
 }
 
 export default DashBoardModel;
