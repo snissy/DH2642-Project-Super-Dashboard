@@ -1,4 +1,4 @@
-import {days} from "../../helpFunctions/usefuleConstants";
+import {days} from "../../helpFunctions/usefulConstants";
 import {maxFunc, meanFunc, mostFrequentFunc, sumFunc} from "../../helpFunctions/arrayMethods";
 
 const dataToUse =  new Set(["t","ws","wd","msl", "tcc_mean", "pmean", "pcat", "Wsymb2"]);
