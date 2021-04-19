@@ -21,7 +21,7 @@ function TodoView(props) {
                 }
                 <Row>
                     <Col sm={8}>
-                        <input type="text" className={"form-control"} id="myInput" placeholder="new task..."
+                        <input type="text" className={"form-control"} id="task" placeholder="new task..."
                                style={{backgroundColor:"transparent",
                                        color:"#F8F8FF",
                                        border: "none"}}
