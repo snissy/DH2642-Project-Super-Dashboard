@@ -1,6 +1,5 @@
 import {Container, Row, Col} from "react-bootstrap";
 
-
 function ExtendedWeatherView(props) {
     return(<div className="weather-view-extended">
         <Container className="weather-container">
@@ -119,9 +118,9 @@ function WeatherView(props) {
                     </Row>
                 </Col>
             </Row>
-            <Row className="weather-dayFollowing" >
-                {comingDays.map(day =>{
-                    return (<Col className="weather-dayCard" >
+            <Row className="weather-dayFollowing justify-content-between" >
+                {comingDays.map((day, index) =>{
+                    return (<Col className={"weather-dayCard day"+index} >
                         <Row className="justify-content-around">
                             <img className="weather-IconSmall" src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt=""/>
                         </Row>
