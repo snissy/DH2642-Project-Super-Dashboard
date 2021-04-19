@@ -1,7 +1,7 @@
 import WeatherView from "../views/weatherView";
 import WeatherSource from"../api/smhiData";
 import promiseNoData from "./promiseNoDataPresenter";
-import PromiseHook from "./promiseHook";
+import usePromise from "./promiseHook";
 import React, {useEffect, useState} from 'react';
 
 function WeatherPresenter(props){
@@ -12,7 +12,7 @@ function WeatherPresenter(props){
         setPromise(WeatherSource.getWeatherDays(props.longitude, props.latitude))
     },[])
 
-    const [data, error] = PromiseHook(promise);
+    const [data, error] = usePromise(promise);
 
     return(<div className="weather-presenter">
             {promiseNoData(promise, data , error) ||

@@ -93,50 +93,45 @@ function ExtendedWeatherView(props) {
 function WeatherView(props) {
     const dayOne = props.weatherDays[0];
     const comingDays = [props.weatherDays[1], props.weatherDays[2], props.weatherDays[3]];
-    return(<Container className="weather-container weather-view" >
-            <Row className="weather-dayOne">
-                <Col>
+    return(<div className="weather-container weather-view">
+            <Row className="weather-dayOne justify-content-around align-items-center">
+                <Col className="justify-content-center dayOne-left">
                     <img className="weather-IconMedium" src={require('../assets/svg/weatherIcons/'+dayOne.Wsymb2+".svg").default} alt=""/>
                     <p className="weather-title">{dayOne.day}</p>
                 </Col>
-                <Col>
-                    <Row>
+                <Col className="justify-content-around dayOne-right">
+                    <Row className="justify-content-around">
                         <Col>
                             <p className="weather-title">Temp</p>
                         </Col>
                         <Col>
-                            <p className="weather-title">{dayOne.t[0].toFixed(1)}</p>
+                            <p className="weather-text">{dayOne.t[0].toFixed(1)}°</p>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="justify-content-around">
                         <Col>
                             <p className="weather-title">Rain</p>
                         </Col>
                         <Col>
-                            <p className="weather-title">{dayOne.pmean[0].toFixed(1)}</p>
+                            <p className="weather-text">{dayOne.pmean[0].toFixed(1)} mm</p>
                         </Col>
                     </Row>
                 </Col>
             </Row>
-
-            <Row className="weather-dayFollowing">
+            <Row className="weather-dayFollowing" >
                 {comingDays.map(day =>{
-                    return (<Col className="weather-dayCard">
-                        <Row>
+                    return (<Col className="weather-dayCard" >
+                        <Row className="justify-content-around">
                             <img className="weather-IconSmall" src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt=""/>
                         </Row>
-                        <Row>
-                            <Col>
-                                <p className="weather-title-small">{day.day}</p>
-                            </Col>
-                            <Col>
-                                <p className="weather-title-small">{day.tMax}</p>
-                            </Col>
+                        <Row className="justify-content-around">
+                            <p className="weather-title-small">{day.day}</p>
+                            <p className="weather-text-small">{day.tMax}°</p>
                         </Row>
                     </Col>)
                 })}
             </Row>
-        </Container>
+        </div>
 )
 }
 
