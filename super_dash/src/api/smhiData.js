@@ -44,13 +44,13 @@ function WeatherDay(day="", date = ""){
         if(day===""){
             this.day = days[(new Date(this.date)).getDay()];
         }
-        this["tMax"] = maxFunc(this["t"]).toFixed(2);
-        this["tMean"]= meanFunc(this["t"]).toFixed(2);
-        this["wsMean"] = meanFunc(this["ws"]).toFixed(2);
-        this["wsMax"] = maxFunc(this["ws"]).toFixed(2);
-        this["pmeanSum"] = sumFunc(this["pmean"]).toFixed(2);
-        this["pmeanMax"] = maxFunc(this["pmean"]).toFixed(2);
-        this["mslMean"] = meanFunc(this["msl"]).toFixed(2);
+        this["tMax"] = maxFunc(this["t"]).toFixed(1);
+        this["tMean"]= meanFunc(this["t"]).toFixed(1);
+        this["wsMean"] = meanFunc(this["ws"]).toFixed(1);
+        this["wsMax"] = maxFunc(this["ws"]).toFixed(1);
+        this["pmeanSum"] = sumFunc(this["pmean"]).toFixed(1);
+        this["pmeanMax"] = maxFunc(this["pmean"]).toFixed(1);
+        this["mslMean"] = meanFunc(this["msl"]).toFixed(1);
         this["Wsymb2"] = mostFrequentFunc(this["Wsymb2"]);
     }
 }
