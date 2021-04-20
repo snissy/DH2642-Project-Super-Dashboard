@@ -1,9 +1,9 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
-function PromiseHook(promise){
+function usePromise(promise){
 
-    const [data, setData] = React.useState(null);
-    const [error, setError] = React.useState(null);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(()=>{
 
@@ -19,4 +19,4 @@ function PromiseHook(promise){
     return [data, error]
 
 }
-export default PromiseHook
+export default usePromise

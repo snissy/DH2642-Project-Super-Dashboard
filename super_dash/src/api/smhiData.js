@@ -1,3 +1,5 @@
+import gatherDataPoints from "../api/dataProcessors/processWeatherDays"
+
 const BASE_SMHI_URL = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/{longitude}/lat/{latitude}/data.json"
 
 const  WeatherSource={
@@ -31,6 +33,13 @@ const  WeatherSource={
     getWeatherDetails(longitude, latitude){
         // this function calls the apiCall and pass the asked longitude and latitude coordinates to the call.
         return WeatherSource.apiCall({longitude:longitude,latitude:latitude})
+    },
+
+    getWeatherDays(longitude, latitude){
+        return WeatherSource.apiCall({longitude:longitude,latitude:latitude}).then(result=>{
+            return gatherDataPoints(result.timeSeries)
+        })
     }
 }
+
 export default WeatherSource;
