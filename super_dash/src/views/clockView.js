@@ -19,10 +19,10 @@ function Clock (props) {
      
     
         return (
-            <Container> 
+            <Container>
                 
                   
-                    <h1 className="text-center m-3 display-1 "> {props.time}</h1>
+                    <h1 className="text-center m-1 display-1 " style={{fontSize: 150}}> {props.time}</h1>
                
             </Container>
             )
