@@ -1,50 +1,96 @@
 import React from "react";
-import {Container} from "react-bootstrap";
 import Sidebar from "react-sidebar";
 import SettingIcon from "../resources/setting-icon.png";
-
+import AppsIcon from "../resources/Apps-Google-Chrome-App-List-icon.png";
+import ChromeIcon from "../resources/chrome.png"
+import DriveIcon from "../resources/drive.png"
+import GmailIcon from "../resources/gmail.png"
+import MapsIcon from "../resources/maps.png"
+import YtIcon from  "../resources/yt.png"
 function SideBarView (props) {
     //React stles for the React-Sidebar component
     const styles = { sidebar: { background: "white" , width: 500},
         root:{ textAlign: "center"} }
-    //Html code inside the sidebar
-    const sidebarContent = [
-        <div>
-            <div className="m-4">
-                <strong >User</strong>
-                <p>hectorgc@kth.se</p>
+
+    //Html content inside the sidebar for Settings Button
+    const settingContent = [ <div>
+        <div className="m-4">
+            <strong >User</strong>
+            <p>hectorgc@kth.se</p>
+        </div>
+        <div className="m-4">
+            <strong>Position</strong>
+            <p>Longitude: 123456789 <br/>
+                Latitude: 123456789</p>
+        </div>
+        <div className="m-4">
+            <strong>Planet</strong>
+            <p>Tatooine</p>
+        </div>
+        <div className="m-4">
+            <strong>Character</strong>
+            <p>Yoda</p>
+        </div>
+    </div>]
+
+    //Html Content inside the sidebar for GoogleApps Button
+    const appsContent = [
+        <div className="row" >
+            <div className="col m-4">
+                <a href={'https://www.google.com'}>
+                    <img src={ChromeIcon} className={'m-2'} height={'70px'} alt={'Google'}/>
+                </a>
             </div>
-            <div className="m-4">
-                <strong>Position</strong>
-                <p>Longitude: 123456789 <br/>
-                    Latitude: 123456789</p>
+
+
+
+            <div className="col m-4">
+                <a href={'https://www.gmail.com'}>
+                    <img src={GmailIcon} className={'m-2'} height={'70px'} alt={'Gmail'}/>
+                </a>
             </div>
-            <div className="m-4">
-                <strong>Planet</strong>
-                <p>Tatooine</p>
+            <div className="col m-4">
+                <a href={'https://drive.google.com/'}>
+                    <img src={DriveIcon} className={'m-2'} height={'70px'} alt={'Drive'}/>
+                </a>
             </div>
-            <div className="m-4">
-                <strong>Character</strong>
-                <p>Yoda</p>
+
+            <div className="col m-4">
+                <a href={'https://www.youtube.com' }>
+                    <img src={YtIcon} className={'m-2'} height={'70px'} alt={'YouTube'}/>
+                </a>
             </div>
-        </div>]
+
+            <div className="col m-4">
+                <a href={'https://maps.google.com' }>
+                    <img src={MapsIcon} className={'m-2'} height={'70px'} alt={'Maps'}/>
+                </a>
+            </div>
+
+
+    </div>
+    ]
+
+
 
     return (
-        <Container >
+        <div >
             <Sidebar
-                sidebar={sidebarContent}
+                sidebar={props.content}
                 open={props.open}
                 onSetOpen={props.setopen}
                 styles={styles}
                 pullRight={true}           //property for putting the sidebar on the right side
             >
 
-                <img onClick={() => props.setopen(true)} src={SettingIcon} height="75px" className="float-right m-1" alt={'cogwheel icon'}/>
+                <img onClick={() =>{props.setopen(true); props.setcontent(settingContent);} } src={SettingIcon} height="75px" style={{ cursor: 'pointer'}} className="float-right m-1" alt={'cogwheel icon'}/>
+                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className=" float-right m-1" alt={'Google Apps'}/>
 
             </Sidebar>
 
 
-        </Container>
+
+        </div>
     );
 
 }
