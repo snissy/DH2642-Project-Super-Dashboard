@@ -7,35 +7,50 @@ import DriveIcon from "../resources/drive.png"
 import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
+import {Button} from "react-bootstrap";
+
 function SideBarView (props) {
     //React stles for the React-Sidebar component
     const styles = { sidebar: { background: "white" , width: 500},
         root:{ textAlign: "center"} }
 
     //Html content inside the sidebar for Settings Button
-    const settingContent = [ <div>
-        <div className="m-4">
-            <strong >User</strong>
-            <p>hectorgc@kth.se</p>
+    const settingContent = [
+        <div >
+        <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
+            <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
+
         </div>
-        <div className="m-4">
-            <strong>Position</strong>
+            <br/>
+
+            <div className={'position-static'}>
+            <div className="mt-4 mb-4">
+                <strong >User</strong>
+                <p>hectorgc@kth.se</p>
+            </div>
+            <div className="mt-4 mb-4">
+                <strong>Position</strong>
             <p>Longitude: 123456789 <br/>
                 Latitude: 123456789</p>
         </div>
-        <div className="m-4">
+            <div className="mt-4 mb-4">
             <strong>Planet</strong>
             <p>Tatooine</p>
         </div>
-        <div className="m-4">
+            <div className="mt-4 mb-4">
             <strong>Character</strong>
             <p>Yoda</p>
+        </div>
         </div>
     </div>]
 
     //Html Content inside the sidebar for GoogleApps Button
     const appsContent = [
+<div>
+    <Button variant="danger" onClick={() => props.setopen(false)} className={'float-left m-3'}>X</Button>
+       <br/>
         <div className="row" >
+
             <div className="col m-4">
                 <a href={'https://www.google.com'}>
                     <img src={ChromeIcon} className={'m-2'} height={'70px'} alt={'Google'}/>
@@ -69,6 +84,7 @@ function SideBarView (props) {
 
 
     </div>
+</div>
     ]
 
 
