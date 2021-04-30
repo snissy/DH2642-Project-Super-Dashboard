@@ -14,7 +14,7 @@ function App(props) {
 
       <div className={'App'} style={{backgroundImage: `url(${background})`}}>
           <h2>Super Dash</h2>
-          <div><SideBarPresenter/></div>
+          <div><SideBarPresenter model={props.model}/></div>
           <div id={'Clock'}><TopLevelClock/></div>
           <div id={'Searchbar'}><SearchBarPresenter/></div>
           <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
