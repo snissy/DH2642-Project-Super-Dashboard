@@ -1,8 +1,8 @@
 class DashBoardModel {
 
-    constructor(tasks = []) {
+    constructor(tasks = [], char) {
         this.tasks = tasks;
-        this.character = {};
+        this.character = char;
         // JSON response from Star Wars API 
         /* example: 
         {"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light",

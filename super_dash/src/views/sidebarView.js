@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "react-sidebar";
+import CharacterSettings from "../presenters/characterSettings"
 import SettingIcon from "../resources/setting-icon.png";
 import AppsIcon from "../resources/Apps-Google-Chrome-App-List-icon.png";
 import ChromeIcon from "../resources/chrome.png"
@@ -9,7 +10,6 @@ import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
 
-import CharacterSettings from "../presenters/characterSettings"
 
 function SideBarView (props) {
     //React stles for the React-Sidebar component

@@ -8,6 +8,7 @@ import TodoPresenter from "./presenters/todoPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import WeatherPresenter from "./presenters/weatherPresenter";
+import CharacterDashPresenter from "./presenters/characterDashPresenter";
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
           <div id={'Clock'}><TopLevelClock/></div>
           <div id={'Searchbar'}><SearchBarPresenter/></div>
           <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
+          <div><CharacterDashPresenter model={props.model}/></div>
       </div>
   );
 }

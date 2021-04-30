@@ -31,6 +31,7 @@ function CharacterSettings(props) {
         setPromiseCharacter(SwapiSource.getSwapiDetails("people", characters[characterIndex]))
     }
     
+    // TODO: CREATE SEPARATE VIEW FOR THIS ACCORDING TO GRADING CRITERIAS?
     return (
         <div >
             <button onClick={()=>updateCharacter(-1)}> - </button>
