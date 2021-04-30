@@ -2,25 +2,24 @@ class DashBoardModel {
 
     constructor(tasks = []) {
         this.tasks = tasks;
-        
-        // JSON responses from Star Wars API 
-        this.character_selected = null;
-        this.character_name = "null";
+        this.character = {};
+        // JSON response from Star Wars API 
         /* example: 
         {"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light",
         "eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"http://swapi.dev/api/planets/1/",
         "films":["http://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["http://swapi.dev/api/starships/12/"],
         "created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"http://swapi.dev/api/people/9/"}
         */
-        this.planet_selected = null;
+
         this.observers = [];
 
     }
 
     setCharacter(json_response){
-        console.log(json_response);
-        this.character_selected = json_response;
-        this.character_name = json_response.name;
+        this.character = {};
+        this.character.json= json_response;
+        this.character.name = json_response.name;
+        this.character.height = json_response.height;
     }
 
     addTask(task) { if(task && !this.tasks.includes(task))

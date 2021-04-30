@@ -12,9 +12,10 @@ function SideBarPresenter(props) {
     const [Content,SetContent] = React.useState();
 
     return <SideBarView open = {sidebarOpen}
-                         setopen = {SetSidebarOpen}
+                        setopen = {SetSidebarOpen}
                         content = {Content}
                         setcontent = {SetContent}
+                        model = {props.model}
 
     />
 }

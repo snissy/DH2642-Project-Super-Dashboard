@@ -9,6 +9,8 @@ import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
 
+import CharacterSettings from "../presenters/characterSettings"
+
 function SideBarView (props) {
     //React stles for the React-Sidebar component
     const styles = { sidebar: { background: "white" , width: 500},
@@ -39,7 +41,7 @@ function SideBarView (props) {
         </div>
             <div className="mt-4 mb-4">
             <strong>Character</strong>
-            <p>Yoda</p>
+            <CharacterSettings model={props.model}/>
         </div>
         </div>
     </div>]
