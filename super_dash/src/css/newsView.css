@@ -1,0 +1,115 @@
+.newsView{
+    width: 320px;
+    /*height: 332px;*/
+}
+.newsView-background{
+    background-color: #4C4C4C;
+    border-radius: 3px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding-top: 12px;
+}
+.newsView-card{
+    display: flex;
+    flex-direction: row;
+    background-color: #929292;
+    width: 295px;
+    height: 94px;
+    border: 1.5px solid #FFCA0A;
+    border-radius: 3px;
+
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+
+    padding: 8px;
+
+    transition: background-color 200ms ease;
+
+}
+.newsView-card:hover{
+    background-color: #a6a6a6;
+    cursor:pointer;
+}
+.newsView-card:active{
+    background-color: #c4c4c4;
+}
+.newsView-picture-small{
+    height: 75px;
+    width: 75px;
+
+    border: 1.5px solid #E5E5E5;
+    border-radius: 3px;
+}
+.newsView-div-title{
+    display: flex;
+    width: 155px;
+    padding: 8px;
+}
+.newsView-title{
+    font-weight: 525;
+    font-size: 0.80em;
+    color: #FAFAFA;
+    margin-left: 10px;
+}
+.extended-newsView {
+    width: 320px;
+    height: 332px;
+}
+.extended-newsView-card{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #929292;
+    width: 295px;
+    height: 269px;
+    border: 1.5px solid #FFCA0A;
+    border-radius: 3px;
+
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+
+    padding: 8px;
+
+}
+.newsView-picture-medium{
+    height: 115px;
+    width: 115px;
+    border: 1.5px solid #E5E5E5;
+    border-radius: 3px;
+}
+.extended-newsView-div-img-title{
+    display: flex;
+    flex-direction: row;
+}
+.newsView-div-text{
+    display: flex;
+}
+.newsView-text{
+    font-weight: 300;
+    font-size: 0.65em;
+    margin-bottom: 0.15em;
+    color: #FAFAFA;
+
+}
+.extended-newsView-navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.newsButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 141px;
+    height: 28px;
+    background-color: #929292;
+
+    color: #FAFAFA;
+}
