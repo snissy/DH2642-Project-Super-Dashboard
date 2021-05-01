@@ -12,19 +12,17 @@ import './css/weatherView.css'
 import './css/newsView.css'
 
 function App(props) {
+  return (
 
-/*
-  return (<div className={'App'} style={{backgroundImage: `url(${background})`}}>
+      <div className={'App'} style={{backgroundImage: `url(${background})`}}>
           <h2>Super Dash</h2>
           <div><SideBarPresenter/></div>
           <div id={'Clock'}><TopLevelClock/></div>
           <div id={'Searchbar'}><SearchBarPresenter/></div>
           <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
-          <div id={'weatherboiii'}><WeatherPresenter longitude={18.072237} latitude={59.346677}/></div>
-      </div>);
-*/
-
-    return (<div><NewsPresenter/></div>)
+          <div id={'newsPresenter'}><NewsPresenter/></div>
+      </div>
+  );
 }
 
 /* SWAPI Test code
