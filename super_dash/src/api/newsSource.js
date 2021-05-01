@@ -1,5 +1,3 @@
-import newsItems from "../newsFetch";
-
 const BASE_NEWS_URL = "/news"
 
 const  NewsSource={
@@ -26,8 +24,7 @@ const  NewsSource={
     },
 
     getNewsItems(){
-        return new Promise((resolve, reject)=>{console.log("Fetching newsItems");resolve();}).then(()=>{return newsItems})
-        // return NewsSource.apiCall().then(result=>{return result}) TODO Super viktigt att fixa detta.
+        return NewsSource.apiCall().then(result=>{return result})
     }
 }
 
