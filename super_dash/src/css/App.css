@@ -44,4 +44,7 @@ h2 {
     position: relative;
     top: 20%;
 }
+.hidden{
+    display: none;
+}
 
