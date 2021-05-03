@@ -45,7 +45,6 @@ app.get('/news',(req, res) =>{
         res.json(finalNewItems)
         console.log("I've finalized news request, sending data\n#---------------------------#\n")
     })
-    console.log()
     console.log("<--------------------------->\nI've received a news request")
 })
 
