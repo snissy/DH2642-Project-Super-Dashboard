@@ -1,173 +1,156 @@
-.newsView{
-    width: 320px;
-    /*height: 332px;*/
+.newsView {
+    width:320px
 }
-.newsView-background{
-    background-color: #4C4C4C;
-    border-radius: 2px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-
+.newsView-background {
+    border-radius:2px;
+    display:-webkit-flex;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly
 }
-.newsView-card{
-    display: flex;
-    flex-direction: row;
-    background-color: #929292;
-    width: 295px;
-    height: 94px;
-    border: 1.5px solid #FFCA0A;
-
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-bottom: 12px;
-
-    padding: 8px;
-
-    transition: background-color 200ms ease;
-
+.newsView-card {
+    display:-webkit-flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    width:295px;
+    height:94px;
+    border:3px solid #ffca0a;
+    margin-left:12px;
+    margin-right:12px;
+    margin-bottom:12px;
+    padding:8px;
+    transition:all .2s ease;
 }
-.cardId0{
-    margin-top:12px ;
+.cardId0 {
+    margin-top:12px
 }
-.newsView-card:hover{
-    background-color: #a6a6a6;
+.newsView-card:hover {
     cursor:pointer;
-}
-.newsView-card:active{
-    background-color: #c4c4c4;
-}
-.newsView-picture-small{
-    height: 75px;
-    width: 75px;
+    border-radius: 5px;
+    box-shadow: 0 7px 6px #b8b8b8;
 
-    border: 1.5px solid #E5E5E5;
-    border-radius: 1px;
 }
-.newsView-div-title{
-    display: flex;
-    height: 45px;
+.newsView-card:active {
+    background-color:#c4c4c4
 }
-.newsView-title{
-    font-weight: 600;
-    font-size: 0.80em;
-    color: #FAFAFA;
-    margin-left: 10px;
+.newsView-picture-small {
+    height:75px;
+    width:75px;
+    margin-right:5px;
+    border-radius:5px;
+}
+.newsView-div-title {
+    display:-webkit-flex;
+    display:flex;
+    height:45px
+}
+.newsView-title {
+    font-weight:700;
+    font-size:.8em;
+    color:#000;
+    font-family:"Noto Sans JP",sans-serif
 }
 .extended-newsView {
-    width: 320px;
-    height: 200px;
-}
-.extended-newsView-card{
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #929292;
-    width: 295px;
-    border: 1.5px solid #FFCA0A;
-
-    margin: 8px 12px 12px;
-
-    padding: 8px;
-
+    width:320px;
+    height:200px
 }
 
-.newsView-picture-medium{
-    height: 88px;
-    width: 88px;
-    border: 1.5px solid #E5E5E5;
-    border-radius: 1px;
-    margin-right: 5px;
+.extended-newsView-card {
+    display:-webkit-flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    -webkit-flex-wrap:wrap;
+    flex-wrap:wrap;
+    width:295px;
+    border:3px solid #ffca0a;
+    margin:8px 12px 12px;
+    padding:8px;
 }
-.extended-newsView-img-wrapper{
-    float: left;
+.newsView-picture-medium {
+    height:88px;
+    width:88px;
+    margin-right:5px;
+    border-radius:5px;
 }
-.newsView-div-text{
-    display: flex;
+.extended-newsView-img-wrapper {
+    float:left
 }
-.newsView-text{
-    font-weight: 300;
-    font-size: 0.65em;
-    color: #FAFAFA;
-    margin: 0;
+.newsView-div-text {
+    display:-webkit-flex;
+    display:flex
 }
-
-.extended-newsView-navigation{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px
+.newsView-text {
+    font-weight:300;
+    font-size:.65em;
+    color:#000;
+    margin:0
 }
-.newsButton{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    width: 140px;
-    height: 28px;
-    background-color: #929292;
-
-    color: #FAFAFA;
-    font-weight: 500;
-    font-size: 0.80em;
-
-    border: 1.5px solid #E5E5E5;
-    border-radius: 4px;
-
-    padding: 2px;
-
-
-    transition: background-color 175ms ease;
+.extended-newsView-navigation {
+    -webkit-justify-content:space-between;
+    justify-content:space-between;
+    margin-left:12px;
+    margin-right:12px;
+    margin-top:12px
 }
-
-.newsView-div-omniButton{
-    background-color: #000000 !important;
+.extended-newsView-navigation,
+.newsButton {
+    display:-webkit-flex;
+    display:flex;
+    -webkit-flex-direction:row;
+    flex-direction:row
 }
-
+.newsButton {
+    -webkit-justify-content:center;
+    justify-content:center;
+    width:140px;
+    height:28px;
+    color:#000;
+    font-weight:500;
+    font-size:.8em;
+    border:2px solid #a3a3a3;
+    border-radius:10px;
+    padding:2px;
+    transition:all 175ms ease;
+}
+.newsView-div-omniButton {
+    background-color:#000 !important;
+    color: #fff;
+}
 .newsButton:hover {
-    background-color: #a6a6a6;
-    cursor: pointer;
-
-    transition: background-color 200ms ease;
+    cursor:pointer;
+    transition:all .2s ease;
 }
-.newsButton:active{
-    background-color: #cccccc;
-    border-radius: 6px;
+.newsButton:active {
+    background-color:#ccc;
+    border-radius:6px
 }
-
-.newsIcon{
-    height: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
+.newsIcon {
+    height:20px;
+    margin-left:5px;
+    margin-right:5px
 }
-#backArrow{
-    transition: all 500ms ease;
+#backArrow {
+    transition:all .3s ease
 }
-.newsButton:hover #backArrow{
-
-    transform: translateX(-15%);
+.newsButton:hover #backArrow {
+    transform:translateX(-15%)
 }
-
-#omniArrow{
-    transition: all 500ms ease;
+#omniArrow {
+    transition:all .3s ease
 }
-.newsButton:hover #omniArrow{
+.newsButton:hover #omniArrow {
 
-    transform: translateX(15%);
+    transform:translateX(15%)
 }
-
-.newsButton-text{
-
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
+.newsButton-text {
+    margin-left:5px;
+    margin-right:5px;
+    width:50px;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-justify-content:center;
+    justify-content:center
 }
-
 
