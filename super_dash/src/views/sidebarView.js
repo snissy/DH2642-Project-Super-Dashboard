@@ -8,6 +8,10 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
+import {LogPresenter} from "../presenters/logPresenter";
+
+
+
 
 function SideBarView (props) {
     //React stles for the React-Sidebar component
@@ -42,6 +46,8 @@ function SideBarView (props) {
             <p>Yoda</p>
         </div>
         </div>
+
+        <LogPresenter   model={props.model}/>
     </div>]
 
     //Html Content inside the sidebar for GoogleApps Button
@@ -84,6 +90,8 @@ function SideBarView (props) {
 
 
     </div>
+
+
 </div>
     ]
 
