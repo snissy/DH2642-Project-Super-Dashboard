@@ -45,7 +45,6 @@ h2 {
     top: 20%;
 }
 #Weather {
-
     position: relative;
     padding-left: 10px;
     padding-right: 10px;
@@ -53,6 +52,8 @@ h2 {
     justify-content: center;
     top: -20%;
     left: 70%;
-
+}
+.hidden{
+    display: none;
 }
 

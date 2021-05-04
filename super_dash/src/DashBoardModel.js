@@ -24,6 +24,15 @@ class DashBoardModel {
                 y:0
             }
         }
+        this.user = null;
+        this.islogged = false;
+    }
+  
+    setUser (currentUser){
+        this.user = currentUser;
+        if(currentUser == null) this.islogged = false;
+        else this.islogged = true;
+        this.notifyObservers();
     }
 
     setCharacter(json_response){
