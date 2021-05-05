@@ -5,7 +5,7 @@ function CharacterDashView(props) {
     
     return (
         <div>
-            <span>{props.model.character.name}</span>
+            <span>{props.name}</span>
         </div>
 
     );

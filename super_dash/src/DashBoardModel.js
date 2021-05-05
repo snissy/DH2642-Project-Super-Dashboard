@@ -3,6 +3,7 @@ class DashBoardModel {
     constructor(tasks = [], char) {
         this.tasks = tasks;
         this.character = char;
+        this.character.id = 1;
         // JSON response from Star Wars API 
         /* example: 
         {"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light",
@@ -17,9 +18,10 @@ class DashBoardModel {
 
     setCharacter(json_response){
         this.character = {};
-        this.character.json= json_response;
+        this.character.json = json_response;
         this.character.name = json_response.name;
         this.character.height = json_response.height;
+        this.notifyObservers();
     }
 
     addTask(task) { if(task && !this.tasks.includes(task))

@@ -1,11 +1,28 @@
 import CharacterDashView from "../views/characterDashView";
-import React from 'react';
+import {useState, useEffect} from 'react';
 
 function CharacterDashPresenter(props) {
 
-    // TODO: Add observer to model so that the data in this component updates when the settings change.
+   
+    const [characterName, setCharacterName] = useState(props.model.character.name);
 
-    return <CharacterDashView model={props.model}/>
+    // Lifecycle: Add observer on mount, remove it on demount.
+    useEffect( function(){
+        console.log("!")
+        function characterObserver(){
+            setCharacterName(props.model.character.name);
+        }
+        
+        props.model.addObserver(characterObserver);
+
+        return function(){
+            props.model.removeObserver(characterObserver);
+        }
+
+    },[props.model])
+
+
+    return <CharacterDashView name = {characterName}/>
 }
 
 export default CharacterDashPresenter;
