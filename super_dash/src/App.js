@@ -36,6 +36,7 @@ function App(props) {
           <div id={'Searchbar'}>
               <SearchBarPresenter/>
           </div>
+          <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
           <Draggable onDrag={(e, data) => {trackPosition(data, "todo"); console.log(props.model.coordinates.todo)}}
                      positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
               <div id={'Todo-list'}>
@@ -55,7 +56,7 @@ function App(props) {
           </Draggable>
           
       </div>
-  );    //<div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
+  );    //
 }
 
 export default App;

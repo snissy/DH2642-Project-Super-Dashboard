@@ -4,7 +4,6 @@ import {useState, useEffect} from "react"
 import SwapiSource from "../api/starwarsAPI"
 import '../css/sidebar.css'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
-import {Button} from 'react-bootstrap'
 
 function CharacterSettings(props) {
     const [promiseCharacter, setPromiseCharacter] = useState();
@@ -22,7 +21,7 @@ function CharacterSettings(props) {
 
         props.model.addObserver(characterObserver);
 
-        // Initial fetch on component creation. When persistence is implemented this will not be necessary?
+        // Initial fetch on component creation
         setPromiseCharacter(SwapiSource.getSwapiDetails("people", 1));
 
         return function(){

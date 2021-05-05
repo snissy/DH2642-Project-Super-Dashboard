@@ -10,6 +10,7 @@ import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
 import {LogPresenter} from "../presenters/logPresenter";
+import PlanetSettings from "../presenters/planetSettings";
 
 
 
@@ -41,7 +42,7 @@ function SideBarView (props) {
         </div>
             <div className="mt-4 mb-4">
             <strong>Planet</strong>
-            <p>Tatooine</p>
+            <PlanetSettings model={props.model}/>
         </div>
             <div className="mt-4 mb-4">
             <strong>Character</strong>

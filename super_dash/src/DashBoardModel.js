@@ -1,9 +1,13 @@
 class DashBoardModel {
 
-    constructor(tasks = [], char) {
+    constructor(tasks = [], char, plan) {
         this.tasks = tasks;
         this.character = char;
-        this.character.id = 1;
+        this.character.id = 1;   // not used atm. but probably needed to do the correct api call on reload
+
+        this.planet = plan;
+        this.planet.id = 1;      // not used atm. but probably needed to do the correct api call on reload
+        
         // JSON response from Star Wars API 
         /* example: 
         {"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light",
@@ -39,9 +43,16 @@ class DashBoardModel {
         // TODO: Make sure it only updates the model if there's an actual character change
 
         this.character = {};
-        this.character.json = json_response;
         this.character.name = json_response.name;
-        this.character.height = json_response.height;
+        this.notifyObservers();
+    }
+
+    setPlanet(json_response){
+
+        // TODO: Make sure it only updates the model if there's an actual planet change
+
+        this.planet = {};
+        this.planet.name = json_response.name;
         this.notifyObservers();
     }
 
