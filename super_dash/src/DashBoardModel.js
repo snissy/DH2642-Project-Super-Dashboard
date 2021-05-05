@@ -14,10 +14,20 @@ class DashBoardModel {
         */
         this.planet_selected = null;
         this.observers = [];
+        this.coordinates = {
+            todo: {
+                x:0,
+                y:0
+            },
+            weather: {
+                x:0,
+                y:0
+            }
+        }
         this.user = null;
         this.islogged = false;
-
     }
+  
     setUser (currentUser){
         this.user = currentUser;
         if(currentUser == null) this.islogged = false;
@@ -29,6 +39,13 @@ class DashBoardModel {
         console.log(json_response);
         this.character_selected = json_response;
         this.character_name = json_response.name;
+    }
+
+    setCoordinates(comp, deltaX, deltaY) {
+        this.coordinates[comp].x = this.coordinates[comp].x + deltaX
+        this.coordinates[comp].y = this.coordinates[comp].y + deltaY
+
+        return this.coordinates
     }
 
     addTask(task) { if(task && !this.tasks.includes(task))

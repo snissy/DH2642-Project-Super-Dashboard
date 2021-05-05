@@ -44,4 +44,15 @@ h2 {
     position: relative;
     top: 20%;
 }
-
+#Weather {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    top: -20%;
+    left: 70%;
+}
+.hidden{
+    display: none;
+}
