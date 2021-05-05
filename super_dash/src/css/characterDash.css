@@ -1,0 +1,29 @@
+
+.characterBackground{
+    position: relative; 
+    width: 200px; 
+    height: 200px;
+    background: white; 
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+
+.characterFrame{
+    position: absolute; 
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.wrap{
+    position: relative;
+}
+
+.characterAbsolute{
+    position: absolute;
+}
+
+.frameAbsolute{
+    position: absolute;
+    left: -10px;
+    top:-19px;
+}

@@ -8,7 +8,6 @@ function CharacterDashPresenter(props) {
 
     // Lifecycle: Add observer on mount, remove it on demount.
     useEffect( function(){
-        console.log("!")
         function characterObserver(){
             setCharacterName(props.model.character.name);
         }
@@ -19,7 +18,7 @@ function CharacterDashPresenter(props) {
             props.model.removeObserver(characterObserver);
         }
 
-    },[props.model])
+    },[])
 
 
     return <CharacterDashView name = {characterName}/>

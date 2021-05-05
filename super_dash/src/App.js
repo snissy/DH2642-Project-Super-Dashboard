@@ -18,13 +18,13 @@ function App(props) {
           <div><SideBarPresenter model={props.model}/></div>
           <div id={'Clock'}><TopLevelClock/></div>
           <div id={'Searchbar'}><SearchBarPresenter/></div>
-          <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
-          <div><CharacterDashPresenter model={props.model}/></div>
+        
+          <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
       </div>
   );
 }
 
-/* SWAPI Test code
+/* SWAPI Test code   <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
 function App(props) {
     return (
         <div>

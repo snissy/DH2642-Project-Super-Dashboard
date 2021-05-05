@@ -1,12 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import {Form, FormControl, Button} from 'react-bootstrap'
+import '../css/characterDash.css';
 
 function CharacterDashView(props) {
+
+    let fileNames = {   "Luke Skywalker":"luke-skywalker",
+                        "C-3PO":"c3po", 
+                        "R2-D2":"r2-d2", 
+                        "Darth Vader": "darth-vader",
+                    }
     
     return (
-        <div>
-            <span>{props.name}</span>
-        </div>
+            <div className="relative-wrapper">
+                <div className="characterAbsolute">
+                    <div className="characterBackground">
+                        <img src={require('../assets/svg/characterIcons/'+fileNames[props.name]+".svg").default} alt=""/>
+                    </div>
+                </div>
+                <div className="frameAbsolute">
+                <img src={require('../assets/svg/characterIcons/characterFrame.png').default} alt=""/>
+                </div>
+            </div>
+      
 
     );
 }

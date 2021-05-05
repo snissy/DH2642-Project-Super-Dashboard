@@ -44,4 +44,14 @@ h2 {
     position: relative;
     top: 20%;
 }
-
+#CharacterDash{
+    position: relative;
+    height: 400px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    top: 10%;
+    left: 10%;
+}
