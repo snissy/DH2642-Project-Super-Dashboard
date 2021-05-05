@@ -53,6 +53,15 @@ h2 {
     top: -20%;
     left: 70%;
 }
-.hidden{
-    display: none;
+#newsPresenter {
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    top: 25%;
+    left: 25%;
 }
+
+
+

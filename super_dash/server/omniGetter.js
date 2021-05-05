@@ -47,7 +47,9 @@ function fetchNewsArticles(){
                 imgSrc:articleImg.attr("src"),
                 imgTitle:articleImg.attr("title"),
             }
-            newsItems.articles.push(article)
+            if(article.title!==""){
+                newsItems.articles.push(article)
+            }
         })
         // sending newsitem
         return newsItems
