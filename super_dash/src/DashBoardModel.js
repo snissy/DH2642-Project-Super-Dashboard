@@ -13,7 +13,25 @@ class DashBoardModel {
         */
 
         this.observers = [];
-
+        this.coordinates = {
+            todo: {
+                x:0,
+                y:0
+            },
+            weather: {
+                x:0,
+                y:0
+            }
+        }
+        this.user = null;
+        this.islogged = false;
+    }
+  
+    setUser (currentUser){
+        this.user = currentUser;
+        if(currentUser == null) this.islogged = false;
+        else this.islogged = true;
+        this.notifyObservers();
     }
 
     setCharacter(json_response){
@@ -25,6 +43,13 @@ class DashBoardModel {
         this.character.name = json_response.name;
         this.character.height = json_response.height;
         this.notifyObservers();
+    }
+
+    setCoordinates(comp, deltaX, deltaY) {
+        this.coordinates[comp].x = this.coordinates[comp].x + deltaX
+        this.coordinates[comp].y = this.coordinates[comp].y + deltaY
+
+        return this.coordinates
     }
 
     addTask(task) { if(task && !this.tasks.includes(task))

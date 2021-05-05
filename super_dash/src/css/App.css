@@ -44,6 +44,7 @@ h2 {
     position: relative;
     top: 20%;
 }
+
 #CharacterDash{
     position: relative;
     padding-left: 10px;
@@ -52,3 +53,19 @@ h2 {
     top: 35%;
     left: 2%;
 }
+
+#Weather {
+    justify-content: center;
+    top: -20%;
+    left: 70%;
+}
+#newsPresenter {
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    top: 25%;
+    left: 25%;
+}
+
