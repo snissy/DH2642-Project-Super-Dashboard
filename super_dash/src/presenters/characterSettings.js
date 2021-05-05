@@ -42,28 +42,29 @@ function CharacterSettings(props) {
             props.model.setCharacter(data)
     },[data])
 
-    
+    /*
+        1. Luke Skywalker
+        2. C-3PO
+        3. R2-D2
+        4. Darth Vader
+        5. Leia Organa
+    */
     
     function updateCharacter(direction){
 
-        if (characterId + direction < 1 || characterId + direction > 5){
+        // if character id is valid, fetch new promise
+        if (characterId + direction < 1 || characterId + direction > 4){
             console.log("Invalid character ID")
         }
         else {
             setCharacterId(characterId+direction)
-            setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId))
-        }
-        
-        // Update index of character array. Modulo is used to wrap number. 
-        // const characters = [1,2,3,4,5]
-        //setCharacterIndex((characterIndex+direction)%characters.length)
-        
+            setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId+direction))
+        }        
     }
     
     // TODO: CREATE SEPARATE VIEW FOR THIS ACCORDING TO GRADING CRITERIAS?
     return (
         <div className="characterSettings">
-            {characterId}
             <button onClick={()=>updateCharacter(-1)}> <BiLeftArrow/>  </button>
             {promiseNoData(promiseCharacter, data, error, "small") || <span>{characterName}</span> }
             <button onClick={()=>updateCharacter(1)}> <BiRightArrow/> </button>

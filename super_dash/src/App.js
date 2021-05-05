@@ -18,22 +18,11 @@ function App(props) {
           <div><SideBarPresenter model={props.model}/></div>
           <div id={'Clock'}><TopLevelClock/></div>
           <div id={'Searchbar'}><SearchBarPresenter/></div>
-        
+          
           <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
       </div>
-  );
+  ); // <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
 }
-
-/* SWAPI Test code   <div id={'Todo-list'}><TodoPresenter model={props.model}/></div>
-function App(props) {
-    return (
-        <div>
-            <TopLevelSWAPI model={props.model}/>
-        </div>
-    );
-  }
-*/
-
 
 export default App;
 

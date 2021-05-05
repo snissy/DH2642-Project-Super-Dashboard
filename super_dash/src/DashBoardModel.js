@@ -17,6 +17,9 @@ class DashBoardModel {
     }
 
     setCharacter(json_response){
+
+        // TODO: Make sure it only updates the model if there's an actual character change
+
         this.character = {};
         this.character.json = json_response;
         this.character.name = json_response.name;
