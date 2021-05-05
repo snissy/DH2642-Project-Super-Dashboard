@@ -47,9 +47,11 @@ function App(props) {
               <WeatherPresenter longitude={'18.063240'} latitude={'59.334591'}/>
               </div>
           </Draggable>
-          <div id={'newsPresenter'}>
-              <NewsPresenter/>
-          </div>
+          <Draggable>
+            <div id={'newsPresenter'}>
+                <NewsPresenter/>
+            </div>
+          </Draggable>
       </div>
   );
 }
