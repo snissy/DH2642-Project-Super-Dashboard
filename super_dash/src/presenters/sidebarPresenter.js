@@ -14,7 +14,7 @@ function SideBarPresenter(props) {
 
     return <SideBarView open = {sidebarOpen}
                         setopen = {SetSidebarOpen}
-                        content = {Content}
+                        content = {ContentSidebar}
                         setcontent = {SetContent}
                         model={props.model}
 

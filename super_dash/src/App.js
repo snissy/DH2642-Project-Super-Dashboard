@@ -28,7 +28,7 @@ function App(props) {
       <div className={'App'} style={{backgroundImage: `url(${background})`}}>
           <h2>Super Dash</h2>
           <div>
-              <SideBarPresenter/>
+              <SideBarPresenter model={props.model}/>
           </div>
           <div id={'Clock'}>
               <TopLevelClock/>
@@ -53,9 +53,9 @@ function App(props) {
                 <NewsPresenter/>
             </div>
           </Draggable>
-          <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
+          
       </div>
-  );
+  );    //<div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
 }
 
 export default App;
