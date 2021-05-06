@@ -51,7 +51,7 @@ function App(props) {
                 <Draggable onDrag={(e, data) => {trackPosition(data, "weather"); console.log(props.model.coordinates.weather)}}
                             positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
                     <div id={'Weather'}>
-                    <WeatherPresenter longitude={'18.063240'} latitude={'59.334591'}/>
+                    <WeatherPresenter model = {props.model}/>
                     </div>
                 </Draggable>
             </Visible>
