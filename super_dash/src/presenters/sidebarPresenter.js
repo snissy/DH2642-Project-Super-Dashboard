@@ -1,9 +1,6 @@
 
 import React from "react";
 import SideBarView from "../views/sidebarView";
-import TodoPresenter from "./todoPresenter";
-
-
 
 function SideBarPresenter(props) {
 
