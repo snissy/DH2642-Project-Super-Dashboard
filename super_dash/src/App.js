@@ -8,6 +8,7 @@ import SearchBarPresenter from "./presenters/searchBarPresenter";
 import WeatherPresenter from "./presenters/weatherPresenter";
 import CharacterDashPresenter from "./presenters/characterDashPresenter";
 import NewsPresenter from "./presenters/newsPresenter";
+import Visible from "./presenters/visibilityPresenter";
 import './css/App.css'
 import './css/weatherView.css'
 import './css/newsView.css'
@@ -49,11 +50,13 @@ function App(props) {
               <WeatherPresenter longitude={'18.063240'} latitude={'59.334591'}/>
               </div>
           </Draggable>
-          <Draggable>
-            <div id={'newsPresenter'}>
-                <NewsPresenter/>
-            </div>
-          </Draggable>
+          <Visible model={props.model} component="showNews">
+            <Draggable>
+                <div id={'newsPresenter'}>
+                    <NewsPresenter/>
+                </div>
+            </Draggable>
+          </Visible>
           
       </div>
   );    //

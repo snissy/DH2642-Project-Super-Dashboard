@@ -16,6 +16,12 @@ class DashBoardModel {
         "created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"http://swapi.dev/api/people/9/"}
         */
 
+        this.preferences = {
+            showWeather: true,
+            showNews: true,
+            showTodo: true
+        }
+
         this.observers = [];
         this.coordinates = {
             todo: {
