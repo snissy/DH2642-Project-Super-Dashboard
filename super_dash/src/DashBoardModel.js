@@ -44,6 +44,13 @@ class DashBoardModel {
         this.notifyObservers();
     }
 
+    setPreferences(pref){
+        this.preferences.showNews = pref.showNews;
+        this.preferences.showWeather = pref.showWeather;
+        this.preferences.showTodo = pref.showTodo;
+        // etc...
+    }
+
     setCharacter(json_response){
 
         // TODO: Make sure it only updates the model if there's an actual character change

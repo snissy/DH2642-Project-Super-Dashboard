@@ -19,6 +19,13 @@ function CharacterSettings(props) {
             setCharacterName(props.model.character.name);
         }
 
+
+        /* 
+            The only other place where the character can be updated is when
+            the model does the initial fetch when booting up. Since this component
+            is always created after the model is created, maybe this observer is redundant? 
+
+        */
         props.model.addObserver(characterObserver);
 
         // Initial fetch on component creation

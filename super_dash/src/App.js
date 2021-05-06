@@ -50,16 +50,16 @@ function App(props) {
               <WeatherPresenter longitude={'18.063240'} latitude={'59.334591'}/>
               </div>
           </Draggable>
-          <Visible model={props.model} component="showNews">
+          
             <Draggable>
                 <div id={'newsPresenter'}>
                     <NewsPresenter/>
                 </div>
             </Draggable>
-          </Visible>
+         
           
       </div>
-  );    //
+  ); 
 }
 
 export default App;
