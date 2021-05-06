@@ -15,7 +15,7 @@ function WeatherPresenter(props){
     const [data, error] = usePromise(promise);
 
     return(<div className="weather-presenter">
-            {promiseNoData(promise, data , error) ||
+            {promiseNoData(promise, data , error, "normal") ||
             <WeatherView weatherDays={data}/>}
         </div>
     )

@@ -9,14 +9,21 @@ function usePromise(promise){
 
         setData(null);
         setError(null);
-        if(promise){ // Promise must be truthy,  not null
-            promise
-                .then(data => setData(data))
-                .catch(er => setError(er))
+        let cancelled=false;
+
+        if(promise){   
+            promise.then( function(dt) {
+                if(!cancelled) setData(dt);
+            }).catch( function(er){ 
+                if(!cancelled) setError(er);
+            });
         }
+        return function(){ 
+            cancelled=true;
+        };
     },[promise])
 
     return [data, error]
 
 }
-export default usePromise
+export default usePromise;

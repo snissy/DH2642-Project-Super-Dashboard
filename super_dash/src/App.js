@@ -6,6 +6,7 @@ import TodoPresenter from "./presenters/todoPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
 import WeatherPresenter from "./presenters/weatherPresenter";
+import CharacterDashPresenter from "./presenters/characterDashPresenter";
 import NewsPresenter from "./presenters/newsPresenter";
 import './css/App.css'
 import './css/weatherView.css'
@@ -27,7 +28,7 @@ function App(props) {
       <div className={'App'} style={{backgroundImage: `url(${background})`}}>
           <h2>Super Dash</h2>
           <div>
-              <SideBarPresenter/>
+              <SideBarPresenter model={props.model}/>
           </div>
           <div id={'Clock'}>
               <TopLevelClock/>
@@ -35,6 +36,7 @@ function App(props) {
           <div id={'Searchbar'}>
               <SearchBarPresenter/>
           </div>
+          <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
           <Draggable onDrag={(e, data) => {trackPosition(data, "todo"); console.log(props.model.coordinates.todo)}}
                      positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
               <div id={'Todo-list'}>
@@ -52,20 +54,10 @@ function App(props) {
                 <NewsPresenter/>
             </div>
           </Draggable>
+          
       </div>
-  );
+  );    //
 }
-
-/* SWAPI Test code
-function App(props) {
-    return (
-        <div>
-            <TopLevelSWAPI model={props.model}/>
-        </div>
-    );
-  }
-*/
-
 
 export default App;
 

@@ -1,9 +1,6 @@
 
 import React from "react";
 import SideBarView from "../views/sidebarView";
-import TodoPresenter from "./todoPresenter";
-
-
 
 function SideBarPresenter(props) {
 
@@ -13,7 +10,7 @@ function SideBarPresenter(props) {
     const [ContentSidebar,SetContent] = React.useState(<div></div>);
 
     return <SideBarView open = {sidebarOpen}
-                         setopen = {SetSidebarOpen}
+                        setopen = {SetSidebarOpen}
                         content = {ContentSidebar}
                         setcontent = {SetContent}
                         model={props.model}
