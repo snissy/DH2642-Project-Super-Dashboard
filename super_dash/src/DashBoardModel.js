@@ -16,6 +16,13 @@ class DashBoardModel {
         "created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"http://swapi.dev/api/people/9/"}
         */
 
+        this.preferences = {
+            showWeather: true,
+            showNews: true,
+            showTodo: true,
+            showCharacter: true
+        }
+
         this.observers = [];
         this.coordinates = {
             todo: {
@@ -36,6 +43,15 @@ class DashBoardModel {
         if(currentUser == null) this.islogged = false;
         else this.islogged = true;
         this.notifyObservers();
+    }
+
+    setPreferences(pref){
+        this.preferences.showCharacter = pref.showCharacter;
+        this.preferences.showNews = pref.showNews;
+        this.preferences.showWeather = pref.showWeather;
+        this.preferences.showTodo = pref.showTodo;
+        this.notifyObservers();
+        
     }
 
     setCharacter(json_response){

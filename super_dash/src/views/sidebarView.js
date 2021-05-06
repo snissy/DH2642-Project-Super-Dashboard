@@ -11,6 +11,7 @@ import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
 import {LogPresenter} from "../presenters/logPresenter";
 import PlanetSettings from "../presenters/planetSettings";
+import VisibilitySettings from "../presenters/visibilitySettings";
 
 
 
@@ -51,6 +52,8 @@ function SideBarView (props) {
         </div>
 
         <LogPresenter   model={props.model}/>
+        <VisibilitySettings   model={props.model}/>
+
     </div>]
 
     //Html Content inside the sidebar for GoogleApps Button

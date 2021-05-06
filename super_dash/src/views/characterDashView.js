@@ -9,7 +9,7 @@ function CharacterDashView(props) {
                     }
     
     return (
-            <div className="relative-wrapper">
+            <div>
                 <div className="characterAbsolute">
                     <div className="characterBackground">
                         <img src={require('../assets/svg/characterIcons/'+fileNames[props.name]+".svg").default} alt=""/>

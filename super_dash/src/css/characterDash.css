@@ -14,10 +14,6 @@
     border-radius: 50%;
 }
 
-.wrap{
-    position: relative;
-}
-
 .characterAbsolute{
     position: absolute;
 }
