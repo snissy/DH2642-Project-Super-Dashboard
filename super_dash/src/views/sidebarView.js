@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "react-sidebar";
+import CharacterSettings from "../presenters/characterSettings"
 import SettingIcon from "../resources/setting-icon.png";
 import AppsIcon from "../resources/Apps-Google-Chrome-App-List-icon.png";
 import ChromeIcon from "../resources/chrome.png"
@@ -9,6 +10,8 @@ import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
 import {LogPresenter} from "../presenters/logPresenter";
+import PlanetSettings from "../presenters/planetSettings";
+
 
 
 
@@ -39,11 +42,11 @@ function SideBarView (props) {
         </div>
             <div className="mt-4 mb-4">
             <strong>Planet</strong>
-            <p>Tatooine</p>
+            <PlanetSettings model={props.model}/>
         </div>
             <div className="mt-4 mb-4">
             <strong>Character</strong>
-            <p>Yoda</p>
+            <CharacterSettings model={props.model}/>
         </div>
         </div>
 

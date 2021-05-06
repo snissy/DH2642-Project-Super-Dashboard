@@ -7,6 +7,8 @@ import {persistModel} from "./firebase/firebaseModel"
 
 const model = new DashBoardModel(['Destroy Deathstar', 'Kill Vader', 'Buy new Lightsaber', 'Save baby Yoda'])
 persistModel(model);
+const model = new DashBoardModel(['Destroy Deathstar', 'Kill Vader', 'Buy new Lightsaber', 'Save baby Yoda'],{name:"Luke Skywalker", height: 20},{name: "Tatooine"})
+
 ReactDOM.render(
   <React.StrictMode>
     <App model={model}/>

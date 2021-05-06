@@ -1,0 +1,9 @@
+.characterSettings span{
+    display: inline-block;
+    width: 200px;
+}
+
+.planetSettings span{
+    display: inline-block;
+    width: 200px;
+}
