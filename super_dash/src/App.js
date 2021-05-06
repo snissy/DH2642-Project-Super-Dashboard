@@ -47,7 +47,7 @@ function App(props) {
                     </div>
                 </Draggable>
             </Visible>
-            <Visible model={props.model} component="showTodo">
+            <Visible model={props.model} component="showWeather">
                 <Draggable onDrag={(e, data) => {trackPosition(data, "weather"); console.log(props.model.coordinates.weather)}}
                             positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
                     <div id={'Weather'}>

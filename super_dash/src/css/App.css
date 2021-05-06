@@ -46,15 +46,16 @@ h2 {
 }
 
 #CharacterDash{
-    position: relative;
+    position: fixed;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    top: 35%;
+    top: 40%;
     left: 2%;
 }
 
 #Weather {
+    position: absolute;
     justify-content: center;
     top: -20%;
     left: 70%;

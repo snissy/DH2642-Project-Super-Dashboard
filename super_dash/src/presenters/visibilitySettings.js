@@ -4,8 +4,6 @@ import '../css/sidebar.css'
 
 function VisibilitySettings(props) {
     
-
-    // Har förmodligen en state för varje typ av preference?
     const [newsVisibility, setNewsVisibility] = useState(props.model.preferences.showNews);
     const [weatherVisibility, setWeatherVisibility] = useState(props.model.preferences.showWeather);
     const [todoVisibility, setTodoVisibility] = useState(props.model.preferences.showTodo);
@@ -13,34 +11,47 @@ function VisibilitySettings(props) {
 
     function updatePreferences(component){
         
-        if(component === "news")
-            setNewsVisibility(!newsVisibility)
-        if(component === "weather")
-            setWeatherVisibility(!weatherVisibility)
-        if(component === "todo")
-            setTodoVisibility(!todoVisibility)
-        if(component === "character")
-            setCharacterVisibility(!characterVisibility)
+        // These are used since the setters updates after the re-render.
+        let news = newsVisibility;
+        let weather = weatherVisibility;
+        let todo = todoVisibility;
+        let character = characterVisibility;
 
+        if(component === "news"){
+            setNewsVisibility(!newsVisibility);
+            news = !newsVisibility;
+        }
+        if(component === "weather"){
+            setWeatherVisibility(!weatherVisibility);
+            weather = !weatherVisibility;
+        }
+        if(component === "todo"){
+            setTodoVisibility(!todoVisibility);
+            todo = !todoVisibility;
+        }
+        if(component === "character"){
+            setCharacterVisibility(!characterVisibility);
+            character = !characterVisibility;
+        }
+        // Update the model with the new preferences causing observing visibility components to be notified.
         props.model.setPreferences(
             {
-                showNews: newsVisibility,
-                showWeather: weatherVisibility,
-                showTodo: todoVisibility,
-                showCharacter: characterVisibility
+                showNews: news,
+                showWeather: weather,
+                showTodo: todo,
+                showCharacter: character
             }
         )
     }
 
-    
     // TODO: CREATE SEPARATE VIEW, EXACTLY LIKE CHARACTER & PLANET SETTINGS
+    // TODO2: In the view we can make the buttons prettier, perhaps update text based on current setting. 
     return (
         <div>
-            
-            <div>Display News: <button onClick={()=>updatePreferences("news")}> x{newsVisibility} </button> </div>
-            <div>Display Weather: <button onClick={()=>updatePreferences("weather")}> x{weatherVisibility} </button> </div>
-            <div>Display To-do list: <button onClick={()=>updatePreferences("todo")}> x{todoVisibility} </button> </div>
-            <div>Display Character list: <button onClick={()=>updatePreferences("character")}> x{characterVisibility} </button> </div>
+            <div>Display News: <button onClick={()=>updatePreferences("news")}> x </button> </div>
+            <div>Display Weather: <button onClick={()=>updatePreferences("weather")}> x</button> </div>
+            <div>Display To-do list: <button onClick={()=>updatePreferences("todo")}> x </button> </div>
+            <div>Display Character: <button onClick={()=>updatePreferences("character")}> x </button> </div>
         </div>
 
     );
