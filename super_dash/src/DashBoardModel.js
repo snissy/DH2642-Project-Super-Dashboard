@@ -19,7 +19,8 @@ class DashBoardModel {
         this.preferences = {
             showWeather: true,
             showNews: true,
-            showTodo: true
+            showTodo: true,
+            showCharacter: true
         }
 
         this.observers = [];
@@ -45,10 +46,12 @@ class DashBoardModel {
     }
 
     setPreferences(pref){
+        this.preferences.showCharacter = pref.showCharacter;
         this.preferences.showNews = pref.showNews;
         this.preferences.showWeather = pref.showWeather;
         this.preferences.showTodo = pref.showTodo;
-        // etc...
+        this.notifyObservers();
+        
     }
 
     setCharacter(json_response){

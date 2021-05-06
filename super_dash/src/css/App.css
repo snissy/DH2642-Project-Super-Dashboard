@@ -69,3 +69,7 @@ h2 {
     left: 25%;
 }
 
+
+.hidden{
+    display: none;
+}
