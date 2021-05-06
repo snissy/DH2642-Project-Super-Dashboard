@@ -12,6 +12,7 @@ import {Button} from "react-bootstrap";
 import {LogPresenter} from "../presenters/logPresenter";
 import PlanetSettings from "../presenters/planetSettings";
 import VisibilitySettings from "../presenters/visibilitySettings";
+import PositionSettingsPresenter from "../presenters/positionSettingPresenter";
 
 
 
@@ -30,16 +31,13 @@ function SideBarView (props) {
 
         </div>
             <br/>
-
             <div className={'position-static'}>
             <div className="mt-4 mb-4">
                 <strong >User</strong>
                 <p>hectorgc@kth.se</p>
             </div>
             <div className="mt-4 mb-4">
-                <strong>Position</strong>
-            <p>Longitude: 123456789 <br/>
-                Latitude: 123456789</p>
+                <PositionSettingsPresenter model={props.model}/>
         </div>
             <div className="mt-4 mb-4">
             <strong>Planet</strong>
