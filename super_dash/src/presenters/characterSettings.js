@@ -57,7 +57,7 @@ function CharacterSettings(props) {
         10. Obi-Wan Kenobi
         13. Chewbacca
         14. Han Solo
-        16. Jabba Desilijic Tiure
+        16. Jabba Desilijic Tiure (aka Jabba the Hutt)
         20. Yoda
     */
     
