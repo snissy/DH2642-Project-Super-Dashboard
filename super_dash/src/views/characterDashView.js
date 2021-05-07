@@ -1,4 +1,5 @@
 import '../css/characterDash.css';
+import {BsInfoCircleFill} from 'react-icons/bs';
 
 function CharacterDashView(props) {
 
@@ -16,14 +17,19 @@ function CharacterDashView(props) {
     
     return (
             <div>
-                <div className="characterAbsolute">
-                    <div className="characterBackground">
-                        <img src={require('../assets/svg/characterIcons/'+fileNames[props.name]+".svg").default} alt=""/>
+                    <div className="characterAbsolute">
+                        <div className="characterBackground">
+                            <img src={require('../assets/svg/characterIcons/'+fileNames[props.name]+".svg").default} alt=""/>
+                        </div>
+                        
                     </div>
-                </div>
-                <div className="frameAbsolute">
-                <img src={require('../assets/svg/characterIcons/characterFrame.png').default} alt=""/>
-                </div>
+                    <div className="frameAbsolute">
+                        <img src={require('../assets/svg/characterIcons/characterFrame.png').default} alt=""/>
+                        
+                    </div>
+                    <span className="infoIcon">
+                            <BsInfoCircleFill size="2em"/>
+                    </span>
             </div>
       
 

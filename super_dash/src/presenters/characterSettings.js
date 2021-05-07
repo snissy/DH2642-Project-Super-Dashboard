@@ -74,16 +74,15 @@ function CharacterSettings(props) {
         // If the new number is not in the character array, continue until next valid id
         else if (!characters.includes(newId)){
             while(!characters.includes(newId)){
-                newId = newId + direction
+                newId = newId + direction;
             }
-            setCharacterId(newId)
-            setPromiseCharacter(SwapiSource.getSwapiDetails("people", newId))
+            setCharacterId(newId);
+            setPromiseCharacter(SwapiSource.getSwapiDetails("people", newId));
         }
         // If new id is valid, fetch new promise
         else {
-            console.log("fetching id: " + newId)
-            setCharacterId(newId)
-            setPromiseCharacter(SwapiSource.getSwapiDetails("people", newId))
+            setCharacterId(newId);
+            setPromiseCharacter(SwapiSource.getSwapiDetails("people", newId));
         }        
     }
     
