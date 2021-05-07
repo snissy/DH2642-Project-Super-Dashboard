@@ -27,7 +27,7 @@ function CharacterDashView(props) {
                         <img src={require('../assets/svg/characterIcons/characterFrame.png').default} alt=""/>
                         
                     </div>
-                    <span className="infoIcon">
+                    <span className="infoIcon" onClick={e=>props.infoClick(e)}>
                             <BsInfoCircleFill size="2em"/>
                     </span>
             </div>

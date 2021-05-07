@@ -20,8 +20,11 @@ function CharacterDashPresenter(props) {
 
     },[])
 
+    function infoClick(event){
+        console.log(event.target)
+    }
 
-    return <CharacterDashView name = {characterName}/>
+    return <CharacterDashView name = {characterName} infoClick={e=>infoClick(e)}/>
 }
 
 export default CharacterDashPresenter;
