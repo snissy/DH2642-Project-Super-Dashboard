@@ -5,7 +5,13 @@ function CharacterDashView(props) {
     let fileNames = {   "Luke Skywalker":"luke-skywalker",
                         "C-3PO":"c3po", 
                         "R2-D2":"r2-d2", 
-                        "Darth Vader": "darth-vader",
+                        "Darth Vader":"darth-vader",
+                        "Leia Organa":"leia",
+                        "Obi-Wan Kenobi":"obi-wan",
+                        "Chewbacca":"chewbacca",
+                        "Han Solo":"han-solo",
+                        "Jabba Desilijic Tiure":"jabba",
+                        "Yoda":"yoda"
                     }
     
     return (
