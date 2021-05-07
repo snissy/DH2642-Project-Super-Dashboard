@@ -4,11 +4,11 @@ function CharacterInfoView(props) {
 
     return (
             <div className="infoBox">
-                <p>{props.model.character.name}</p>
-                <p>{props.model.character.height}</p>
-                <p>{props.model.character.mass}</p>
-                <p>{props.model.character.gender}</p>
-                <p>{props.model.character.skin_color}</p>
+                <p>Name: {props.model.character.name}</p>
+                <p>Height: {props.model.character.height} cm</p>
+                <p>Weight: {props.model.character.mass} kg</p>
+                <p>Gender: {props.model.character.gender}</p>
+                <p>Skin Color: {props.model.character.skin_color}</p>
             </div>
     );
 }
