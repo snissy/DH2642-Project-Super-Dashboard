@@ -1,4 +1,5 @@
 import gatherDataPoints from "../api/dataProcessors/processWeatherDays"
+import okCoords from "../helpFunctions/geometricMethods";
 
 const BASE_SMHI_URL = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/{longitude}/lat/{latitude}/data.json"
 
@@ -30,12 +31,14 @@ const  WeatherSource={
             });
     },
 
-    getWeatherDetails(longitude, latitude){
-        // this function calls the apiCall and pass the asked longitude and latitude coordinates to the call.
-        return WeatherSource.apiCall({longitude:longitude,latitude:latitude})
-    },
-
     getWeatherDays(longitude, latitude){
+
+        if(!okCoords(longitude, latitude)){
+            // The asked coords not ok, set to stockholm as default
+            latitude = 59.32553;
+            longitude = 18.00659;
+        }
+
         return WeatherSource.apiCall({longitude:longitude,latitude:latitude}).then(result=>{
             return gatherDataPoints(result.timeSeries)
         })
