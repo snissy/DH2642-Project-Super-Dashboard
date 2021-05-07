@@ -4,7 +4,7 @@ import App from './App';
 import DashBoardModel from "./DashBoardModel";
 
 
-const model = new DashBoardModel(['Destroy Deathstar', 'Kill Vader', 'Buy new Lightsaber', 'Save baby Yoda'],{name:"Luke Skywalker", height: 20},{name: "Tatooine"})
+const model = new DashBoardModel(['Destroy Deathstar', 'Kill Vader', 'Buy new Lightsaber', 'Save baby Yoda'],{name:"Luke Skywalker", height: 177, mass: 77, gender: "male"},{name: "Tatooine"})
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,11 +1,13 @@
 import CharacterDashView from "../views/characterDashView";
+import CharacterInfoPresenter from "./characterInfoPresenter";
+import Visible from "./visibilityPresenter";
 import {useState, useEffect} from 'react';
-import { propTypes } from "react-bootstrap/esm/Image";
+import '../css/characterDash.css';
 
 function CharacterDashPresenter(props) {
 
-   
     const [characterName, setCharacterName] = useState(props.model.character.name);
+    const [visibleInfoClass, setVisibleInfoClass] = useState("hidden");
 
     // Lifecycle: Add observer on mount, remove it on demount.
     useEffect( function(){
@@ -21,13 +23,27 @@ function CharacterDashPresenter(props) {
 
     },[])
 
-    // handler for when the information icon is clicked
+
+
+     // handler for when the information icon is clicked
     function infoClick(event){
-        console.log("hej")
-        //<CharacterInfoView model={props.model}/>
+        console.log("infoClick")
+        if (visibleInfoClass === "hidden"){
+            setVisibleInfoClass("")
+        }
+        else {
+            setVisibleInfoClass("hidden")
+        }   
     }
 
-    return <CharacterDashView name = {characterName} infoClick={e=>infoClick(e)}/>
+    return (
+        <div className="noSelect">
+            <CharacterDashView name = {characterName} infoClick={e=>infoClick(e)}/>
+            <div className={visibleInfoClass}>
+                <CharacterInfoPresenter model={props.model}/>
+            </div>
+        </div>
+    );
 }
 
 export default CharacterDashPresenter;

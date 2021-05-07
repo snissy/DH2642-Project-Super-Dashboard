@@ -33,3 +33,21 @@
 .infoIcon svg:hover{
     fill: red;
 }
+
+.infoBox{
+    position: relative;
+    left: 230px;
+    bottom: 150px;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
