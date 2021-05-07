@@ -1,5 +1,6 @@
 import CharacterDashView from "../views/characterDashView";
 import {useState, useEffect} from 'react';
+import { propTypes } from "react-bootstrap/esm/Image";
 
 function CharacterDashPresenter(props) {
 
@@ -20,8 +21,10 @@ function CharacterDashPresenter(props) {
 
     },[])
 
+    // handler for when the information icon is clicked
     function infoClick(event){
-        console.log(event.target)
+        console.log("hej")
+        //<CharacterInfoView model={props.model}/>
     }
 
     return <CharacterDashView name = {characterName} infoClick={e=>infoClick(e)}/>
