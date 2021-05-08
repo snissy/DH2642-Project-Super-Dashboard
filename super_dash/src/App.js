@@ -1,6 +1,5 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import background from "./img/Hoth.png"
 import {TopLevelClock} from "./componentTests"
 import TodoPresenter from "./presenters/todoPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
@@ -24,8 +23,17 @@ function App(props) {
         let newCoordinates = props.model.setCoordinates(component, data.deltaX, data.deltaY)
         setCoordinates(newCoordinates);
     }
+
+    const [planetURL, setPlanetURL] = React.useState(props.model.planetURL)
+
+    React.useEffect( function () {
+        function backgroundObserver() {setPlanetURL(props.model.planetURL)}
+        props.model.addObserver(backgroundObserver)}
+        ,[]);
+
     return (
-        <div className={'App'} style={{backgroundImage: `url(${background})`}}>
+        <div className={'App'} style={{backgroundImage: `url(${planetURL})`}}>
+
             <h2>Super Dash</h2>
             <div>
                 <SideBarPresenter model={props.model}/>
@@ -44,14 +52,6 @@ function App(props) {
                             positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
                     <div id={'Todo-list'}>
                         <TodoPresenter model={props.model}/>
-                    </div>
-                </Draggable>
-            </Visible>
-            <Visible model={props.model} component="showWeather">
-                <Draggable onDrag={(e, data) => {trackPosition(data, "weather"); console.log(props.model.coordinates.weather)}}
-                            positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
-                    <div id={'Weather'}>
-                    <WeatherPresenter model = {props.model}/>
                     </div>
                 </Draggable>
             </Visible>
