@@ -48,10 +48,18 @@ function App(props) {
                 <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
             </Visible> 
             <Visible model={props.model} component="showTodo">
-                <Draggable onDrag={(e, data) => {trackPosition(data, "todo"); console.log(props.model.coordinates.todo)}}
+                <Draggable onDrag={(e, data) => {trackPosition(data, "todo");}}
                             positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
                     <div id={'Todo-list'}>
                         <TodoPresenter model={props.model}/>
+                    </div>
+                </Draggable>
+            </Visible>
+            <Visible model={props.model} component="showWeather">
+                <Draggable onDrag={(e, data) => {trackPosition(data, "weather");}}
+                           positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
+                    <div id={'Weather'}>
+                        <WeatherPresenter model = {props.model}/>
                     </div>
                 </Draggable>
             </Visible>
