@@ -1,0 +1,28 @@
+input[type=checkbox]:checked + label {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+.cBox:checked:before {
+    background-color: black;
+}
+#todoTitle {
+    background-color: transparent;
+    color:inherit;
+    font-size: xx-large;
+    border: none;
+}
+#todoTitle:focus {
+    outline-color: white;
+}
+#taskInput {
+    background-color:transparent;
+    color:inherit;
+    border: none;
+}
+#removeButton {
+    background-color: transparent;
+    border-color: transparent;
+}
+#task {
+    margin-left: 6px;
+}

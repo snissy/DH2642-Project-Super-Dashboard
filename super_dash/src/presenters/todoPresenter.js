@@ -6,7 +6,7 @@ function TodoPresenter(props) {
     const [currentTasks, setTasks] = React.useState(props.model.tasks);
 
     const addByKey = (event) => {
-        if(event.code === 'Enter' && event.target.id === 'task') {
+        if(event.code === 'Enter' && event.target.id === 'taskInput') {
             let t = event.target.value;
             event.target.value = "";
             props.model.addTask(t);
