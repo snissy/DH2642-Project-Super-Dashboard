@@ -89,7 +89,7 @@ class DashBoardModel {
     }
 
     addTask(task) { if(task && !this.tasks.includes(task))
-                  { this.tasks = [task, ...this.tasks]; }
+                  { this.tasks = [...this.tasks, task]; }
                     this.notifyObservers();
     }
 
