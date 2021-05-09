@@ -40,12 +40,16 @@ h2 {
     text-align: center;
     top: 0;
 }
-#Clock {
+#Clock{
     font-family: arial, serif;
-    font-size: 60px;
+    text-align: center;
     position: relative;
     top: 20%;
 }
+#Clock h1{
+    font-size: 100px;
+}
+
 #Weather {
     position: fixed;
     display: flex;
@@ -72,7 +76,7 @@ h2 {
 @media (max-width: 960px) {
 
     #Clock {
-        top: 10%;
+        top: 20%;
     }
     #Searchbar {
         top:90%
