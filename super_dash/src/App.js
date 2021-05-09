@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import background from "./img/Hoth.png"
-import {TopLevelClock} from "./componentTests"
+import background from "./img/Hoth.png";
+import {TopLevelClock} from "./componentTests";
+import ClockPresenter from "./presenters/clockPresenter";
 import TodoPresenter from "./presenters/todoPresenter";
 import SideBarPresenter from "./presenters/sidebarPresenter";
 import SearchBarPresenter from "./presenters/searchBarPresenter";
@@ -9,9 +10,9 @@ import WeatherPresenter from "./presenters/weatherPresenter";
 import CharacterDashPresenter from "./presenters/characterDashPresenter";
 import NewsPresenter from "./presenters/newsPresenter";
 import Visible from "./presenters/visibilityPresenter";
-import './css/App.css'
-import './css/weatherView.css'
-import './css/newsView.css'
+import './css/App.css';
+import './css/weatherView.css';
+import './css/newsView.css';
 import Draggable from 'react-draggable';
 
 function App(props) {
@@ -31,7 +32,7 @@ function App(props) {
                 <SideBarPresenter model={props.model}/>
             </div>
             <div id={'Clock'}>
-                <TopLevelClock/>
+                <ClockPresenter/>
             </div>
             <div id={'Searchbar'}>
                 <SearchBarPresenter/>

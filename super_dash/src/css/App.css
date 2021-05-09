@@ -58,6 +58,14 @@ h2 {
     left: 50%;
     margin-left: -150px;
 }
+#CharacterDash{
+    position: fixed;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    top: 68%;
+    left: 2%;
+}
 .hidden{
     display: none;
 }

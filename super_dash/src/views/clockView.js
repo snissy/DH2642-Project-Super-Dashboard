@@ -22,7 +22,7 @@ function Clock (props) {
             <Container>
                 
                   
-                    <h1 className="text-center m-1 display-1 " style={{fontSize: 150}}> {props.time}</h1>
+                    <h1 className="text-center m-1 display-1"> {props.time}</h1>
                
             </Container>
             )
