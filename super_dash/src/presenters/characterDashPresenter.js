@@ -1,10 +1,13 @@
 import CharacterDashView from "../views/characterDashView";
+import CharacterInfoPresenter from "./characterInfoPresenter";
+import Visible from "./visibilityPresenter";
 import {useState, useEffect} from 'react';
+import '../css/characterDash.css';
 
 function CharacterDashPresenter(props) {
 
-   
     const [characterName, setCharacterName] = useState(props.model.character.name);
+    const [visibleInfoClass, setVisibleInfoClass] = useState("hidden");
 
     // Lifecycle: Add observer on mount, remove it on demount.
     useEffect( function(){
@@ -21,7 +24,26 @@ function CharacterDashPresenter(props) {
     },[])
 
 
-    return <CharacterDashView name = {characterName}/>
+
+     // handler for when the information icon is clicked
+    function infoClick(event){
+        console.log("infoClick")
+        if (visibleInfoClass === "hidden"){
+            setVisibleInfoClass("")
+        }
+        else {
+            setVisibleInfoClass("hidden")
+        }   
+    }
+
+    return (
+        <div className="noSelect">
+            <CharacterDashView name = {characterName} infoClick={e=>infoClick(e)}/>
+            <div className={visibleInfoClass}>
+                <CharacterInfoPresenter model={props.model}/>
+            </div>
+        </div>
+    );
 }
 
 export default CharacterDashPresenter;
