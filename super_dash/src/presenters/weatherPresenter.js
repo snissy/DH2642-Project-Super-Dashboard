@@ -5,11 +5,14 @@ import usePromise from "./promiseHook";
 import React, {useEffect, useState} from 'react';
 
 function WeatherPresenter(props){
-    // TODO Jag vet inte om det är är korrekt. Man kan säkert göra en generallt case för detta. Vill disskutera detta med Hector och Adam.
-    const [promise, setPromise] = useState(null);
+
+    const [promise, setPromise] = useState(WeatherSource.getWeatherDays(props.model.coords.longitude, props.model.coords.latitude));
 
     useEffect(()=>{
-        setPromise(WeatherSource.getWeatherDays(props.longitude, props.latitude))
+        props.model.addObserver(()=>{
+            setPromise(WeatherSource.getWeatherDays(props.model.coords.longitude, props.model.coords.latitude))
+        })
+
     },[])
 
     const [data, error] = usePromise(promise);

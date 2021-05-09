@@ -29,6 +29,15 @@ class DashBoardModel {
         }
         this.user = null;
         this.islogged = false;
+
+        this.coords = {latitude: null, longitude: null};
+    }
+
+    setWeatherCoordinates(lat, long){
+
+        this.coords= {latitude: lat, longitude: long};
+
+        this.notifyObservers();
     }
   
     setUser (currentUser){
