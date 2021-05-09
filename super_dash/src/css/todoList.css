@@ -2,8 +2,15 @@ input[type=checkbox]:checked + label {
     text-decoration: line-through;
     opacity: 0.4;
 }
-.cBox:checked:before {
-    background-color: black;
+p {
+    font-style: oblique;
+}
+.h-divider{
+    margin-top:5px;
+    margin-bottom:5px;
+    height:2px;
+    width:90%;
+    border-top:1px solid gray;
 }
 #todoTitle {
     background-color: transparent;
@@ -22,6 +29,7 @@ input[type=checkbox]:checked + label {
 #removeButton {
     background-color: transparent;
     border-color: transparent;
+    outline: none;
 }
 #task {
     margin-left: 6px;

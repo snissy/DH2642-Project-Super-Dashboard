@@ -16,7 +16,7 @@
 }
 #Todo-list {
     position: fixed;
-    height: 350px;
+    height: auto;
     width: 300px;
     padding-left: 10px;
     padding-right: 10px;
