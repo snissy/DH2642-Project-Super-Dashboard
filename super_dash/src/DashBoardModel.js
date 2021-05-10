@@ -6,6 +6,7 @@ class DashBoardModel {
         this.character.id = 1;   // not used atm. but probably needed to do the correct api call on reload
 
         this.planet = plan;
+        this.planetURL = require('./assets/img/' + plan.name.replace(/\s/g, '') + '.png').default;
         this.planet.id = 1;      // not used atm. but probably needed to do the correct api call on reload
 
 
@@ -85,6 +86,7 @@ class DashBoardModel {
 
         this.planet = {};
         this.planet.name = json_response.name;
+        this.planetURL = require('./assets/img/' + json_response.name.replace(/\s/g, '') + '.png').default;
         this.planet.id = id;
         this.notifyObservers();
     }
