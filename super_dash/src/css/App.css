@@ -6,22 +6,24 @@
     background-position: center;
 }
 #Searchbar {
-    position: relative;
+    position: fixed;
+    width: 300px;
     display: flex;
-    width: 20%;
     justify-content: center;
-    margin: auto;
-    top: 50%;
+    margin-left: -150px;
+    top: 80%;
+    left: 50%
 }
 #Todo-list {
-    position: relative;
-    height: 400px;
+    position: fixed;
+    height: 350px;
     width: 300px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
     justify-content: center;
-    top: 10%;
+    top: 40%;
+    margin-bottom: 175px;
     left: 10%;
 }
 @font-face {
@@ -38,39 +40,79 @@ h2 {
     text-align: center;
     top: 0;
 }
-#Clock {
+#Clock{
     font-family: arial, serif;
-    font-size: 60px;
+    text-align: center;
     position: relative;
     top: 20%;
 }
+#Clock h1{
+    font-size: 100px;
+}
 
+#Weather {
+    position: fixed;
+    display: flex;
+    width: 320px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+}
 #CharacterDash{
     position: fixed;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    top: 40%;
+    top: 68%;
     left: 2%;
 }
-
-#Weather {
-    position: absolute;
-    justify-content: center;
-    top: 70%;
-    left: 10%;
-}
-#newsPresenter {
-    position: absolute;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    justify-content: center;
-    top: 25%;
-    left: 25%;
-}
-
-
 .hidden{
     display: none;
+}
+@media (max-width: 960px) {
+
+    #Clock {
+        top: 20%;
+    }
+    #Searchbar {
+        top:90%
+    }
+    #News {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+
+    h2 {
+        display: none;
+    }
+    #Sidebar {
+        display: none;
+    }
+    #Clock {
+        top: 0;
+        margin-top: 0;
+    }
+    #Weather {
+        top: 160px;
+        margin-left: -160px;
+        left: 50%
+    }
+    #Todo-list {
+        height: 250px;
+        overflow: scroll;
+        top: 400px;
+        width: 300px;
+        justify-content: center;
+        margin-left: -150px;
+        left: 50%
+    }
+    #Searchbar {
+        bottom: 10px;
+        flex: none;
+    }
 }
