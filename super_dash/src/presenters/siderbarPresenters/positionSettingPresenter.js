@@ -2,6 +2,7 @@
 import PositionSettingsView from "../../views/positionSettingsView";
 import React, {useState} from "react";
 import GeographicNameSource from "../../api/geograficData";
+import {roundToDecimal} from "../../helpFunctions/mathFunctions";
 
 
 function PositionSettingsPresenter(props){
@@ -18,8 +19,8 @@ function PositionSettingsPresenter(props){
                                  fetchLocation = {() =>{
                                      navigator.geolocation.getCurrentPosition((pos) => {
 
-                                         const lat = pos.coords.latitude;
-                                         const long = pos.coords.longitude;
+                                         const lat = roundToDecimal(pos.coords.latitude, 3);
+                                         const long = roundToDecimal(pos.coords.longitude,3);
 
                                          GeographicNameSource.getGeoName(long, lat).then(r => {
                                              let geoName = ""
