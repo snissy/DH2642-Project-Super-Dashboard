@@ -37,13 +37,13 @@ function App(props) {
               <SearchBarPresenter/>
           </div>
           <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
-          <Draggable onDrag={(e, data) => {trackPosition(data, "todo"); console.log(props.model.coordinates.todo)}}
+          <Draggable onDrag={(e, data) => {trackPosition(data, "todo");}}
                      positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
               <div id={'Todo-list'}>
                   <TodoPresenter model={props.model}/>
               </div>
           </Draggable>
-          <Draggable onDrag={(e, data) => {trackPosition(data, "weather"); console.log(props.model.coordinates.weather)}}
+          <Draggable onDrag={(e, data) => {trackPosition(data, "weather"); }}
                      positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
               <div id={'Weather'}>
               <WeatherPresenter longitude={'18.063240'} latitude={'59.334591'}/>

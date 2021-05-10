@@ -38,7 +38,7 @@ function CharacterSettings(props) {
     // re-render when data arrives from promise
     useEffect(function(){
         if(data)
-            props.model.setCharacter(data)
+            props.model.setCharacter(data,characterId)
     },[data])
 
     /*

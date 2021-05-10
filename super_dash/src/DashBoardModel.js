@@ -38,31 +38,33 @@ class DashBoardModel {
         this.notifyObservers();
     }
 
-    setCharacter(json_response){
+    setCharacter(json_response,id){
 
         // TODO: Make sure it only updates the model if there's an actual character change
 
         this.character = {};
         this.character.name = json_response.name;
+        this.character.id = id;
         this.notifyObservers();
     }
 
-    setPlanet(json_response){
+    setPlanet(json_response, id){
 
         // TODO: Make sure it only updates the model if there's an actual planet change
 
         this.planet = {};
         this.planet.name = json_response.name;
+        this.planet.id = id;
         this.notifyObservers();
     }
-
+    setPlanetId(id){this.planet.id = id;this.notifyObservers();}
     setCoordinates(comp, deltaX, deltaY) {
         this.coordinates[comp].x = this.coordinates[comp].x + deltaX
         this.coordinates[comp].y = this.coordinates[comp].y + deltaY
 
         return this.coordinates
     }
-
+    setTasks(tasks){this.tasks = tasks; this.notifyObservers();}
     addTask(task) { if(task && !this.tasks.includes(task))
                   { this.tasks = [task, ...this.tasks]; }
                     this.notifyObservers();

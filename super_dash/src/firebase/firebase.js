@@ -49,6 +49,6 @@ export const logOut = () => {
     })
 }
 //method for getting the user
-export const getuser = () =>{
+export const getUser = () =>{
     return auth.currentUser;
 }
