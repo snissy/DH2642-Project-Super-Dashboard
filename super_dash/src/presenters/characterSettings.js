@@ -19,6 +19,13 @@ function CharacterSettings(props) {
             setCharacterName(props.model.character.name);
         }
 
+
+        /* 
+            The only other place where the character can be updated is when
+            the model does the initial fetch when booting up. Since this component
+            is always created after the model is created, maybe this observer is redundant? 
+
+        */
         props.model.addObserver(characterObserver);
 
         // Initial fetch on component creation
@@ -47,17 +54,35 @@ function CharacterSettings(props) {
         3. R2-D2
         4. Darth Vader
         5. Leia Organa
+        10. Obi-Wan Kenobi
+        13. Chewbacca
+        14. Han Solo
+        16. Jabba Desilijic Tiure (aka Jabba the Hutt)
+        20. Yoda
     */
     
+    let characters = [1,2,3,4,5,10,13,14,16,20]
+
     function updateCharacter(direction){
 
-        // if character id is valid, fetch new promise
-        if (characterId + direction < 1 || characterId + direction > 4){
+        let newId = characterId + direction;
+
+        // If new id is out of bounds, don't update id
+        if (newId < 1 || newId > 20){
             console.log("Invalid character ID")
         }
+        // If the new number is not in the character array, continue until next valid id
+        else if (!characters.includes(newId)){
+            while(!characters.includes(newId)){
+                newId = newId + direction;
+            }
+            setCharacterId(newId);
+            setPromiseCharacter(SwapiSource.getSwapiDetails("people", newId));
+        }
+        // If new id is valid, fetch new promise
         else {
-            setCharacterId(characterId+direction)
-            setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId+direction))
+            setCharacterId(newId);
+            setPromiseCharacter(SwapiSource.getSwapiDetails("people", newId));
         }        
     }
     

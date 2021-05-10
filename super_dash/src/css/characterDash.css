@@ -3,7 +3,7 @@
     position: relative; 
     width: 200px; 
     height: 200px;
-    background: white; 
+    background: beige; 
     border: 1px solid grey;
     border-radius: 50%;
 }
@@ -14,16 +14,53 @@
     border-radius: 50%;
 }
 
-.wrap{
-    position: relative;
-}
-
 .characterAbsolute{
     position: absolute;
+}
+
+.characterAbsolute img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .frameAbsolute{
     position: absolute;
     left: -10px;
     top:-19px;
+}
+
+.infoIcon{
+    position: relative;
+    left: 180px;
+    top: 180px;
+}
+
+.infoIcon svg:hover{
+    fill: red;
+}
+
+.infoBox{
+    position: relative;
+    left: 230px;
+    bottom: 150px;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+.infoBox p{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

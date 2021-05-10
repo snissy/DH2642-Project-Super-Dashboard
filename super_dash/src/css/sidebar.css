@@ -7,3 +7,20 @@
     display: inline-block;
     width: 200px;
 }
+
+.visibilityPreferences{
+    display: inline-block;
+}
+
+.visibilitySettings{
+    text-align: left;
+    margin-left: 35%;
+}
+.visibilitySettings span{
+    display: inline-block;
+    width: 150px;
+}
+
+.visibilitySettings button{
+    margin-right: 10%;
+}
