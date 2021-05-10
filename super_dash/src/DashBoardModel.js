@@ -2,6 +2,7 @@ class DashBoardModel {
 
     constructor(tasks = [], char, plan) {
         this.tasks = tasks;
+        this.checkedTasks = []
         this.character = char;
         this.character.id = 1;   // not used atm. but probably needed to do the correct api call on reload
 
@@ -99,13 +100,35 @@ class DashBoardModel {
     }
     setTasks(tasks){this.tasks = tasks; this.notifyObservers();}
     addTask(task) { if(task && !this.tasks.includes(task))
-                  { this.tasks = [task, ...this.tasks]; }
+                  { this.tasks = [...this.tasks, task];}
                     this.notifyObservers();
     }
 
     removeTask(task) { if(this.tasks.find(t => t === task))
                      { this.tasks = this.tasks.filter(t => t !== task);}
                        this.notifyObservers();}
+
+    clearFinishedTasks() {
+        this.checkedTasks = [];
+        this.notifyObservers()
+    }
+
+    checkTask(task) {
+
+        if(!this.checkedTasks.find(t => t === task)) {
+            this.removeTask(task)
+            this.checkedTasks = [task, ...this.checkedTasks]
+
+        }
+        else {
+            // will instead remove from checked list
+            this.checkedTasks = this.checkedTasks.filter(t => t !== task);
+            // move it back
+            this.tasks = [...this.tasks, task]
+
+        }
+        this.notifyObservers();
+    }
 
     addObserver(callback) {
         this.observers = [...this.observers, callback]
