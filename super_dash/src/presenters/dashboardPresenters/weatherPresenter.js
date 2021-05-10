@@ -6,13 +6,21 @@ import React, {useEffect, useState} from 'react';
 
 function WeatherPresenter(props){
 
-    const [promise, setPromise] = useState(WeatherSource.getWeatherDays(props.model.userPosition.longitude, props.model.userPosition.latitude));
+    const [promise, setPromise] = useState(null);
 
     useEffect(()=>{
-        props.model.addObserver(()=>{
-            setPromise(WeatherSource.getWeatherDays(props.model.userPosition.longitude, props.model.userPosition.latitude))
-        })
 
+        setPromise(WeatherSource.getWeatherDays(props.model.userPosition.longitude, props.model.userPosition.latitude))
+
+        // This prevents callback to be run multiple times
+        let oldPosition = props.model.userPosition;
+
+        props.model.addObserver(()=>{
+            if(oldPosition.latitude !== props.model.userPosition.latitude && oldPosition.longitude !== props.model.userPosition.longitude){
+                oldPosition = props.model.userPosition;
+                setPromise(WeatherSource.getWeatherDays(props.model.userPosition.longitude, props.model.userPosition.latitude));
+            }
+        })
     },[])
 
     const [data, error] = usePromise(promise);
