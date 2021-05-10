@@ -29,13 +29,12 @@ class DashBoardModel {
         }
         this.user = null;
         this.islogged = false;
-
-        this.coords = {latitude: null, longitude: null};
+        this.userPosition = {latitude: null, longitude: null, geoName: null };
     }
 
-    setWeatherCoordinates(lat, long){
+    setUserPosition(lat, long, geoName){
 
-        this.coords= {latitude: lat, longitude: long};
+        this.userPosition= {latitude: lat, longitude: long, geoName: geoName};
 
         this.notifyObservers();
     }
@@ -56,7 +55,7 @@ class DashBoardModel {
     }
 
     setCharacter(json_response){
-        // TODO: Make sure it only updates the model if there's an actual character change
+        // TODO: Make sure it only updates the models if there's an actual character change
 
         this.character = {};
         this.character.name = json_response.name;
@@ -81,7 +80,7 @@ class DashBoardModel {
 
     setPlanet(json_response){
 
-        // TODO: Make sure it only updates the model if there's an actual planet change
+        // TODO: Make sure it only updates the models if there's an actual planet change
 
         this.planet = {};
         this.planet.name = json_response.name;
