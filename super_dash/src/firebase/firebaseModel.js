@@ -1,19 +1,19 @@
-import  {getuser} from "./firebase";
+import  {getUser} from "./firebase.js";
 import firebase from "firebase";
 export function persistModel(model) {
-    let uid = "";
-    if(getuser() != null)  uid = getuser().uid + "";
+    let uid= model.user.uid;
     let loadingFromFirebase = false;  // boolean flag
     model.addObserver(function () {
         if (loadingFromFirebase) return
         else {
-            console.log(getuser())
+            console.log(model.user.uid)
             console.log(uid);
             console.log(model)
             firebase.database().ref("users/" + uid + "/dashboardModel").set({
-                planet: model.planet_selected,
-                character: model.character_name,
+                //planet: model.planet,
+                character: model.character,
                 tasks: model.tasks,
+                coordinates: model.coordinates
             });
         }
     });
@@ -23,9 +23,9 @@ export function persistModel(model) {
         try {
             if (data.val()) {
                 console.log(data.val());
-                //model.setCharacter(data.val().character || null);
-                //model.setTasks(data.val().tasks || [])
-                //model.setPlanet(data.val().planet || null)
+                model.setCharacter(data.val().character, data.val().character.id);
+                model.setTasks(data.val().tasks || [])
+             //   model.setPlanet(data.val().planet )
             }
         } catch (e) {
             console.log(e);
