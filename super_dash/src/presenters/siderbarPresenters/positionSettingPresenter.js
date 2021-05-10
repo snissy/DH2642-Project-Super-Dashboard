@@ -23,8 +23,8 @@ function PositionSettingsPresenter(props){
 
                                          GeographicNameSource.getGeoName(long, lat).then(r => {
                                              let geoName = ""
-                                             geoName += r.address.suburb +"-";
-                                             geoName += r.address.city;
+                                             geoName += r.address.suburb ? r.address.suburb : "";
+                                             geoName += r.address.city ? "-" + r.address.city: "";
                                              props.model.setUserPosition(lat, long, geoName );
                                              }
                                          )
