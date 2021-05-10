@@ -1,7 +1,7 @@
 .weather-TodayCard {
     display: flex;
     justify-content: space-around;
-    background-color: #F8F5EA;
+    background-color: #343A40;
     border: 3px solid #7A9FB8;
     border-radius: 10px;
     width: 260px;
@@ -65,7 +65,7 @@
     margin-top: 0;
 }
 .weather-dayCard{
-    background-color: #f8f5ea;
+    background-color: #343a40;
     border:3px solid #7a9fb8;
     border-radius: 10px;
     width: 83px;
@@ -119,4 +119,8 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 20px;
+}
+
+.weather-presenter {
+    color: white;
 }
