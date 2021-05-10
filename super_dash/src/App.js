@@ -12,6 +12,7 @@ import Visible from "./presenters/visibilityPresenter";
 import './css/App.css'
 import './css/weatherView.css'
 import './css/newsView.css'
+import './css/todoList.css'
 import Draggable from 'react-draggable';
 
 function App(props) {

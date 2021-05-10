@@ -1,10 +1,29 @@
-input[type=checkbox]:checked + label {
+input[type=checkbox]:checked + text {
     text-decoration: line-through;
     opacity: 0.4;
 }
+text {
+    overflow-wrap: break-word !important;
+}
+input:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+
 p {
     font-style: oblique;
 }
+svg {
+    fill: white;
+    opacity: 0.2;
+}
+.checkBoxInline {
+    display: inline-block;
+}
+svg:hover {
+    opacity: unset;
+}
+
 .h-divider{
     margin-top:5px;
     margin-bottom:5px;
@@ -12,25 +31,46 @@ p {
     width:90%;
     border-top:1px solid gray;
 }
+
 #todoTitle {
     background-color: transparent;
+    font-family: sw, serif;
     color:inherit;
     font-size: xx-large;
     border: none;
 }
-#todoTitle:focus {
-    outline-color: white;
+@font-face {
+    font-family: sw;
+    src: url('fonts/Starjhol.ttf');
+    font-style: normal;
 }
 #taskInput {
     background-color:transparent;
     color:inherit;
     border: none;
 }
+
 #removeButton {
+    background-color: transparent;
+    border-color: transparent;
+    margin-right: 0;
+    padding-right: 0;
+
+}
+#clearButton {
     background-color: transparent;
     border-color: transparent;
     outline: none;
 }
+
 #task {
-    margin-left: 6px;
+    margin-left: 2px;
 }
+
+#removeListButton {
+    border-radius: 50%;
+    height: 20px;
+    width: 10px;
+    background-color: inherit;
+}
+
