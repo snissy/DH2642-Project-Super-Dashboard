@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {logOut, signInWithGoogle, user} from "../firebase/firebase";
-import {Log} from "../views/logView";
+import {logOut, signInWithGoogle, user} from "../../firebase/firebase";
+import {Log} from "../../views/logView";
 
 export function LogPresenter(props){
 

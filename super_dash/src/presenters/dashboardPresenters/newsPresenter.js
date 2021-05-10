@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import usePromise from "./promiseHook";
-import promiseNoData from "./promiseNoDataPresenter";
-import NewsView from "../views/newsView";
-import ExtendedNewsView from "../views/extendedNewsView";
-import NewsSource from "../api/newsSource";
+import usePromise from "../../customHooks/promiseHook";
+import promiseNoData from "../functionalPresenters/promiseNoDataPresenter";
+import NewsView from "../../views/newsView";
+import ExtendedNewsView from "../../views/extendedNewsView";
+import NewsSource from "../../api/newsSource";
 
 
 function NewsPresenter(props){

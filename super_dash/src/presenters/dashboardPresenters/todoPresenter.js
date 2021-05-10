@@ -1,4 +1,4 @@
-import TodoView from "../views/todoView";
+import TodoView from "../../views/todoView";
 import React from "react";
 
 function TodoPresenter(props) {
