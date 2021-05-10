@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {logOut, signInWithGoogle, user, auth, getuser} from "../firebase/firebase";
-import {Log} from "../views/logView";
-import {persistModel} from "../firebase/firebaseModel";
-import DashBoardModel from "../DashBoardModel";
+import {Log} from "../../views/logView";
+import {logOut, signInWithGoogle, user, auth, getuser} from "../../firebase/firebase";
+import {persistModel} from "../../firebase/firebaseModel";
+import DashBoardModel from "../../models/DashBoardModel";
 
 export function LogPresenter(props){
 

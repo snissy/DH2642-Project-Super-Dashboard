@@ -1,11 +1,11 @@
 import React from "react";
-import TodoPresenter from "./presenters/todoPresenter";
+import TodoPresenter from "./presenters/dashboardPresenters/todoPresenter";
 import BootstrapExampleView from "./views/bootstrap_example";
-import ClockPresenter from "./presenters/clockPresenter";
-import SearchBarPresenter from "./presenters/searchBarPresenter";
+import ClockPresenter from "./presenters/dashboardPresenters/clockPresenter";
+import SearchBarPresenter from "./presenters/dashboardPresenters/searchBarPresenter";
 import SwapiSource from './api/starwarsAPI'
-import promiseNoData from "./presenters/promiseNoDataPresenter";
-import SideBarPresenter from "./presenters/sidebarPresenter";
+import promiseNoData from "./presenters/functionalPresenters/promiseNoDataPresenter";
+import SideBarPresenter from "./presenters/siderbarPresenters/sidebarPresenter";
 
 
 // Use this component to test TodoView
@@ -73,7 +73,7 @@ export function TopLevelSWAPI(props){
             promise.then( function(dt) {
                 if(!cancelled){
                     setData(dt);
-                    props.model.setCharacter(dt);       // update model
+                    props.model.setCharacter(dt);       // update models
                 }
             }).catch( function(er){ 
                 if(!cancelled){

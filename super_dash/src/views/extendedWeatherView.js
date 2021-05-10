@@ -2,8 +2,8 @@ import {Col, Container, Row} from "react-bootstrap";
 
 function ExtendedWeatherView(props) {
     return(<div className="weather-view-extended">
-        <Container className="weather-container">
-            {props.weatherDays.map(day=>{
+
+        {props.weatherDays.map(day=>{
                 return(<Row className="weather-row">
                     <Col className="weather-icon" sm="2">
                         <Row>
@@ -86,7 +86,6 @@ function ExtendedWeatherView(props) {
                     </Col>
                 </Row>)
             })}
-        </Container>
     </div>)
 }
 

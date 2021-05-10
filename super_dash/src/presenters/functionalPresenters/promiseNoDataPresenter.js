@@ -1,5 +1,5 @@
-import loadingIcon from "../assets/svg/loadingIcon";
-import loadingIconSmall from "../assets/svg/loadingIconSmall";
+import loadingIcon from "../../assets/svg/loadingIcon";
+import loadingIconSmall from "../../assets/svg/loadingIconSmall";
 
 function promiseNoData(promise, data, error, size) {
     

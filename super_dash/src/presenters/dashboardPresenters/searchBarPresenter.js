@@ -1,4 +1,4 @@
-import SearchBarView from "../views/searchBarView";
+import SearchBarView from "../../views/searchBarView";
 import React from 'react';
 
 function SearchBarPresenter(props) {

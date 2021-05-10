@@ -1,4 +1,4 @@
-import CharacterInfoView from "../views/characterInfoView";
+import CharacterInfoView from "../../views/characterInfoView";
 
 function CharacterInfoPresenter(props) {
 

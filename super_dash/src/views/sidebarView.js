@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "react-sidebar";
-import CharacterSettings from "../presenters/characterSettings"
+import CharacterSettings from "../presenters/siderbarPresenters/characterSettings"
 import SettingIcon from "../resources/setting-icon.png";
 import AppsIcon from "../resources/Apps-Google-Chrome-App-List-icon.png";
 import ChromeIcon from "../resources/chrome.png"
@@ -9,10 +9,10 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
-import {LogPresenter} from "../presenters/logPresenter";
-import PlanetSettings from "../presenters/planetSettings";
-import VisibilitySettings from "../presenters/visibilitySettings";
-import PositionSettingsPresenter from "../presenters/positionSettingPresenter";
+import {LogPresenter} from "../presenters/siderbarPresenters/logPresenter";
+import PlanetSettings from "../presenters/siderbarPresenters/planetSettings";
+import VisibilitySettings from "../presenters/siderbarPresenters/visibilitySettings";
+import PositionSettingsPresenter from "../presenters/siderbarPresenters/positionSettingPresenter";
 
 
 
@@ -28,7 +28,6 @@ function SideBarView (props) {
         <div >
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
             <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
-
         </div>
             <br/>
             <div className={'position-static'}>

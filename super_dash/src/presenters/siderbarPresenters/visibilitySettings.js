@@ -1,5 +1,5 @@
 import {useState} from "react"
-import '../css/sidebar.css'
+import '../../css/sidebar.css'
 
 
 function VisibilitySettings(props) {
@@ -33,7 +33,7 @@ function VisibilitySettings(props) {
             setCharacterVisibility(!characterVisibility);
             character = !characterVisibility;
         }
-        // Update the model with the new preferences causing observing visibility components to be notified.
+        // Update the models with the new preferences causing observing visibility components to be notified.
         props.model.setPreferences(
             {
                 showNews: news,

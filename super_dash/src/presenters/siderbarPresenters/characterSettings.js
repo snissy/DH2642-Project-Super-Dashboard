@@ -1,8 +1,8 @@
-import promiseNoData from "./promiseNoDataPresenter"
-import usePromise from "./promiseHook"
+import promiseNoData from "../functionalPresenters/promiseNoDataPresenter"
+import usePromise from "../../customHooks/promiseHook"
 import {useState, useEffect} from "react"
-import SwapiSource from "../api/starwarsAPI"
-import '../css/sidebar.css'
+import SwapiSource from "../../api/starwarsAPI"
+import '../../css/sidebar.css'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 
 function CharacterSettings(props) {
@@ -22,8 +22,8 @@ function CharacterSettings(props) {
 
         /* 
             The only other place where the character can be updated is when
-            the model does the initial fetch when booting up. Since this component
-            is always created after the model is created, maybe this observer is redundant? 
+            the models does the initial fetch when booting up. Since this component
+            is always created after the models is created, maybe this observer is redundant?
 
         */
         props.model.addObserver(characterObserver);

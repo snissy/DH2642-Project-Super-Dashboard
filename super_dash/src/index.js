@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import DashBoardModel from "./DashBoardModel";
+import DashBoardModel from "./models/DashBoardModel";
 import {persistModel} from "./firebase/firebaseModel";
 import {signInWithGoogle} from "./firebase/firebase";
 

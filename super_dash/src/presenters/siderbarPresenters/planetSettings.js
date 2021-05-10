@@ -1,8 +1,8 @@
-import promiseNoData from "./promiseNoDataPresenter"
-import usePromise from "./promiseHook"
+import promiseNoData from "../functionalPresenters/promiseNoDataPresenter"
+import usePromise from "../../customHooks/promiseHook"
 import {useState, useEffect} from "react"
-import SwapiSource from "../api/starwarsAPI"
-import '../css/sidebar.css'
+import SwapiSource from "../../api/starwarsAPI"
+import '../../css/sidebar.css'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 
 function PlanetSettings(props) {
