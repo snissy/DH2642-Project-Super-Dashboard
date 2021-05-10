@@ -1,5 +1,5 @@
 import {days} from "../../helpFunctions/usefulConstants";
-import {maxFunc, meanFunc, mostFrequentFunc, sumFunc} from "../../helpFunctions/arrayMethods";
+import {maxFunc, meanFunc, minFunc, mostFrequentFunc, sumFunc} from "../../helpFunctions/arrayMethods";
 
 const dataToUse =  new Set(["t","ws","wd","msl", "tcc_mean", "pmean", "pcat", "Wsymb2"]);
 /*
@@ -26,7 +26,7 @@ function WeatherDay(day="", date = ""){
     this.saveWeatherParams  = function(timeSeries){
         const hour = parseInt(timeSeries.validTime.substring(11,13))
 
-        if(6 <= hour && hour <=20){
+        if((5 <= hour && hour <=21) || this.day === "Today"){
             this.logedDays.push(timeSeries.validTime);
             timeSeries.parameters.forEach(param =>{
                 if(dataToUse.has(param.name)){
@@ -46,12 +46,18 @@ function WeatherDay(day="", date = ""){
                 this.day = days[(new Date(this.date)).getDay()];
             }
             this["tMax"] = maxFunc(this["t"]).toFixed(1);
+            this["tMin"] = minFunc(this["t"]).toFixed(1);
             this["tMean"]= meanFunc(this["t"]).toFixed(1);
-            this["wsMean"] = meanFunc(this["ws"]).toFixed(1);
+
             this["wsMax"] = maxFunc(this["ws"]).toFixed(1);
-            this["pmeanSum"] = sumFunc(this["pmean"]).toFixed(1);
+            this["wsMin"] = minFunc(this["ws"]).toFixed(1);
+            this["wsMean"] = meanFunc(this["ws"]).toFixed(1);
+
             this["pmeanMax"] = maxFunc(this["pmean"]).toFixed(1);
-            this["mslMean"] = meanFunc(this["msl"]).toFixed(1);
+            this["pmeanMin"] = minFunc(this["pmean"]).toFixed(1);
+            this["pmeanSum"] = sumFunc(this["pmean"]).toFixed(1);
+
+            this["mslMean"] = meanFunc(this["msl"]).toFixed(1); // Tryck
             this["Wsymb2"] = mostFrequentFunc(this["Wsymb2"]);
         }
     }
