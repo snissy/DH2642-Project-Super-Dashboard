@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from "./assets/img/Hoth.png"
 import {TopLevelClock} from "./componentTests"
@@ -12,6 +12,10 @@ import Visible from "./presenters/functionalPresenters/visibilityPresenter";
 import './css/App.css'
 import './css/newsView.css'
 import './css/weatherView.css'
+import ClockPresenter from "./presenters/dashboardPresenters/clockPresenter"
+import './css/App.css';
+import './css/weatherView.css';
+import './css/newsView.css';
 import Draggable from 'react-draggable';
 
 function App(props) {
@@ -19,7 +23,7 @@ function App(props) {
     // Coordinates for all draggable components are use as state
     const [currentCoordinates, setCoordinates] = React.useState(props.model.coordinates);
 
-    // Tracks the position of a component, updates the models and state
+    // Tracks the position of a component, updates the model and state
     const trackPosition = (data, component) => {
         let newCoordinates = props.model.setCoordinates(component, data.deltaX, data.deltaY)
         setCoordinates(newCoordinates);
@@ -31,7 +35,7 @@ function App(props) {
                 <SideBarPresenter model={props.model}/>
             </div>
             <div id={'Clock'}>
-                <TopLevelClock/>
+                <ClockPresenter/>
             </div>
             <div id={'Searchbar'}>
                 <SearchBarPresenter/>
