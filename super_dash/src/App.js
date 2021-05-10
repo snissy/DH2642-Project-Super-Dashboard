@@ -39,7 +39,7 @@ function App(props) {
             </div>
             <Visible model={props.model} component="showCharacter">
                 <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
-            </Visible> 
+            </Visible>
             <Visible model={props.model} component="showTodo">
                 <Draggable onDrag={(e, data) => {trackPosition(data, "todo"); console.log(props.model.coordinates.todo)}}
                             positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
@@ -62,9 +62,41 @@ function App(props) {
                         <NewsPresenter/>
                     </div>
                 </Draggable>
-            </Visible> 
+            </Visible>
+
+  return (
+      <div className={'App'} style={{backgroundImage: `url(${background})`}}>
+          <h2>Super Dash</h2>
+          <div>
+              <SideBarPresenter model={props.model}/>
+          </div>
+          <div id={'Clock'}>
+              <TopLevelClock/>
+          </div>
+          <div id={'Searchbar'}>
+              <SearchBarPresenter/>
+          </div>
+          <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
+          <Draggable onDrag={(e, data) => {trackPosition(data, "todo");}}
+                     positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
+              <div id={'Todo-list'}>
+                  <TodoPresenter model={props.model}/>
+              </div>
+          </Draggable>
+          <Draggable onDrag={(e, data) => {trackPosition(data, "weather"); }}
+                     positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
+              <div id={'Weather'}>
+              <WeatherPresenter longitude={'18.063240'} latitude={'59.334591'}/>
+              </div>
+          </Draggable>
+          <Draggable>
+            <div id={'newsPresenter'}>
+                <NewsPresenter/>
+            </div>
+          </Draggable>
+
       </div>
-  ); 
+  );
 }
 
 export default App;

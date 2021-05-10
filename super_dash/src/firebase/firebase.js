@@ -12,30 +12,43 @@ firebase.initializeApp({
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId:  process.env.REACT_APP_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_APP_ID,
-    measurementId: process.env.REACT_APP_MEASUREMENT_ID
 });
 /*important variables from firebase:
     - auth: is the library for authorization from firebase
     - googleprovider: is the library which lets the google login
 */
-export const auth = firebase.auth();
-const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const auth = firebase.auth;
+const googleProvider = new firebase.auth.GoogleAuthProvider
 
 
 //function for loginwith Google account
 export const signInWithGoogle = () => {
-    return auth.signInWithPopup(googleProvider)
+    auth().setPersistence(auth.Auth.Persistence.LOCAL)
+        .then(() => {
+
+            // In memory persistence will be applied to the signed in Google user
+            // even though the persistence was set to 'none' and a page redirect
+            // occurred.
+            return firebase.auth().signInWithPopup(googleProvider);
+
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log("Code"+ errorCode +"/n + Message:" + errorMessage)
+        });
 }
 
 //function to logout from firebase
 export const logOut = () => {
-    auth.signOut().then(()=> {
+    auth().signOut().then(()=> {
         console.log('logged out')
     }).catch((error) => {
         console.log(error.message)
     })
 }
 //method for getting the user
-export const user = () =>{
+export const getUser = () =>{
     return auth.currentUser;
 }
