@@ -1,3 +1,5 @@
+import BasicJsonApiCall from "./basicFetcher";
+
 const SWAPI_ROOT_URL = "https://swapi.dev/api/{stat_type}/{number}/";
 const ALLOWED_STAT_TYPES = ["people","planets","films","species","vehicles","starships"];
 /*  
@@ -18,22 +20,7 @@ const SwapiSource={
         let url_call = SWAPI_ROOT_URL.replace("{stat_type}", props.stat_type).replace("{number}", props.number);
 
         // The actual fetch
-        return fetch(url_call, {
-            "method": "GET"
-        })
-            .then(response => {if(response.status !== 200){
-                // Something did not work
-                throw new Error("Response code was not 200")
-            }
-                // Everything went ok
-                return response;
-            })
-            // from HTTP headers to HTTP response data
-            .then(response => response.json()).catch(error => {
-
-                // The fetch failed
-                console.log("There was some problem with the fetch", error)
-            });
+        return BasicJsonApiCall({baseUrl:url_call});
     },
 
     getSwapiDetails(type_parameter, number_parameter){
