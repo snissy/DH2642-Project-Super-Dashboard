@@ -5,9 +5,12 @@ input:focus {
     outline: none;
     box-shadow: none !important;
 }
-
 p {
     font-style: oblique;
+}
+[contenteditable] {
+    outline: 0px solid transparent;
+    text-align: center;
 }
 svg {
     fill: white;
@@ -16,6 +19,14 @@ svg {
 svg:hover {
     opacity: unset;
 }
+textarea {
+    resize: none;
+    width: inherit;
+    box-shadow: none !important;
+    outline:none;
+    overflow: visible;
+    overflow-wrap: break-word;
+}
 
 .h-divider{
     margin-top:5px;
@@ -23,6 +34,12 @@ svg:hover {
     height:2px;
     width:90%;
     border-top:1px solid gray;
+}
+
+#title-div {
+    flex-grow: inherit;
+    overflow: auto;
+    border: solid 1px;
 }
 
 #todoTitle {

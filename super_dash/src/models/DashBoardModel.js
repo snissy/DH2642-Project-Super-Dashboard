@@ -129,6 +129,13 @@ class DashBoardModel {
         this.notifyObservers();
     }
 
+    setTodoTitle(title) {
+
+        this.todoTitle = title;
+        this.notifyObservers();
+
+    }
+
     addObserver(callback) {
         this.observers = [...this.observers, callback]
     }
