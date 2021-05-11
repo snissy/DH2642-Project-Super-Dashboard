@@ -36,9 +36,9 @@ function TodoView(props) {
                           </Row>})
                 }
                 <Row>
-                    <Col sm={8}>
+                    <Col sm={11}>
                         <input type="text" className={"form-control"} id="taskInput" placeholder="new task..." autoComplete={'off'}
-                               maxLength={20}
+                               maxLength={100}
                                onFocus={e => {e.target.value = '';}}
                                onBlur={e => {props.addTask(e.target.value);}}/>
                     </Col>
@@ -56,8 +56,11 @@ function TodoView(props) {
                 </Row>
                 {[...props.checkedTasks].map(t => {
                     return <Row key={t} className={"mb-2"}>
-                        <Col sm={11}>
-                            <input type={"checkbox"} checked={true} onClick={e => {props.check(t);}}/><text id={"task"}>{'  ' + t}</text>
+                        <Col sm={1}>
+                            <input type={"checkbox"} checked={true} onClick={e => {props.check(t);}}/>
+                        </Col>
+                        <Col sm={9}>
+                            <text id={"checkedTask"}>{'  ' + t}</text>
                         </Col>
                     </Row>})
                 }
