@@ -14,6 +14,7 @@ import './css/newsView.css';
 import './css/todoList.css';
 import Draggable from 'react-draggable';
 
+
 function App(props) {
 
     // Coordinates for all draggable components are use as state
@@ -29,7 +30,9 @@ function App(props) {
 
     React.useEffect( function () {
         function backgroundObserver() {setPlanetURL(props.model.planetURL)}
-        props.model.addObserver(backgroundObserver)}
+        props.model.addObserver(backgroundObserver)
+
+        }
         ,[]);
 
     return (
