@@ -1,8 +1,12 @@
 class DashBoardModel {
 
-    constructor(tasks = [], char, plan) {
-        this.tasks = tasks;
-        this.checkedTasks = []
+    constructor(char, plan, todo) {
+
+        this.todoList = {
+            tasks: [],
+            checkedTasks: [],
+            todoTitle: todo
+        }
         this.character = char;
         this.character.id = 1;   // not used atm. but probably needed to do the correct api call on reload
 
@@ -97,33 +101,33 @@ class DashBoardModel {
 
         return this.coordinates
     }
-    setTasks(tasks){this.tasks = tasks; this.notifyObservers();}
-    addTask(task) { if(task && !this.tasks.includes(task))
-                  { this.tasks = [...this.tasks, task];}
+    setTasks(tasks){this.todoList.tasks = tasks; this.notifyObservers();}
+    addTask(task) { if(task && !this.todoList.tasks.includes(task))
+                  { this.todoList.tasks = [...this.todoList.tasks, task];}
                     this.notifyObservers();
     }
 
-    removeTask(task) { if(this.tasks.find(t => t === task))
-                     { this.tasks = this.tasks.filter(t => t !== task);}
+    removeTask(task) { if(this.todoList.tasks.find(t => t === task))
+                     { this.todoList.tasks = this.todoList.tasks.filter(t => t !== task);}
                        this.notifyObservers();}
 
     clearFinishedTasks() {
-        this.checkedTasks = [];
+        this.todoList.checkedTasks = [];
         this.notifyObservers()
     }
 
     checkTask(task) {
 
-        if(!this.checkedTasks.find(t => t === task)) {
+        if(!this.todoList.checkedTasks.find(t => t === task)) {
             this.removeTask(task)
-            this.checkedTasks = [task, ...this.checkedTasks]
+            this.todoList.checkedTasks = [task, ...this.todoList.checkedTasks]
 
         }
         else {
             // will instead remove from checked list
-            this.checkedTasks = this.checkedTasks.filter(t => t !== task);
+            this.todoList.checkedTasks = this.todoList.checkedTasks.filter(t => t !== task);
             // move it back
-            this.tasks = [...this.tasks, task]
+            this.todoList.tasks = [...this.todoList.tasks, task]
 
         }
         this.notifyObservers();
@@ -131,7 +135,7 @@ class DashBoardModel {
 
     setTodoTitle(title) {
 
-        this.todoTitle = title;
+        this.todoList.todoTitle = title;
         this.notifyObservers();
 
     }

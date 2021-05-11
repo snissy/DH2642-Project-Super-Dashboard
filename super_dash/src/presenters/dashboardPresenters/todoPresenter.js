@@ -3,25 +3,41 @@ import React from "react";
 
 function TodoPresenter(props) {
 
-    const [currentTasks, setTasks] = React.useState(props.model.tasks);
-    const [currentChecked, setChecked] = React.useState(props.model.checkedTasks);
-    const [currentTitle, setTitle] = React.useState(props.model.todoTitle)
+    const [currentTasks, setTasks] = React.useState(props.model.todoList.tasks);
+    const [currentChecked, setChecked] = React.useState(props.model.todoList.checkedTasks);
+    const [currentTitle, setTitle] = React.useState(props.model.todoList.todoTitle)
 
     const addByKey = (event) => {
         if(event.code === 'Enter' && event.target.id === 'taskInput') {
             let t = event.target.value;
             event.target.value = "";
             props.model.addTask(t);
-            setTasks(props.model.tasks);
-
         }
     }
 
     React.useEffect( function () {
-        props.model.addObserver(() => {setTasks(props.model.tasks);})
-        props.model.addObserver(() => {setChecked(props.model.checkedTasks);})
-        props.model.addObserver(() => {setTitle(props.model.todoTitle);})
-        window.addEventListener('keydown', addByKey)
+        // props.model.addObserver(() => {setTodo(props.model.todoList);})
+
+        function taskObserver() {
+            setTasks(props.model.todoList.tasks);
+        }
+        function checkedObserver() {
+            setChecked(props.model.todoList.checkedTasks);
+        }
+        function titleObserver() {
+            setTitle(props.model.todoList.todoTitle);
+        }
+        props.model.addObserver(taskObserver);
+        props.model.addObserver(checkedObserver);
+        props.model.addObserver(titleObserver);
+        window.addEventListener('keydown', addByKey);
+
+        return function(){
+            props.model.removeObserver(checkedObserver());
+            props.model.removeObserver(taskObserver());
+            props.model.removeObserver(titleObserver());
+        }
+
         }, [])
 
     return (
