@@ -8,7 +8,7 @@ import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 function PlanetSettings(props) {
     const [promisePlanet, setPromisePlanet] = useState();
     
-    const [planetId, setPlanetId] = useState(1);
+    const [planetId, setPlanetId] = useState(props.model.planet.id);
 
     const [planetName, setPlanetName] = useState(props.model.planet.name);
 
@@ -22,7 +22,7 @@ function PlanetSettings(props) {
         props.model.addObserver(planetObserver);
 
         // Initial fetch on component creation
-        setPromisePlanet(SwapiSource.getSwapiDetails("planets", 1));
+        setPromisePlanet(SwapiSource.getSwapiDetails("planets", planetId));
 
         return function(){
             props.model.removeObserver(planetObserver);
@@ -38,7 +38,7 @@ function PlanetSettings(props) {
     // re-render when data arrives from promise
     useEffect(function(){
         if(data)
-            props.model.setPlanet(data)
+            props.model.setPlanet(data,planetId)
     },[data])
 
     /*
