@@ -15,7 +15,8 @@ export function persistModel(model) {
                     tasks: model.tasks ,
                     checkedTasks: model.checkedTasks,
                     coordinates: model.coordinates,
-                    planet: model.planet
+                    planet: model.planet,
+                    preferences:model.preferences
                 });
             }
         });
@@ -29,6 +30,7 @@ export function persistModel(model) {
                     model.setTasks(data.val().tasks || [], data.val().checkedTasks  || [])
                     model.setPlanet(data.val().planet, data.val().planet.id)
                     model.setAllCoordinates(data.val().coordinates)
+                    model.setPreferences(data.val().preferences)
                 }
             } catch (e) {
                 console.log(e);
