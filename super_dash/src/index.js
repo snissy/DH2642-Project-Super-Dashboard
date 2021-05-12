@@ -4,6 +4,7 @@ import App from './App';
 import DashBoardModel from "./models/DashBoardModel";
 import {persistModel} from "./firebase/firebaseModel";
 import {auth, signInWithGoogle} from "./firebase/firebase";
+import {loadBackgrounds} from "./helpFunctions/loadBackgrounds";
 
 
 const model = new DashBoardModel({name:"Luke Skywalker", height: 20},{name: "Tatooine"}, "Todo")
@@ -19,6 +20,8 @@ auth().onAuthStateChanged((user) => {
 /*signInWithGoogle();
 persistModel(model);*/
 
+// preload backroundImages
+loadBackgrounds();
 
 ReactDOM.render(
   <React.StrictMode>

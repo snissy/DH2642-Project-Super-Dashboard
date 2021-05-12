@@ -90,7 +90,7 @@ class DashBoardModel {
 
         this.planet = {};
         this.planet.name = json_response.name;
-        this.planetURL = require('../assets/img/' + json_response.name.replace(/\s/g, '') + '.png').default;
+        this.planetURL = require('../assets/img/' + json_response.name.replace(/\s/g, '') + '.jpg').default;
         this.planet.id = id;
         this.notifyObservers();
     }
@@ -103,11 +103,12 @@ class DashBoardModel {
     setTasks(tasks){this.todoList.tasks = tasks; this.notifyObservers();}
     addTask(task) { if(task && !this.todoList.tasks.includes(task))
                   { this.todoList.tasks = [...this.todoList.tasks, task];}
+        this.notifyObservers();
+    }
 
     setAllCoordinates(coordinates) {this.coordinates = coordinates; this.notifyObservers();}
 
-                    this.notifyObservers();
-    }
+
 
     removeTask(task) { if(this.todoList.tasks.find(t => t === task))
                      { this.todoList.tasks = this.todoList.tasks.filter(t => t !== task);}
