@@ -13,6 +13,7 @@ import {LogPresenter} from "../presenters/siderbarPresenters/logPresenter";
 import PlanetSettings from "../presenters/siderbarPresenters/planetSettings";
 import VisibilitySettings from "../presenters/siderbarPresenters/visibilitySettings";
 import PositionSettingsPresenter from "../presenters/siderbarPresenters/positionSettingPresenter";
+import {EmailPresenter} from "../presenters/siderbarPresenters/emailPresenter"
 
 
 
@@ -31,10 +32,7 @@ function SideBarView (props) {
         </div>
             <br/>
             <div className={'position-static'}>
-            <div className="mt-4 mb-4">
-                <strong >User</strong>
-                <p>hectorgc@kth.se</p>
-            </div>
+           <EmailPresenter  model={props.model}/>
             <div className="mt-4 mb-4">
                 <PositionSettingsPresenter model={props.model}/>
         </div>

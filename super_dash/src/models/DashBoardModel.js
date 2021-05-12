@@ -60,7 +60,7 @@ class DashBoardModel {
         this.notifyObservers();
     }
 
-    setCharacter(json_response){
+    setCharacter(json_response, id){
         // TODO: Make sure it only updates the models if there's an actual character change
 
         this.character = {};
@@ -73,7 +73,7 @@ class DashBoardModel {
         // Measured in BBY and ABY, meaning "Years before/after the destruction of the first Death Star".
         this.character.birth_year = json_response.birth_year;
         this.character.gender = json_response.gender;
-
+        this.character.id = id ;
         // JSON response from Star Wars API
         /* example:
         {"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light",
@@ -94,16 +94,18 @@ class DashBoardModel {
         this.planet.id = id;
         this.notifyObservers();
     }
-    setPlanetId(id){this.planet.id = id;this.notifyObservers();}
     setCoordinates(comp, deltaX, deltaY) {
         this.coordinates[comp].x = this.coordinates[comp].x + deltaX
         this.coordinates[comp].y = this.coordinates[comp].y + deltaY
-
-        return this.coordinates
+        return this.coordinates;
     }
+
     setTasks(tasks){this.todoList.tasks = tasks; this.notifyObservers();}
     addTask(task) { if(task && !this.todoList.tasks.includes(task))
                   { this.todoList.tasks = [...this.todoList.tasks, task];}
+
+    setAllCoordinates(coordinates) {this.coordinates = coordinates; this.notifyObservers();}
+
                     this.notifyObservers();
     }
 

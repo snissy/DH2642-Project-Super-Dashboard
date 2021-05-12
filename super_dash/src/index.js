@@ -3,13 +3,23 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import DashBoardModel from "./models/DashBoardModel";
 import {persistModel} from "./firebase/firebaseModel";
-import {signInWithGoogle} from "./firebase/firebase";
+import {auth, signInWithGoogle} from "./firebase/firebase";
 
 
 const model = new DashBoardModel({name:"Luke Skywalker", height: 20},{name: "Tatooine"}, "Todo")
 
+
+auth().onAuthStateChanged((user) => {
+
+            console.log( user )
+            model.setUser(user)
+            console.log(model.islogged)
+            if(user) persistModel(model);
+});
 /*signInWithGoogle();
 persistModel(model);*/
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App model={model}/>
