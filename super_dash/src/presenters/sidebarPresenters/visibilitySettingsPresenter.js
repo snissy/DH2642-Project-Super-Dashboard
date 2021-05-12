@@ -1,6 +1,5 @@
 import {useState} from "react";
-import '../../css/sidebar.css';
-import PositionSettingsView from "../../views/positionSettingsView";
+import VisibilitySettingsView from "../../views/visibilitySettingsView";
 
 
 function VisibilitySettings(props) {
@@ -49,10 +48,9 @@ function VisibilitySettings(props) {
     // TODO2: In the view we can make the buttons prettier, perhaps update text based on current setting. 
     return (
         <div>
-            <div className="visibilitySettings"><span>Display News:</span><button onClick={()=>updatePreferences("news")}> x </button> </div>
-            <div className="visibilitySettings"><span>Display Weather:</span><button onClick={()=>updatePreferences("weather")}> x</button> </div>
-            <div className="visibilitySettings"><span>Display To-do list:</span><button onClick={()=>updatePreferences("todo")}> x </button> </div>
-            <div className="visibilitySettings"><span>Display Character:</span><button onClick={()=>updatePreferences("character")}> x </button> </div>
+            <VisibilitySettingsView 
+                updatePreferences={updatePreferences}
+            />
         </div>
 
     );
