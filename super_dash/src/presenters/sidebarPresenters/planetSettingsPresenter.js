@@ -1,9 +1,8 @@
-import promiseNoData from "../functionalPresenters/promiseNoDataPresenter"
 import usePromise from "../../customHooks/promiseHook"
 import {useState, useEffect} from "react"
 import SwapiSource from "../../api/starwarsAPI"
-import '../../css/sidebar.css'
-import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
+import CharacterSettingsView from "../../views/characterSettingsView";
+
 
 function PlanetSettings(props) {
     const [promisePlanet, setPromisePlanet] = useState();
@@ -61,13 +60,16 @@ function PlanetSettings(props) {
         }        
     }
     
-    // TODO: CREATE SEPARATE VIEW FOR THIS ACCORDING TO GRADING CRITERIAS?
+    // Reusing the CharacterSettingsView since they have same functionalities.
     return (
-        <div className="planetSettings">
-            <button onClick={()=>updatePlanet(-1)}> <BiLeftArrow/>  </button>
-            {promiseNoData(promisePlanet, data, error, "small") || <span>{planetName}</span> }
-            <button onClick={()=>updatePlanet(1)}> <BiRightArrow/> </button>
-                
+        <div>
+            <CharacterSettingsView 
+                promise={promisePlanet}
+                data={data}
+                error={error}
+                updateCharacter={updatePlanet()}
+                name={planetName}
+            />
         </div>
 
     );
