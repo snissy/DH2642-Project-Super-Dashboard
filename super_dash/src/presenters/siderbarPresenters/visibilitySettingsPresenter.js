@@ -1,5 +1,6 @@
-import {useState} from "react"
-import '../../css/sidebar.css'
+import {useState} from "react";
+import '../../css/sidebar.css';
+import PositionSettingsView from "../../views/positionSettingsView";
 
 
 function VisibilitySettings(props) {

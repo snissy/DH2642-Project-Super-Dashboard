@@ -2,8 +2,7 @@ import promiseNoData from "../functionalPresenters/promiseNoDataPresenter"
 import usePromise from "../../customHooks/promiseHook"
 import {useState, useEffect} from "react"
 import SwapiSource from "../../api/starwarsAPI"
-import '../../css/sidebar.css'
-import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
+import CharacterSettingsView from "../../views/characterSettingsView";
 
 function CharacterSettings(props) {
     const [promiseCharacter, setPromiseCharacter] = useState();
@@ -86,13 +85,11 @@ function CharacterSettings(props) {
         }        
     }
     
-    // TODO: CREATE SEPARATE VIEW FOR THIS ACCORDING TO GRADING CRITERIAS?
     return (
         <div className="characterSettings">
             <button onClick={()=>updateCharacter(-1)}> <BiLeftArrow/>  </button>
             {promiseNoData(promiseCharacter, data, error, "small") || <span>{characterName}</span> }
             <button onClick={()=>updateCharacter(1)}> <BiRightArrow/> </button>
-                
         </div>
 
     );
