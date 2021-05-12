@@ -67,7 +67,7 @@ function PlanetSettings(props) {
                 promise={promisePlanet}
                 data={data}
                 error={error}
-                updateCharacter={updatePlanet()}
+                updateCharacter={updatePlanet}
                 name={planetName}
             />
         </div>

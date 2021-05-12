@@ -90,7 +90,7 @@ function CharacterSettings(props) {
                 promise={promiseCharacter}
                 data={data}
                 error={error}
-                updateCharacter={updateCharacter()}
+                updateCharacter={updateCharacter}
                 name={characterName}
             />
         </div>

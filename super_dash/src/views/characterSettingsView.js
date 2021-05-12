@@ -1,5 +1,5 @@
-import '../../css/sidebar.css';
-import promiseNoData from "../functionalPresenters/promiseNoDataPresenter";
+import '../css/sidebar.css';
+import promiseNoData from "../presenters/functionalPresenters/promiseNoDataPresenter";
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 
 function CharacterSettingsView(props) {

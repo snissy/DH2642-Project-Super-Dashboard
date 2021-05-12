@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "react-sidebar";
-import CharacterSettings from "../presenters/siderbarPresenters/characterSettings"
+import CharacterSettingsPresenter from "../presenters/sidebarPresenters/characterSettingsPresenter"
 import SettingIcon from "../resources/setting-icon.png";
 import AppsIcon from "../resources/Apps-Google-Chrome-App-List-icon.png";
 import ChromeIcon from "../resources/chrome.png"
@@ -9,11 +9,11 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
-import {LogPresenter} from "../presenters/siderbarPresenters/logPresenter";
-import PlanetSettings from "../presenters/siderbarPresenters/planetSettings";
-import VisibilitySettings from "../presenters/siderbarPresenters/visibilitySettings";
-import PositionSettingsPresenter from "../presenters/siderbarPresenters/positionSettingPresenter";
-import {EmailPresenter} from "../presenters/siderbarPresenters/emailPresenter"
+import {LogPresenter} from "../presenters/sidebarPresenters/logPresenter";
+import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSettingsPresenter";
+import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibilitySettingsPresenter";
+import PositionSettingsPresenter from "../presenters/sidebarPresenters/positionSettingPresenter";
+import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
 
 
 
@@ -38,16 +38,16 @@ function SideBarView (props) {
         </div>
             <div className="mt-4 mb-4">
             <strong>Planet</strong>
-            <PlanetSettings model={props.model}/>
+            <PlanetSettingsPresenter model={props.model}/>
         </div>
             <div className="mt-4 mb-4">
             <strong>Character</strong>
-            <CharacterSettings model={props.model}/>
+            <CharacterSettingsPresenter model={props.model}/>
         </div>
         </div>
 
         <LogPresenter   model={props.model}/>
-        <VisibilitySettings   model={props.model}/>
+        <VisibilitySettingsPresenter model={props.model}/>
 
     </div>]
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoPresenter from "./presenters/dashboardPresenters/todoPresenter";
-import SideBarPresenter from "./presenters/siderbarPresenters/sidebarPresenter";
+import SideBarPresenter from "./presenters/sidebarPresenters/sidebarPresenter";
 import SearchBarPresenter from "./presenters/dashboardPresenters/searchBarPresenter";
 import WeatherPresenter from "./presenters/dashboardPresenters/weatherPresenter";
 import CharacterDashPresenter from "./presenters/dashboardPresenters/characterDashPresenter";
