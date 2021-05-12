@@ -8,6 +8,7 @@ export function persistModel(model) {
             if (loadingFromFirebase) return
             if(!model.islogged) return
             else {
+                console.log("fire")
                 firebase.database().ref("users/" + uid + "/dashboardModel").set({
                     //planet: model.planet,
                     character: model.character,

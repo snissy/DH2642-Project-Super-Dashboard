@@ -7,7 +7,7 @@ import WeatherPresenter from "./presenters/dashboardPresenters/weatherPresenter"
 import CharacterDashPresenter from "./presenters/dashboardPresenters/characterDashPresenter";
 import NewsPresenter from "./presenters/dashboardPresenters/newsPresenter";
 import Visible from "./presenters/functionalPresenters/visibilityPresenter";
-import ClockPresenter from "./presenters/dashboardPresenters/clockPresenter"
+import ClockPresenter from "./presenters/dashboardPresenters/clockPresenter";
 import './css/App.css';
 import './css/weatherView.css';
 import './css/newsView.css';
@@ -22,7 +22,7 @@ function App(props) {
 
     // Tracks the position of a component, updates the model and state
     const trackPosition = (data, component) => {
-        let newCoordinates = props.model.setCoordinates(component, data.deltaX, data.deltaY)
+        let newCoordinates = props.model.setCoordinates(component, data.x, data.y)
         setCoordinates(newCoordinates);
     }
 
@@ -30,9 +30,17 @@ function App(props) {
 
     React.useEffect( function () {
         function backgroundObserver() {setPlanetURL(props.model.planetURL)}
+
+        function coordinatesObserver(){
+            setCoordinates(props.model.coordinates)
+        }
+
         props.model.addObserver(backgroundObserver)
+        props.model.addObserver(coordinatesObserver)
 
         }
+        // Todo: Return statement to demount observers (if needed?)
+
         ,[]);
 
     return (
@@ -52,23 +60,24 @@ function App(props) {
                 <div id={'CharacterDash'}><CharacterDashPresenter model={props.model}/></div>
             </Visible>
             <Visible model={props.model} component="showTodo">
-                <Draggable onDrag={(e, data) => {trackPosition(data, "todo");}}
-                            positionOffset={{x: props.model.coordinates.todo.x, y: props.model.coordinates.todo.y }}>
+                <Draggable onStop={(e, data) => {trackPosition(data, "todo");}}
+                            positionOffset={{x: currentCoordinates.todo.x, y: currentCoordinates.todo.y }}>
                     <div id={'Todo-list'}>
                         <TodoPresenter model={props.model}/>
                     </div>
                 </Draggable>
             </Visible>
             <Visible model={props.model} component="showWeather">
-                <Draggable onDrag={(e, data) => {trackPosition(data, "weather");}}
-                           positionOffset={{x: props.model.coordinates.weather.x, y: props.model.coordinates.weather.y}}>
+                <Draggable onStop={(e, data) => {trackPosition(data, "weather");}}
+                           positionOffset={{x: currentCoordinates.weather.x, y: currentCoordinates.weather.y}}>
                     <div id={'Weather'}>
                         <WeatherPresenter model = {props.model}/>
                     </div>
                 </Draggable>
             </Visible>
             <Visible model={props.model} component="showNews">
-                <Draggable>
+                <Draggable onStop={(e, data) => {trackPosition(data, "news");}}
+                           positionOffset={{x: currentCoordinates.news.x, y: currentCoordinates.news.y}}>
                     <div id={'newsPresenter'}>
                         <NewsPresenter/>
                     </div>
