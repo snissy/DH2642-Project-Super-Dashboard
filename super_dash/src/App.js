@@ -13,6 +13,7 @@ import './css/weatherView.css';
 import './css/newsView.css';
 import './css/todoList.css';
 import Draggable from 'react-draggable';
+import Loading from "./assets/img/Loading.png"
 
 
 function App(props) {
@@ -27,6 +28,13 @@ function App(props) {
     }
 
     const [planetURL, setPlanetURL] = React.useState(props.model.planetURL)
+    const [ spinner, setSpinner ] = React.useState(true);
+
+    // It will be executed before rendering
+
+
+    // [] means like componentDidMount
+
 
     React.useEffect( function () {
         function backgroundObserver() {setPlanetURL(props.model.planetURL)}
@@ -35,6 +43,8 @@ function App(props) {
             setCoordinates(props.model.coordinates)
         }
 
+        setTimeout(() => setSpinner(false), 1800)
+
         props.model.addObserver(backgroundObserver)
         props.model.addObserver(coordinatesObserver)
 
@@ -42,7 +52,7 @@ function App(props) {
         // Todo: Return statement to demount observers (if needed?)
 
         ,[]);
-
+    if (spinner) return( <div><img src={Loading} className={'bg'}/> <div className={'loader'}></div></div>)
     return (
         <div className={'App'} style={{backgroundImage: `url(${planetURL})`}}>
 
