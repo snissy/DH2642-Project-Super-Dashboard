@@ -1,5 +1,5 @@
-import {useState} from "react"
-import '../../css/sidebar.css'
+import {useState} from "react";
+import VisibilitySettingsView from "../../views/visibilitySettingsView";
 
 
 function VisibilitySettings(props) {
@@ -44,14 +44,28 @@ function VisibilitySettings(props) {
         )
     }
 
-    // TODO: CREATE SEPARATE VIEW, EXACTLY LIKE CHARACTER & PLANET SETTINGS
-    // TODO2: In the view we can make the buttons prettier, perhaps update text based on current setting. 
+    let newsButtonState = "Hide";
+    let weatherButtonState = "Hide";
+    let todoButtonState = "Hide";
+    let characterButtonState = "Hide";
+    if (!newsVisibility)
+        newsButtonState = "Show";
+    if (!weatherVisibility)
+        weatherButtonState = "Show";
+    if (!todoVisibility)
+        todoButtonState = "Show";
+    if (!characterVisibility)
+        characterButtonState = "Show";
+
     return (
         <div>
-            <div className="visibilitySettings"><span>Display News:</span><button onClick={()=>updatePreferences("news")}> x </button> </div>
-            <div className="visibilitySettings"><span>Display Weather:</span><button onClick={()=>updatePreferences("weather")}> x</button> </div>
-            <div className="visibilitySettings"><span>Display To-do list:</span><button onClick={()=>updatePreferences("todo")}> x </button> </div>
-            <div className="visibilitySettings"><span>Display Character:</span><button onClick={()=>updatePreferences("character")}> x </button> </div>
+            <VisibilitySettingsView 
+                updatePreferences={updatePreferences}
+                news={newsButtonState}
+                weather={weatherButtonState}
+                todo={todoButtonState}
+                character={characterButtonState}
+            />
         </div>
 
     );

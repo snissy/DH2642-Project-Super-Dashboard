@@ -27,7 +27,7 @@ function CharacterDashPresenter(props) {
 
      // handler for when the information icon is clicked
     function infoClick(event){
-        console.log("infoClick")
+
         if (visibleInfoClass === "hidden"){
             setVisibleInfoClass("")
         }
