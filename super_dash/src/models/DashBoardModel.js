@@ -31,6 +31,10 @@ class DashBoardModel {
             weather: {
                 x:0,
                 y:0
+            },
+            news:{
+                x:0,
+                y:0
             }
         }
         this.user = null;
@@ -95,8 +99,15 @@ class DashBoardModel {
         this.notifyObservers();
     }
     setCoordinates(comp, deltaX, deltaY) {
-        this.coordinates[comp].x = this.coordinates[comp].x + deltaX
-        this.coordinates[comp].y = this.coordinates[comp].y + deltaY
+        // delatX and deltaY are change in offset, thus we increase the amount of offset
+        console.log("Adding deltaX=" + deltaX)
+        console.log("Adding deltaY=" + deltaY)
+
+        this.coordinates[comp].x = this.coordinates[comp].x + deltaX;
+        this.coordinates[comp].y = this.coordinates[comp].y + deltaY;
+
+        // We call observers to update
+        this.notifyObservers();
         return this.coordinates;
     }
 
