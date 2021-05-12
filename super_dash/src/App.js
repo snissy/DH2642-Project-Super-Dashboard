@@ -18,12 +18,17 @@ import Draggable from 'react-draggable';
 function App(props) {
 
     // Coordinates for all draggable components are use as state
-    const [currentCoordinates, setCoordinates] = React.useState(props.model.coordinates);
+
+    // Offset, relative positioning compared to start positioning, start at x=0, y=0 from model constructor. 
+    const [relativeCoordinates, setRelativeCoordinates] = React.useState(props.model.coordinates);
 
     // Tracks the position of a component, updates the model and state
+
+    // Update the component offset in model when a component is dragged.
+    // data contains the offset changes in x and y 
     const trackPosition = (data, component) => {
-        let newCoordinates = props.model.setCoordinates(component, data.x, data.y)
-        setCoordinates(newCoordinates);
+        console.log("Track position: data.x=" + data.x +" data.y=" + data.y);
+        props.model.setCoordinates(component, data.x, data.y)
     }
 
     const [planetURL, setPlanetURL] = React.useState(props.model.planetURL)
@@ -32,7 +37,7 @@ function App(props) {
         function backgroundObserver() {setPlanetURL(props.model.planetURL)}
 
         function coordinatesObserver(){
-            setCoordinates(props.model.coordinates)
+            setRelativeCoordinates(props.model.coordinates)
         }
 
         props.model.addObserver(backgroundObserver)
@@ -61,7 +66,8 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showTodo">
                 <Draggable onStop={(e, data) => {trackPosition(data, "todo");}}
-                            positionOffset={{x: currentCoordinates.todo.x, y: currentCoordinates.todo.y }}>
+                            positionOffset={{x: relativeCoordinates.todo.x, y: relativeCoordinates.todo.y }}
+                            >
                     <div id={'Todo-list'}>
                         <TodoPresenter model={props.model}/>
                     </div>
@@ -69,7 +75,7 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showWeather">
                 <Draggable onStop={(e, data) => {trackPosition(data, "weather");}}
-                           positionOffset={{x: currentCoordinates.weather.x, y: currentCoordinates.weather.y}}>
+                           positionOffset={{x: relativeCoordinates.weather.x, y: relativeCoordinates.weather.y}}>
                     <div id={'Weather'}>
                         <WeatherPresenter model = {props.model}/>
                     </div>
@@ -77,7 +83,7 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showNews">
                 <Draggable onStop={(e, data) => {trackPosition(data, "news");}}
-                           positionOffset={{x: currentCoordinates.news.x, y: currentCoordinates.news.y}}>
+                           positionOffset={{x: relativeCoordinates.news.x, y: relativeCoordinates.news.y}}>
                     <div id={'newsPresenter'}>
                         <NewsPresenter/>
                     </div>
