@@ -1,7 +1,6 @@
-import promiseNoData from "../functionalPresenters/promiseNoDataPresenter"
-import usePromise from "../../customHooks/promiseHook"
-import {useState, useEffect} from "react"
-import SwapiSource from "../../api/starwarsAPI"
+import usePromise from "../../customHooks/promiseHook";
+import {useState, useEffect} from "react";
+import SwapiSource from "../../api/starwarsAPI";
 import CharacterSettingsView from "../../views/characterSettingsView";
 
 function CharacterSettings(props) {
@@ -86,12 +85,15 @@ function CharacterSettings(props) {
     }
     
     return (
-        <div className="characterSettings">
-            <button onClick={()=>updateCharacter(-1)}> <BiLeftArrow/>  </button>
-            {promiseNoData(promiseCharacter, data, error, "small") || <span>{characterName}</span> }
-            <button onClick={()=>updateCharacter(1)}> <BiRightArrow/> </button>
+        <div>
+            <CharacterSettingsView 
+                promise={promiseCharacter}
+                data={data}
+                error={error}
+                updateCharacter={updateCharacter()}
+                name={characterName}
+            />
         </div>
-
     );
 }
 
