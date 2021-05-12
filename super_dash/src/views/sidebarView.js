@@ -14,6 +14,7 @@ import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSetti
 import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibilitySettingsPresenter";
 import PositionSettingsPresenter from "../presenters/sidebarPresenters/positionSettingPresenter";
 import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
+import '../css/sidebar.css';
 
 
 
@@ -99,7 +100,7 @@ function SideBarView (props) {
 
 
     return (
-        <div >
+        <div className="spinImage">
             <Sidebar
                 sidebar={props.content}
                 open={props.open}
@@ -109,7 +110,7 @@ function SideBarView (props) {
             >
 
                 <img onClick={() =>{props.setopen(true); props.setcontent(settingContent);} } src={SettingIcon} height="75px" style={{ cursor: 'pointer'}} className="float-right m-1" alt={'cogwheel icon'}/>
-                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className=" float-right m-1" alt={'Google Apps'}/>
+                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className="float-right m-1" alt={'Google Apps'}/>
 
             </Sidebar>
 

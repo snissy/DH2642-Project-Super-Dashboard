@@ -24,3 +24,10 @@
 .visibilitySettings button{
     margin-right: 10%;
 }
+
+.spinImage img {
+    transition: transform .4s ease-in-out;
+}
+.spinImage img:hover {
+    transform: rotate(90deg);
+}
