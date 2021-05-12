@@ -8,7 +8,7 @@ import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 function CharacterSettings(props) {
     const [promiseCharacter, setPromiseCharacter] = useState();
     
-    const [characterId, setCharacterId] = useState(1);
+    const [characterId, setCharacterId] = useState(props.model.character.id);
 
     const [characterName, setCharacterName] = useState(props.model.character.name);
 
@@ -29,7 +29,7 @@ function CharacterSettings(props) {
         props.model.addObserver(characterObserver);
 
         // Initial fetch on component creation
-        setPromiseCharacter(SwapiSource.getSwapiDetails("people", 1));
+        setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId));
 
         return function(){
             props.model.removeObserver(characterObserver);

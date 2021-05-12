@@ -13,14 +13,7 @@ export function LogPresenter(props){
     const [pending, setPending] =  React.useState(true);
     //??? Observer added but not sure if it is necessary
     React.useEffect(function () {
-        auth().onAuthStateChanged((user) => {
 
-            console.log( user )
-            props.model.setUser(user)
-            setLog(props.model.islogged)
-            setPending(false)
-            if(user) persistModel(props.model);
-        });
         props.model.addObserver(()=> setLog(props.model.islogged))
         return props.model.removeObserver(()=> setLog(props.model.islogged))
     }, [])
@@ -38,7 +31,7 @@ export function LogPresenter(props){
         //method from fireabse to logout
         logOut();
     }
-    if (pending) return <> Loading...</>
+    //if (pending) return <> Loading...</>
     return(
 
         <Log    islogged ={islogged}
