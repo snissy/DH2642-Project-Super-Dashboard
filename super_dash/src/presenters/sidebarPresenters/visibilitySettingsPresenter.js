@@ -44,12 +44,27 @@ function VisibilitySettings(props) {
         )
     }
 
-    // TODO: CREATE SEPARATE VIEW, EXACTLY LIKE CHARACTER & PLANET SETTINGS
-    // TODO2: In the view we can make the buttons prettier, perhaps update text based on current setting. 
+    let newsButtonState = "Hide";
+    let weatherButtonState = "Hide";
+    let todoButtonState = "Hide";
+    let characterButtonState = "Hide";
+    if (!newsVisibility)
+        newsButtonState = "Show";
+    if (!weatherVisibility)
+        weatherButtonState = "Show";
+    if (!todoVisibility)
+        todoButtonState = "Show";
+    if (!characterVisibility)
+        characterButtonState = "Show";
+
     return (
         <div>
             <VisibilitySettingsView 
                 updatePreferences={updatePreferences}
+                news={newsButtonState}
+                weather={weatherButtonState}
+                todo={todoButtonState}
+                character={characterButtonState}
             />
         </div>
 
