@@ -111,14 +111,12 @@ class DashBoardModel {
         return this.coordinates;
     }
 
-    setTasks(tasks){this.todoList.tasks = tasks; this.notifyObservers();}
+    setTasks(tasks, checkedTasks){this.todoList.tasks = tasks; this.todoList.checkedTasks = checkedTasks; this.notifyObservers();}
     addTask(task) { if(task && !this.todoList.tasks.includes(task))
                   { this.todoList.tasks = [...this.todoList.tasks, task];}
-
-    setAllCoordinates(coordinates) {this.coordinates = coordinates; this.notifyObservers();}
-
                     this.notifyObservers();
     }
+    setAllCoordinates(coordinates) {this.coordinates = coordinates; this.notifyObservers();}
 
     removeTask(task) { if(this.todoList.tasks.find(t => t === task))
                      { this.todoList.tasks = this.todoList.tasks.filter(t => t !== task);}
@@ -160,7 +158,7 @@ class DashBoardModel {
     removeObserver(callback) {
         this.observers = this.observers.filter(obs => obs !== callback)
     }
-
+    setTodoList(todoList){this.todoList = todoList; this.notifyObservers();}
     notifyObservers() {
         this.observers.forEach(callback => {
                 try {
