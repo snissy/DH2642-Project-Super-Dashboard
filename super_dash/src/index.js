@@ -16,8 +16,7 @@ auth().onAuthStateChanged((user) => {
             console.log(model.islogged)
             if(user) persistModel(model);
 });
-/*signInWithGoogle();
-persistModel(model);*/
+
 
 
 ReactDOM.render(
