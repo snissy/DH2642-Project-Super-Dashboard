@@ -10,7 +10,7 @@ const model = new DashBoardModel(['Destroy Deathstar', 'Kill Vader', 'Buy new Li
 
 
 auth().onAuthStateChanged((user) => {
-
+            
             console.log( user )
             model.setUser(user)
             console.log(model.islogged)
