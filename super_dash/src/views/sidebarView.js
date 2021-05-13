@@ -27,30 +27,28 @@ function SideBarView (props) {
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
-        <div >
-        <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-            <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
-        </div>
+        <div>
+            <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
+                <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
+            </div>
+            <LogPresenter model={props.model}/>
             <br/>
             <div className={'position-static'}>
-           <EmailPresenter  model={props.model}/>
-            <div className="mt-4 mb-4">
-                <PositionSettingsPresenter model={props.model}/>
-        </div>
-            <div className="mt-4 mb-4">
-            <strong>Planet</strong>
-            <PlanetSettingsPresenter model={props.model}/>
-        </div>
-            <div className="mt-4 mb-4">
-            <strong>Character</strong>
-            <CharacterSettingsPresenter model={props.model}/>
-        </div>
-        </div>
-
-        <LogPresenter   model={props.model}/>
-        <VisibilitySettingsPresenter model={props.model}/>
-
-    </div>]
+                <EmailPresenter  model={props.model}/>
+                <div className="mt-4 mb-4">
+                    <PositionSettingsPresenter model={props.model}/>
+                </div>
+                <div className="mt-4 mb-4">
+                    <strong>Planet</strong>
+                    <PlanetSettingsPresenter model={props.model}/>
+                </div>
+                <div className="mt-4 mb-4">
+                    <strong>Character</strong>
+                    <CharacterSettingsPresenter model={props.model}/>
+                </div>
+            </div>
+            <VisibilitySettingsPresenter model={props.model}/>
+        </div>]
 
     //Html Content inside the sidebar for GoogleApps Button
     const appsContent = [
