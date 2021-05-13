@@ -24,6 +24,13 @@
 .visibilitySettings button{
     margin-right: 10%;
 }
+strong, p, span{
+    color: #dae0e5;
+}
+#close-button {
+    background: transparent;
+    border-color: transparent;
+}
 
 .spinImage img {
     transition: transform .4s ease-in-out;

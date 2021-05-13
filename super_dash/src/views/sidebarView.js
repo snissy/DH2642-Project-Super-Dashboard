@@ -9,6 +9,7 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {LogPresenter} from "../presenters/sidebarPresenters/logPresenter";
 import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSettingsPresenter";
 import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibilitySettingsPresenter";
@@ -22,14 +23,14 @@ import '../css/sidebar.css';
 
 function SideBarView (props) {
     //React stles for the React-Sidebar component
-    const styles = { sidebar: { background: "white" , width: 500},
+    const styles = { sidebar: { background: "#343A40" , width: "30%" , minWidth: 400},
         root:{ textAlign: "center"} }
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
         <div >
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-            <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
+            <Button type={"button"} className={"close"} id={"close-button"} aria-label={"Close"} onClick={() => props.setopen(false)}><span aria-hidden="true">&times;</span></Button>
         </div>
             <br/>
             <div className={'position-static'}>
