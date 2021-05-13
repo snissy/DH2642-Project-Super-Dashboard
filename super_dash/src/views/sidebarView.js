@@ -9,6 +9,7 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
+import { MDBCloseIcon } from "mdbreact"
 import {LogPresenter} from "../presenters/sidebarPresenters/logPresenter";
 import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSettingsPresenter";
 import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibilitySettingsPresenter";
@@ -30,7 +31,7 @@ function SideBarView (props) {
     const settingContent = [
         <div >
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-            <Button type="button" class="close" aria-label="Close" onClick={() => props.setopen(false)}><span aria-hidden="true">&times;</span></Button>
+            <Button id={"close-button"} type="button" onClick={() => props.setopen(false)}><MDBCloseIcon/></Button>
         </div>
             <br/>
             <div className={'position-static'}>
@@ -56,7 +57,7 @@ function SideBarView (props) {
     //Html Content inside the sidebar for GoogleApps Button
     const appsContent = [
 <div>
-    <Button variant="danger" onClick={() => props.setopen(false)} className={'float-left m-3'}>X</Button>
+    <Button id={"close-button"} onClick={() => props.setopen(false)} className={'float-left m-3'}><MDBCloseIcon/></Button>
        <br/>
         <div className="row" >
 

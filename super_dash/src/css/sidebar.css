@@ -36,6 +36,11 @@
 p, strong, span {
     color: #dae0e5;
 }
+#close-button {
+    background: transparent;
+    border: none;
+}
+
 .settings {
     background: transparent;
     border-color: transparent;
