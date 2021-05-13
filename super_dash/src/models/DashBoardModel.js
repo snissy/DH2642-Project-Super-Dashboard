@@ -31,6 +31,10 @@ class DashBoardModel {
             weather: {
                 x:0,
                 y:0
+            },
+            news:{
+                x:0,
+                y:0
             }
         }
         this.user = null;
@@ -95,20 +99,25 @@ class DashBoardModel {
         this.notifyObservers();
     }
     setCoordinates(comp, deltaX, deltaY) {
-        this.coordinates[comp].x = this.coordinates[comp].x + deltaX
-        this.coordinates[comp].y = this.coordinates[comp].y + deltaY
+        // delatX and deltaY are change in offset, thus we increase the amount of offset
+        console.log("Adding deltaX=" + deltaX)
+        console.log("Adding deltaY=" + deltaY)
+
+        this.coordinates[comp].x = this.coordinates[comp].x + deltaX;
+        this.coordinates[comp].y = this.coordinates[comp].y + deltaY;
+
+        // We call observers to update
+        this.notifyObservers();
         return this.coordinates;
     }
 
-    setTasks(tasks){this.todoList.tasks = tasks; this.notifyObservers();}
+    setTasks(tasks, checkedTasks){this.todoList.tasks = tasks; this.todoList.checkedTasks = checkedTasks; this.notifyObservers();}
     addTask(task) { if(task && !this.todoList.tasks.includes(task))
                   { this.todoList.tasks = [...this.todoList.tasks, task];}
         this.notifyObservers();
     }
 
     setAllCoordinates(coordinates) {this.coordinates = coordinates; this.notifyObservers();}
-
-
 
     removeTask(task) { if(this.todoList.tasks.find(t => t === task))
                      { this.todoList.tasks = this.todoList.tasks.filter(t => t !== task);}
@@ -150,7 +159,7 @@ class DashBoardModel {
     removeObserver(callback) {
         this.observers = this.observers.filter(obs => obs !== callback)
     }
-
+    setTodoList(todoList){this.todoList = todoList; this.notifyObservers();}
     notifyObservers() {
         this.observers.forEach(callback => {
                 try {
