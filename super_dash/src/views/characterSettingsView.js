@@ -6,9 +6,9 @@ function CharacterSettingsView(props) {
 
     return (
             <div className="characterSettings">
-                <button onClick={()=>props.updateCharacter(-1)}> <BiLeftArrow/>  </button>
+                <button className={"settings"} onClick={()=>props.updateCharacter(-1)}> <BiLeftArrow/>  </button>
                 {promiseNoData(props.promise, props.data, props.error, "small") || <span>{props.name}</span> }
-                <button onClick={()=>props.updateCharacter(1)}> <BiRightArrow/> </button>           
+                <button className={"settings"} onClick={()=>props.updateCharacter(1)}> <BiRightArrow/> </button>
             </div>
     );
 }

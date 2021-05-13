@@ -15,6 +15,7 @@ import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibil
 import PositionSettingsPresenter from "../presenters/sidebarPresenters/positionSettingPresenter";
 import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
 import '../css/sidebar.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -29,7 +30,7 @@ function SideBarView (props) {
     const settingContent = [
         <div >
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-            <Button onClick={() => props.setopen(false)} >X</Button>
+            <Button type="button" class="close" aria-label="Close" onClick={() => props.setopen(false)}><span aria-hidden="true">&times;</span></Button>
         </div>
             <br/>
             <div className={'position-static'}>
