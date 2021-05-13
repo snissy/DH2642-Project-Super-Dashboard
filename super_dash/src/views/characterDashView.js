@@ -24,7 +24,7 @@ function CharacterDashView(props) {
                         
                     </div>
                     <div className="frameAbsolute">
-                        <img src={require('../assets/svg/characterIcons/characterFrame.png').default} alt=""/>
+                        <img src={require('../assets/svg/characterIcons/characterFrame.png').default} alt="" draggable="false"/>
                         
                     </div>
                     <span className="infoIcon" onClick={e=>props.infoClick(e)}>
