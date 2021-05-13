@@ -1,0 +1,15 @@
+#search-field {
+    background-color: #343a40;
+    border-color: #F9D71C;
+    border-width: 1px;
+    color: #dae0e5;
+}
+#search-button {
+    background-color: #343a40;
+    border-color: #F9D71C;
+    border-width: 1px;
+    color: black;
+}
+#icon:hover {
+    transform: scale3d(1.4, 1.4, 1.4);
+}
