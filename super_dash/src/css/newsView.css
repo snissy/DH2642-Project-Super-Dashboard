@@ -64,9 +64,7 @@
 .extended-newsView {
     width:290px;
     height:200px;
-    box-shadow: 0 2px 10px #aaa9a9;
     opacity: 1;
-
     position: absolute;
     transition: all 0.4s ease-out;
 }
