@@ -23,9 +23,7 @@
     padding-right: 5px;
     padding-bottom: 5px;
     justify-content: center;
-    top: 40%;
-    margin-bottom: 175px;
-    left: 10%;
+   
 }
 @font-face {
     font-family: sw;
@@ -59,9 +57,7 @@ h2 {
     padding-right: 10px;
     padding-bottom: 10px;
     justify-content: center;
-    top: 50%;
-    left: 50%;
-    margin-left: -150px;
+   
 }
 #CharacterDash{
     position: fixed;

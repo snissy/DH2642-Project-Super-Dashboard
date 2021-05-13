@@ -76,6 +76,7 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showTodo">
                 <Draggable onStop={(e, data) => {trackPosition(data, "todo");}}
+                            //defaultPosition = {{x: 100, y: 0}} 
                             positionOffset={{x: relativeCoordinates.todo.x, y: relativeCoordinates.todo.y }}
                             >
                     <div id={'Todo-list'}>
@@ -85,7 +86,9 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showWeather">
                 <Draggable onStop={(e, data) => {trackPosition(data, "weather");}}
-                           positionOffset={{x: relativeCoordinates.weather.x, y: relativeCoordinates.weather.y}}>
+                           //defaultPosition = {{x: 800, y: 0}} 
+                           positionOffset={{x: relativeCoordinates.weather.x, y: relativeCoordinates.weather.y}}
+                           >
                     <div id={'Weather'}>
                         <WeatherPresenter model = {props.model}/>
                     </div>
@@ -93,7 +96,9 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showNews">
                 <Draggable onStop={(e, data) => {trackPosition(data, "news");}}
-                           positionOffset={{x: relativeCoordinates.news.x, y: relativeCoordinates.news.y}}>
+                           positionOffset={{x: relativeCoordinates.news.x, y: relativeCoordinates.news.y}}
+                           //defaultPosition = {{x: 0, y: 300}} 
+                           >
                     <div id={'newsPresenter'}>
                         <NewsPresenter/>
                     </div>

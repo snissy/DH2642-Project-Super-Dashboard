@@ -11,7 +11,7 @@ class DashBoardModel {
         this.character.id = 1;   // not used atm. but probably needed to do the correct api call on reload
 
         this.planet = plan;
-        this.planetURL = require('../assets/img/'+ plan.name.replace(/\s/g, '') + '.png').default;
+        this.planetURL = require('../assets/img/'+ plan.name.replace(/\s/g, '') + '.jpg').default;
         this.planet.id = 1;      // not used atm. but probably needed to do the correct api call on reload
 
 
