@@ -22,14 +22,14 @@ import '../css/sidebar.css';
 
 function SideBarView (props) {
     //React stles for the React-Sidebar component
-    const styles = { sidebar: { background: "white" , width: 500},
+    const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"},
         root:{ textAlign: "center"} }
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
         <div >
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-            <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
+            <Button onClick={() => props.setopen(false)} >X</Button>
         </div>
             <br/>
             <div className={'position-static'}>
