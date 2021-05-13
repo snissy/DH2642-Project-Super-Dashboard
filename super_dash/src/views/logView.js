@@ -8,9 +8,9 @@ export function Log(props){
     if(!props.islogged){
 
         return ( <div className="login-buttons">
-            <button className="login-provider-button btn btn-info" onClick={props.login}>
+            <button className="login-provider-button btn btn-success" onClick={props.login}>
                 <img src={Gicon} alt="google icon"/>
-                <span> Sign In</span>
+                Sign In
             </button>
         </div>)
     }
@@ -19,12 +19,12 @@ export function Log(props){
 
      <div className="logout-buttons">
 
-         <button className="logout-provider-button btn btn-info" onClick={props.logout}>
+         <button className="logout-provider-button btn btn-warning" onClick={props.logout}>
             <img
                 src={Gicon}
                 alt="google icon"
             />
-            <span> Log Out</span>
+           Log Out
          </button>
      </div>
     )

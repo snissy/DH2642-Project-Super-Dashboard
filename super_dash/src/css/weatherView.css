@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-around;
     background-color: #343A40;
-    border: 3px solid #7A9FB8;
     border-radius: 10px;
     width: 260px;
     height: 130px;
@@ -66,7 +65,6 @@
 }
 .weather-dayCard{
     background-color: #343a40;
-    border:3px solid #7a9fb8;
     border-radius: 10px;
     width: 83px;
     height: 80px;

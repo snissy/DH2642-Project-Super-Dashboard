@@ -12,6 +12,7 @@ import './css/App.css';
 import './css/weatherView.css';
 import './css/newsView.css';
 import './css/todoList.css';
+import './css/noCoordinates.css'
 import Draggable from 'react-draggable';
 import Loading from "./assets/img/Loading.png"
 

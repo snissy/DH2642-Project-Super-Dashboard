@@ -22,12 +22,12 @@ function NewsPresenter(props){
 
     return(promiseNoData(promise, data , error) ||
         <div className="newsPresenter">
-            <ExtendedNewsView isHidden = {askedDetails ? "": "hidden"}
+            <ExtendedNewsView isHidden = {askedDetails ? "": "active"}
                               newsItem = {data.articles[detailedNews]}
                               goBack={() => {setAskedDetails(false)}}
                               goToOmni={(newsLink)=>{window.open(newsLink, '_blank').focus();}}/>
 
-            <NewsView isHidden = {!askedDetails ? "": "hidden"}
+            <NewsView isHidden = {!askedDetails ? "": "active"}
                       newsItems={data}
                       askedNewsItem={itemIndex =>{
                           setAskedDetails(true);
