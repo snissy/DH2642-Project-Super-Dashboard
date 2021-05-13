@@ -18,7 +18,7 @@
 #Todo-list {
     position: fixed;
     height: auto;
-    width: 300px;
+    width: 270px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
@@ -35,7 +35,7 @@
 h2 {
     font-family: sw, serif;
     position: fixed;
-    font-size: 80px;
+    font-size: 60px;
     width: 100%;
     margin-top: 20px;
     text-align: center;
@@ -48,7 +48,7 @@ h2 {
     top: 20%;
 }
 #Clock h1{
-    font-size: 100px;
+    font-size: 70px;
 }
 
 #Weather {
