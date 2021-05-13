@@ -100,11 +100,10 @@ class DashBoardModel {
     }
     setCoordinates(comp, deltaX, deltaY) {
         // delatX and deltaY are change in offset, thus we increase the amount of offset
-        console.log("Adding deltaX=" + deltaX)
-        console.log("Adding deltaY=" + deltaY)
-
         this.coordinates[comp].x = this.coordinates[comp].x + deltaX;
         this.coordinates[comp].y = this.coordinates[comp].y + deltaY;
+        console.log("model.setCoordinates: deltaX=" + deltaX + " this.coordinates[comp].x=" + this.coordinates[comp].x)
+        console.log("model.setCoordinates: deltaY=" + deltaY + " this.coordinates[comp].y=" + this.coordinates[comp].y)
 
         // We call observers to update
         this.notifyObservers();
@@ -117,7 +116,12 @@ class DashBoardModel {
         this.notifyObservers();
     }
 
-    setAllCoordinates(coordinates) {this.coordinates = coordinates; this.notifyObservers();}
+    setAllCoordinates(coordinates){
+        console.log("setAllCoordinates: ")
+        console.log(coordinates)
+        this.coordinates = coordinates; 
+        this.notifyObservers();
+    }
 
     removeTask(task) { if(this.todoList.tasks.find(t => t === task))
                      { this.todoList.tasks = this.todoList.tasks.filter(t => t !== task);}

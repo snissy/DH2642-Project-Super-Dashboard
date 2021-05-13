@@ -18,34 +18,57 @@ import Loading from "./assets/img/Loading.png"
 
 function App(props) {
 
-    // Coordinates for all draggable components are use as state
+    /* 
+        Positioning Offset, component placement relative to default positioning.
+        By keeping as component State we can update it using an observer on app-load.
+    */
+    const [offSet, setOffSet] = React.useState(props.model.coordinates);
 
-    // Offset, relative positioning compared to start positioning, start at x=0, y=0 from model constructor. 
-    const [relativeCoordinates, setRelativeCoordinates] = React.useState(props.model.coordinates);
 
-    // Tracks the position of a component, updates the model and state
-
-    // Update the component offset in model when a component is dragged.
-    // data contains the offset changes in x and y 
-    const trackPosition = (data, component) => {
-        console.log("Track position: data.x=" + data.x +" data.y=" + data.y);
-        props.model.setCoordinates(component, data.x, data.y)
+    /*
+        Initial positioning of components on app-load.
+        The offSets are added in <Draggable> for correct placement when firebase is loaded.
+    */
+    let defaultPositions = {
+        todo: {
+            x:100,
+            y:0
+        },
+        weather: {
+            x:800,
+            y:0
+        },
+        news:{
+            x:0,
+            y:0
+        }
     }
 
+    /* 
+        Updates the position offset in the model when a component is dragged.
+        Parameter 'data' contains the component's x and y coordinates (incl. default coordinates)
+        Parameter 'component' tells which component has been dragged.
+    */
+    const trackPosition = (data, component) => {
+        offSet[component].x = data.x - defaultPositions[component].x;
+        offSet[component].y = data.y - defaultPositions[component].y;
+        props.model.setAllCoordinates(offSet);
+
+    }
+
+    // Storing information on which background to display.
     const [planetURL, setPlanetURL] = React.useState(props.model.planetURL)
-    const [ spinner, setSpinner ] = React.useState(true);
 
-    // It will be executed before rendering
+    // Boolean value for displaying spinner on app-load.
+    const [spinner, setSpinner] = React.useState(true);
 
-
-    // [] means like componentDidMount
-
-
+ 
+    // When the app is loaded/created/mounted
     React.useEffect( function () {
         function backgroundObserver() {setPlanetURL(props.model.planetURL)}
 
         function coordinatesObserver(){
-            setRelativeCoordinates(props.model.coordinates)
+            setOffSet(props.model.coordinates)
         }
 
         setTimeout(() => setSpinner(false), 1800)
@@ -54,7 +77,6 @@ function App(props) {
         props.model.addObserver(coordinatesObserver)
 
         }
-        // Todo: Return statement to demount observers (if needed?)
 
         ,[]);
     if (spinner) return( <div><img src={Loading} className={'bg'}/> <div className={'loader'}></div></div>)
@@ -76,9 +98,8 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showTodo">
                 <Draggable onStop={(e, data) => {trackPosition(data, "todo");}}
-                            //defaultPosition = {{x: 100, y: 0}} 
-                            positionOffset={{x: relativeCoordinates.todo.x, y: relativeCoordinates.todo.y }}
-                            >
+                           defaultPosition = {{x: defaultPositions["todo"].x + offSet.todo.x, y: defaultPositions["todo"].y + offSet.todo.y}} 
+                >
                     <div id={'Todo-list'}>
                         <TodoPresenter model={props.model}/>
                     </div>
@@ -86,9 +107,8 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showWeather">
                 <Draggable onStop={(e, data) => {trackPosition(data, "weather");}}
-                           //defaultPosition = {{x: 800, y: 0}} 
-                           positionOffset={{x: relativeCoordinates.weather.x, y: relativeCoordinates.weather.y}}
-                           >
+                           defaultPosition = {{x: defaultPositions["weather"].x + offSet.weather.x, y: defaultPositions["weather"].y + offSet.weather.y}}
+                >
                     <div id={'Weather'}>
                         <WeatherPresenter model = {props.model}/>
                     </div>
@@ -96,9 +116,8 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showNews">
                 <Draggable onStop={(e, data) => {trackPosition(data, "news");}}
-                           positionOffset={{x: relativeCoordinates.news.x, y: relativeCoordinates.news.y}}
-                           //defaultPosition = {{x: 0, y: 300}} 
-                           >
+                           defaultPosition = {{x: defaultPositions["news"].x + offSet.news.x, y: defaultPositions["news"].y + offSet.news.y}}
+                >
                     <div id={'newsPresenter'}>
                         <NewsPresenter/>
                     </div>
