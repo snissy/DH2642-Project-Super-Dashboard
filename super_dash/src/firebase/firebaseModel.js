@@ -9,10 +9,13 @@ export function persistModel(model) {
             if (loadingFromFirebase) return
             if(!model.islogged) return
             else {
+                console.log("Firebase observer: Coordinates persisted")
+                console.log(model.coordinates)
+                console.log("^hør borde koordinater vara")
                 firebase.database().ref("users/" + uid + "/dashboardModel").set({
                     character: model.character,
                     todoList: model.todoList,
-                    offset: model.offset,
+                    coordinates: model.coordinates,
                     planet: model.planet,
                     preferences:model.preferences
                 });
@@ -28,7 +31,7 @@ export function persistModel(model) {
                         model.setTasks(data.val().todoList.tasks || [], data.val().todoList.checkedTasks || [])
                         model.setTodoTitle(data.val().todoList.todoTitle || "todo")
                         model.setPlanet(data.val().planet, data.val().planet.id)
-                        model.setAllOffset(data.val().offset)
+                        model.setAllCoordinates(data.val().coordinates)
                         model.setPreferences(data.val().preferences)
                         // We only want to load from firebase once.
                         newSession = false;

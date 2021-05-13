@@ -19,15 +19,15 @@ import Loading from "./assets/img/Loading.png"
 function App(props) {
 
     /* 
-        Positioning offset, component placement relative to default positioning.
+        Positioning Offset, component placement relative to default positioning.
         By keeping as component State we can update it using an observer on app-load.
     */
-    const [offset, setOffset] = React.useState(props.model.offset);
+    const [offSet, setOffSet] = React.useState(props.model.coordinates);
 
 
     /*
         Initial positioning of components on app-load.
-        The offsets are added in <Draggable> for correct placement when firebase is loaded.
+        The offSets are added in <Draggable> for correct placement when firebase is loaded.
     */
     let defaultPositions = {
         todo: {
@@ -46,13 +46,14 @@ function App(props) {
 
     /* 
         Updates the position offset in the model when a component is dragged.
-        Parameter 'data' contains the component's x and y position (incl. default coordinates)
+        Parameter 'data' contains the component's x and y coordinates (incl. default coordinates)
         Parameter 'component' tells which component has been dragged.
     */
     const trackPosition = (data, component) => {
-        offset[component].x = data.x - defaultPositions[component].x;
-        offset[component].y = data.y - defaultPositions[component].y;
-        props.model.setAllOffset(offset);
+        offSet[component].x = data.x - defaultPositions[component].x;
+        offSet[component].y = data.y - defaultPositions[component].y;
+        props.model.setAllCoordinates(offSet);
+
     }
 
     // Storing information on which background to display.
@@ -66,14 +67,14 @@ function App(props) {
     React.useEffect( function () {
         function backgroundObserver() {setPlanetURL(props.model.planetURL)}
 
-        function offsetObserver(){
-            setOffset(props.model.offset)
+        function coordinatesObserver(){
+            setOffSet(props.model.coordinates)
         }
 
         setTimeout(() => setSpinner(false), 1800)
 
         props.model.addObserver(backgroundObserver)
-        props.model.addObserver(offsetObserver)
+        props.model.addObserver(coordinatesObserver)
 
         }
 
@@ -97,7 +98,7 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showTodo">
                 <Draggable onStop={(e, data) => {trackPosition(data, "todo");}}
-                           defaultPosition = {{x: defaultPositions["todo"].x + offset.todo.x, y: defaultPositions["todo"].y + offset.todo.y}} 
+                           defaultPosition = {{x: defaultPositions["todo"].x + offSet.todo.x, y: defaultPositions["todo"].y + offSet.todo.y}} 
                 >
                     <div id={'Todo-list'}>
                         <TodoPresenter model={props.model}/>
@@ -106,7 +107,7 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showWeather">
                 <Draggable onStop={(e, data) => {trackPosition(data, "weather");}}
-                           defaultPosition = {{x: defaultPositions["weather"].x + offset.weather.x, y: defaultPositions["weather"].y + offset.weather.y}}
+                           defaultPosition = {{x: defaultPositions["weather"].x + offSet.weather.x, y: defaultPositions["weather"].y + offSet.weather.y}}
                 >
                     <div id={'Weather'}>
                         <WeatherPresenter model = {props.model}/>
@@ -115,7 +116,7 @@ function App(props) {
             </Visible>
             <Visible model={props.model} component="showNews">
                 <Draggable onStop={(e, data) => {trackPosition(data, "news");}}
-                           defaultPosition = {{x: defaultPositions["news"].x + offset.news.x, y: defaultPositions["news"].y + offset.news.y}}
+                           defaultPosition = {{x: defaultPositions["news"].x + offSet.news.x, y: defaultPositions["news"].y + offSet.news.y}}
                 >
                     <div id={'newsPresenter'}>
                         <NewsPresenter/>

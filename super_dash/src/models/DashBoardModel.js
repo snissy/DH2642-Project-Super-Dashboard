@@ -23,7 +23,7 @@ class DashBoardModel {
         }
 
         this.observers = [];
-        this.offset = {
+        this.coordinates = {
             todo: {
                 x:0,
                 y:0
@@ -85,12 +85,16 @@ class DashBoardModel {
         this.planet.id = id;
         this.notifyObservers();
     }
-    setOffset(comp, deltaX, deltaY) {
+    setCoordinates(comp, deltaX, deltaY) {
         // deltaX and deltaY are changes in offset, thus we increase the amount of offset
-        this.offset[comp].x = this.offset[comp].x + deltaX;
-        this.offset[comp].y = this.offset[comp].y + deltaY;
+        this.coordinates[comp].x = this.coordinates[comp].x + deltaX;
+        this.coordinates[comp].y = this.coordinates[comp].y + deltaY;
+        console.log("model.setCoordinates: deltaX=" + deltaX + " this.coordinates[comp].x=" + this.coordinates[comp].x)
+        console.log("model.setCoordinates: deltaY=" + deltaY + " this.coordinates[comp].y=" + this.coordinates[comp].y)
+
+        // We call observers to update
         this.notifyObservers();
-        return this.offset;
+        return this.coordinates;
     }
 
     setTasks(tasks, checkedTasks){this.todoList.tasks = tasks; this.todoList.checkedTasks = checkedTasks; this.notifyObservers();}
@@ -99,8 +103,10 @@ class DashBoardModel {
         this.notifyObservers();
     }
 
-    setAllOffset(offset){
-        this.offset = offset; 
+    setAllCoordinates(coordinates){
+        console.log("setAllCoordinates: ")
+        console.log(coordinates)
+        this.coordinates = coordinates; 
         this.notifyObservers();
     }
 
