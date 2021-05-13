@@ -4,6 +4,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
+    -webkit-transition: background 1s ease-in-out;
 }
 #Searchbar {
     position: fixed;
