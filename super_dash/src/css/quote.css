@@ -19,7 +19,9 @@
     margin: 5px;
     border-radius: 10px;
     display: block;
-    position: relative;
+    position: absolute;
+    width: auto;
+    left: 65%;
     font-size: 25px;
-    margin-left: 45%;
+ 
 }
