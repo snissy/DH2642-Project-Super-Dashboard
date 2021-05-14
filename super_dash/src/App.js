@@ -34,7 +34,7 @@ function App(props) {
     let defaultPositions = {
         todo: {
             x:480,
-            y:350
+            y:220
         },
         weather: {
             x:800,
