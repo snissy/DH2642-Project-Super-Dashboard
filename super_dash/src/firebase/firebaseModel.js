@@ -9,9 +9,6 @@ export function persistModel(model) {
             if (loadingFromFirebase) return
             if(!model.islogged) return
             else {
-                console.log("Firebase observer: Coordinates persisted")
-                console.log(model.coordinates)
-                console.log("^hør borde koordinater vara")
                 firebase.database().ref("users/" + uid + "/dashboardModel").set({
                     character: model.character,
                     todoList: model.todoList,
@@ -26,7 +23,7 @@ export function persistModel(model) {
                 loadingFromFirebase = true;
                 try {
                     if (data.val() && newSession) {
-                        console.log(data.val());
+                        //console.log(data.val());
                         model.setCharacter(data.val().character, data.val().character.id);
                         model.setTasks(data.val().todoList.tasks || [], data.val().todoList.checkedTasks || [])
                         model.setTodoTitle(data.val().todoList.todoTitle || "todo")

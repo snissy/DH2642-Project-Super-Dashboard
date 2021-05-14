@@ -50,10 +50,11 @@ h2 {
 }
 
 #Quote{
-    position: relative;
-    text-align: center;
-    top: 20%;
+    position: fixed;
+    top: 38%;
+    width: 100%;
 }
+
 
 #Weather {
     position: fixed;
@@ -85,6 +86,9 @@ h2 {
         top:60%;
     }
     #News {
+        display: none;
+    }
+    #Quote h3{
         display: none;
     }
 }

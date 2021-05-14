@@ -19,7 +19,8 @@ class DashBoardModel {
             showWeather: true,
             showNews: true,
             showTodo: true,
-            showCharacter: true
+            showCharacter: true,
+            showQuote: true
         }
 
         this.observers = [];
@@ -61,6 +62,7 @@ class DashBoardModel {
         this.preferences.showNews = pref.showNews;
         this.preferences.showWeather = pref.showWeather;
         this.preferences.showTodo = pref.showTodo;
+        this.preferences.showQuote = pref.showQuote;
         this.notifyObservers();
     }
 
@@ -85,27 +87,15 @@ class DashBoardModel {
         this.planet.id = id;
         this.notifyObservers();
     }
-    setCoordinates(comp, deltaX, deltaY) {
-        // deltaX and deltaY are changes in offset, thus we increase the amount of offset
-        this.coordinates[comp].x = this.coordinates[comp].x + deltaX;
-        this.coordinates[comp].y = this.coordinates[comp].y + deltaY;
-        console.log("model.setCoordinates: deltaX=" + deltaX + " this.coordinates[comp].x=" + this.coordinates[comp].x)
-        console.log("model.setCoordinates: deltaY=" + deltaY + " this.coordinates[comp].y=" + this.coordinates[comp].y)
-
-        // We call observers to update
-        this.notifyObservers();
-        return this.coordinates;
-    }
 
     setTasks(tasks, checkedTasks){this.todoList.tasks = tasks; this.todoList.checkedTasks = checkedTasks; this.notifyObservers();}
+    
     addTask(task) { if(task && !this.todoList.tasks.includes(task))
                   { this.todoList.tasks = [...this.todoList.tasks, task];}
         this.notifyObservers();
     }
 
     setAllCoordinates(coordinates){
-        console.log("setAllCoordinates: ")
-        console.log(coordinates)
         this.coordinates = coordinates; 
         this.notifyObservers();
     }

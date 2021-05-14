@@ -33,16 +33,16 @@ function App(props) {
     */
     let defaultPositions = {
         todo: {
-            x:100,
-            y:0
+            x:800,
+            y:100
         },
         weather: {
-            x:800,
-            y:0
+            x:450,
+            y:150
         },
         news:{
-            x:812,
-            y:135
+            x:0,
+            y:-300
         }
     }
 
@@ -97,9 +97,11 @@ function App(props) {
             <div id={'Clock'}>
                 <ClockPresenter/>
             </div>
-            <div id={'Quote'}>
-                <QuotePresenter model={props.model}/>
-            </div>
+            <Visible model={props.model} component="showQuote">
+                <div id={'Quote'}>
+                    <QuotePresenter model={props.model}/>
+                </div>
+            </Visible>
             <div id={'Searchbar'}>
                 <SearchBarPresenter/>
             </div>

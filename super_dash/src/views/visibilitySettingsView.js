@@ -8,6 +8,7 @@ function VisibilitySettingsView(props) {
                 <div className="visibilitySettings"><span>Display Weather:</span><button onClick={()=>props.updatePreferences("weather")}> {props.weather} </button> </div>
                 <div className="visibilitySettings"><span>Display To-do list:</span><button onClick={()=>props.updatePreferences("todo")}> {props.todo} </button> </div>
                 <div className="visibilitySettings"><span>Display Character:</span><button onClick={()=>props.updatePreferences("character")}> {props.character} </button> </div>
+                <div className="visibilitySettings"><span>Display Quote:</span><button onClick={()=>props.updatePreferences("quote")}> {props.quote} </button> </div>
             </div>
     );
 }
