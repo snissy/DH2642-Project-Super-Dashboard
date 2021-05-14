@@ -12,7 +12,7 @@ function WeatherView(props) {
                     </div>
                     <div className={"weather-dayOne-weatherData"}>
                         <div className={"weatherData-imgContainer"}>
-                            <img className="weather-IconMedium" src={require('../assets/svg/weatherIcons/'+dayOne.Wsymb2+".svg").default} alt=""/>
+                            <img className="weather-IconMedium" src={require('../assets/svg/weatherIcons/'+dayOne.Wsymb2+".svg").default} alt="" draggable="false"/>
                         </div>
                         <div className={"weather-dataContainer"}>
                             <div className={"dataContainer-row"}>
@@ -39,7 +39,7 @@ function WeatherView(props) {
                 {comingDays.map((day, index) =>{
                     return (<div className={"weather-dayCard day"+index} >
                         <div className="weather-dayCard-imgContainer">
-                            <img className="weather-IconSmall" src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt=""/>
+                            <img className="weather-IconSmall" src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt="" draggable="false"/>
                         </div>
                         <div className="weather-dayCard-dataContainer row">
                             <p className="weather-title-small">{day.day}</p>

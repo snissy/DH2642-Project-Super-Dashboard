@@ -18,6 +18,7 @@ import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
 import '../css/sidebar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function SideBarView (props) {
     //React stles for the React-Sidebar component
     const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"},

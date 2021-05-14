@@ -10,6 +10,8 @@ export function persistModel(model) {
             if(!model.islogged) return
             else {
                 console.log("Firebase observer: Coordinates persisted")
+                console.log(model.coordinates)
+                console.log("^hør borde koordinater vara")
                 firebase.database().ref("users/" + uid + "/dashboardModel").set({
                     character: model.character,
                     todoList: model.todoList,

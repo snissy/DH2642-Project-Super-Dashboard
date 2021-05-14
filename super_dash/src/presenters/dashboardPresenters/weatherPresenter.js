@@ -3,6 +3,7 @@ import WeatherSource from "../../api/smhiData";
 import promiseNoData from "../functionalPresenters/promiseNoDataPresenter";
 import usePromise from "../../customHooks/promiseHook";
 import React, {useEffect, useState} from 'react';
+import NoCoordinatesView from "../../views/noCoordinatesView";
 
 function WeatherPresenter(props){
 
@@ -27,7 +28,8 @@ function WeatherPresenter(props){
 
     return(<div className="weather-presenter">
             {promiseNoData(promise, data , error, "normal") ||
-            <WeatherView weatherDays={data} position = {props.model.userPosition}/>}
+            (props.model.userPosition.latitude ? <WeatherView weatherDays={data} position = {props.model.userPosition}/>:<NoCoordinatesView/>)
+            }
         </div>
     )
 }

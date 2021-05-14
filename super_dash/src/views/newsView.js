@@ -3,7 +3,7 @@ function NewsView(props){
         <div className={"newsView-background"}>
             {props.newsItems.articles.map((item, index)=>{
                 return (<div className={"newsView-card " +"cardId" + index} onClick={event => {props.askedNewsItem(index)}}>
-                    <img className={"newsView-picture-small"} src={item.imgSrc}  alt={item.imgTitle}/>
+                    <img className={"newsView-picture-small"} src={item.imgSrc}  alt={item.imgTitle} draggable="false"/>
                     <div className={"newsView-div-title"}>
                         <p className={"newsView-title"}>{item.title}</p>
                     </div>

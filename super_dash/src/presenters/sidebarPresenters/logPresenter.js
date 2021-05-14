@@ -32,11 +32,9 @@ export function LogPresenter(props){
         logOut();
     }
     //if (pending) return <> Loading...</>
-    return(
-
-        <Log    islogged ={islogged}
-              login={handleLoginClick}
-               logout={handleLogoutClick} />
+    return( <div  className={'mt-3'}>
+        <Log islogged ={islogged} login={handleLoginClick} logout={handleLogoutClick} />
+        </div>
     )
 
 }
