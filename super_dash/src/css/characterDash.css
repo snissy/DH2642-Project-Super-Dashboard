@@ -37,15 +37,15 @@
 }
 
 .infoIcon svg:hover{
-    fill: red;
-
+    fill: #F9D71C;
+    transform: scale3d(1.1, 1.1, 1.1);
 }
 
 .infoBox{
     position: relative;
     left: 210px;
     bottom: 150px;
-    background-color: white;
+    background-color: #343A40;
     width: 200px;
     height: 300px;
     border: 1px solid black;
