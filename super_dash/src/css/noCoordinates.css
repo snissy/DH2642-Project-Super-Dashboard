@@ -1,0 +1,19 @@
+.noCoordinatesView {
+  background-color: #343a40;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+ 
+}
+
+.noCoords-weatherIcon {
+  width: 40px;
+  margin-right: 15px;
+}
+
+.text-information-container {
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
