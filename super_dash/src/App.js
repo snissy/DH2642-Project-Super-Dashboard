@@ -8,6 +8,7 @@ import CharacterDashPresenter from "./presenters/dashboardPresenters/characterDa
 import NewsPresenter from "./presenters/dashboardPresenters/newsPresenter";
 import Visible from "./presenters/functionalPresenters/visibilityPresenter";
 import ClockPresenter from "./presenters/dashboardPresenters/clockPresenter";
+import QuotePresenter from "./presenters/dashboardPresenters/quotePresenter";
 import './css/App.css';
 import './css/weatherView.css';
 import './css/newsView.css';
@@ -95,6 +96,9 @@ function App(props) {
             </div>
             <div id={'Clock'}>
                 <ClockPresenter/>
+            </div>
+            <div id={'Quote'}>
+                <QuotePresenter model={props.model}/>
             </div>
             <div id={'Searchbar'}>
                 <SearchBarPresenter/>

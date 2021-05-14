@@ -49,6 +49,12 @@ h2 {
     font-size: 100px;
 }
 
+#Quote{
+    position: relative;
+    text-align: center;
+    top: 20%;
+}
+
 #Weather {
     position: fixed;
     display: flex;
@@ -76,7 +82,7 @@ h2 {
         top: 20%;
     }
     #Searchbar {
-        top:90%
+        top:60%;
     }
     #News {
         display: none;
@@ -91,7 +97,7 @@ h2 {
         display: none;
     }
     #Clock {
-        top: 0;
+        top: 20%;
         margin-top: 0;
     }
     #Weather {
@@ -109,7 +115,7 @@ h2 {
         left: 50%
     }
     #Searchbar {
-        bottom: 10px;
+        top:60%;
         flex: none;
     }
 }
