@@ -19,9 +19,6 @@ import '../css/sidebar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
-
 function SideBarView (props) {
     //React stles for the React-Sidebar component
     const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"},
@@ -29,7 +26,7 @@ function SideBarView (props) {
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
-        <div >
+        <div className={"sidebar"}>
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
             <Button id={"close-button"} type="button" onClick={() => props.setopen(false)}><MDBCloseIcon/></Button>
         </div>

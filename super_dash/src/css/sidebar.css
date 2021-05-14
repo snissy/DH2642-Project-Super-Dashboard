@@ -33,7 +33,8 @@
     transform: scale3d(1.1, 1.1, 1.1);
     opacity: 1.0;
 }
-p, strong, span {
+
+.sidebar p, strong, span {
     color: #dae0e5;
 }
 #close-button {
@@ -71,6 +72,11 @@ p, strong, span {
 }
 #log-button:hover {
     transform: scale3d(1.1, 1.1, 1.1);
+}
+
+#close-button {
+    background: transparent;
+    border-color: transparent;
 }
 
 .spinImage img {
