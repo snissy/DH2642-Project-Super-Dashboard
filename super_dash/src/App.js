@@ -80,7 +80,13 @@ function App(props) {
         }
 
         ,[]);
-    if (spinner) return( <div><img src={Loading} className={'bg'}/> <div className={'loader'}></div></div>)
+
+    if (spinner){
+        return( 
+            <div><img src={Loading} className={'bg'} alt=""/> <div className={'loader'}></div></div>
+        )
+    }
+    
     return (
         <div className={'App'} style={{backgroundImage: `url(${planetURL})`}}>
 

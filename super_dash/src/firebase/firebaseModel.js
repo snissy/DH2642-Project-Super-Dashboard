@@ -1,5 +1,5 @@
-import  {getUser} from "./firebase.js";
 import firebase from "firebase";
+
 export function persistModel(model) {
     if (model.islogged) {
         let uid = model.user.uid;
