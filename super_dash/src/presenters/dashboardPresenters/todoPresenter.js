@@ -16,8 +16,7 @@ function TodoPresenter(props) {
     }
 
     React.useEffect( function () {
-        // props.model.addObserver(() => {setTodo(props.model.todoList);})
-
+        
         function taskObserver() {
             setTasks(props.model.todoList.tasks);
         }
@@ -37,8 +36,7 @@ function TodoPresenter(props) {
             props.model.removeObserver(taskObserver());
             props.model.removeObserver(titleObserver());
         }
-
-        }, [])
+    }, [])
 
     return (
         <TodoView tasks={currentTasks}

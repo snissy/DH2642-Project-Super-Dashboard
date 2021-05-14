@@ -17,12 +17,10 @@ function CharacterSettings(props) {
             setCharacterName(props.model.character.name);
         }
 
-
         /* 
             The only other place where the character can be updated is when
             the models does the initial fetch when booting up. Since this component
             is always created after the models is created, maybe this observer is redundant?
-
         */
         props.model.addObserver(characterObserver);
 
@@ -35,10 +33,8 @@ function CharacterSettings(props) {
 
     },[])
 
-
     // derived states from promise using promiseHook
     const [data, error] = usePromise(promiseCharacter);
-
 
     // re-render when data arrives from promise
     useEffect(function(){

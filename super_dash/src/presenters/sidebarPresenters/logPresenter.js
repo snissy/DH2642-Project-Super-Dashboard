@@ -1,16 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Log} from "../../views/logView";
-import {logOut, signInWithGoogle, user, auth, getuser} from "../../firebase/firebase";
-import {persistModel} from "../../firebase/firebaseModel";
-import DashBoardModel from "../../models/DashBoardModel";
+import {logOut, signInWithGoogle} from "../../firebase/firebase";
 
 export function LogPresenter(props){
 
-
     //Boolean state of the user to know if is logged
     const [islogged,setLog] = React.useState(props.model.islogged);
-    const [pending, setPending] =  React.useState(true);
+    
     //??? Observer added but not sure if it is necessary
     React.useEffect(function () {
 
@@ -32,9 +29,9 @@ export function LogPresenter(props){
         logOut();
     }
     //if (pending) return <> Loading...</>
-    return( <div  className={'mt-3'}>
-        <Log islogged ={islogged} login={handleLoginClick} logout={handleLogoutClick} />
+    return( 
+        <div  className={'mt-3'}>
+            <Log islogged ={islogged} login={handleLoginClick} logout={handleLogoutClick} />
         </div>
     )
-
 }

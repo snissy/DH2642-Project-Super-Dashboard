@@ -1,7 +1,6 @@
 import {useState} from "react";
 import VisibilitySettingsView from "../../views/visibilitySettingsView";
 
-
 function VisibilitySettings(props) {
     
     const [newsVisibility, setNewsVisibility] = useState(props.model.preferences.showNews);
@@ -44,6 +43,7 @@ function VisibilitySettings(props) {
         )
     }
 
+    // Rough implementation, would be nice with interactive buttons with higher affordance
     let newsButtonState = "Hide";
     let weatherButtonState = "Hide";
     let todoButtonState = "Hide";
