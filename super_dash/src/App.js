@@ -40,8 +40,8 @@ function App(props) {
             y:0
         },
         news:{
-            x:0,
-            y:0
+            x:812,
+            y:135
         }
     }
 
@@ -78,15 +78,14 @@ function App(props) {
         props.model.addObserver(coordinatesObserver)
 
         }
-
-        ,[]);
+    ,[]);
 
     if (spinner){
         return( 
             <div><img src={Loading} className={'bg'} alt=""/> <div className={'loader'}></div></div>
         )
     }
-    
+
     return (
         <div className={'App'} style={{backgroundImage: `url(${planetURL})`}}>
 

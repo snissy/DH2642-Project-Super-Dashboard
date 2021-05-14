@@ -27,7 +27,8 @@ function ExtendedNewsView(props){
                     <div className={"extended-newsView-img-wrapper"}>
                         <img className={"newsView-picture-medium"}
                              src={props.newsItem.imgSrc}
-                             alt={props.newsItem.imgTitle}/>
+                             alt={props.newsItem.imgTitle}
+                             draggable="false"/>
                     </div>
                     <p className={"newsView-text"}>{props.newsItem.text}</p>
                 </div>

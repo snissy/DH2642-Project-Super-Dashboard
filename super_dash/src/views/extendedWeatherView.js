@@ -7,7 +7,7 @@ function ExtendedWeatherView(props) {
                 return(<Row className="weather-row">
                     <Col className="weather-icon" sm="2">
                         <Row>
-                            <img src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt=""/>
+                            <img src={require('../assets/svg/weatherIcons/'+day.Wsymb2+".svg").default} alt="" draggable="false"/>
                         </Row>
                         <Row>
                             <p className="weather-title">{day.day}</p>
