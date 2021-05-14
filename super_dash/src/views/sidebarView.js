@@ -9,54 +9,49 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { MDBCloseIcon } from "mdbreact"
 import {LogPresenter} from "../presenters/sidebarPresenters/logPresenter";
 import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSettingsPresenter";
 import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibilitySettingsPresenter";
 import PositionSettingsPresenter from "../presenters/sidebarPresenters/positionSettingPresenter";
 import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
 import '../css/sidebar.css';
-
-
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SideBarView (props) {
     //React stles for the React-Sidebar component
-    const styles = { sidebar: { background: "#343A40" , width: "30%" , minWidth: 400},
+    const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"},
         root:{ textAlign: "center"} }
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
-        <div >
+        <div className={"sidebar"}>
         <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-            <Button type={"button"} className={"close"} id={"close-button"} aria-label={"Close"} onClick={() => props.setopen(false)}><span aria-hidden="true">&times;</span></Button>
+            <Button id={"close-button"} type="button" onClick={() => props.setopen(false)}><MDBCloseIcon/></Button>
         </div>
+            <LogPresenter model={props.model}/>
             <br/>
             <div className={'position-static'}>
-           <EmailPresenter  model={props.model}/>
-            <div className="mt-4 mb-4">
-                <PositionSettingsPresenter model={props.model}/>
-        </div>
-            <div className="mt-4 mb-4">
-            <strong>Planet</strong>
-            <PlanetSettingsPresenter model={props.model}/>
-        </div>
-            <div className="mt-4 mb-4">
-            <strong>Character</strong>
-            <CharacterSettingsPresenter model={props.model}/>
-        </div>
-        </div>
-
-        <LogPresenter   model={props.model}/>
-        <VisibilitySettingsPresenter model={props.model}/>
-
-    </div>]
+                <EmailPresenter  model={props.model}/>
+                <div className="mt-4 mb-4">
+                    <PositionSettingsPresenter model={props.model}/>
+                </div>
+                <div className="mt-4 mb-4">
+                    <strong>Planet</strong>
+                    <PlanetSettingsPresenter model={props.model}/>
+                </div>
+                <div className="mt-4 mb-4">
+                    <strong>Character</strong>
+                    <CharacterSettingsPresenter model={props.model}/>
+                </div>
+            </div>
+            <VisibilitySettingsPresenter model={props.model}/>
+        </div>]
 
     //Html Content inside the sidebar for GoogleApps Button
     const appsContent = [
 <div>
-    <Button variant="danger" onClick={() => props.setopen(false)} className={'float-left m-3'}>X</Button>
+    <Button id={"close-button"} onClick={() => props.setopen(false)} className={'float-left m-3'}><MDBCloseIcon/></Button>
        <br/>
         <div className="row" >
 

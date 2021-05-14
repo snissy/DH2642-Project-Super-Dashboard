@@ -1,31 +1,20 @@
-text {
-    overflow-wrap: break-word !important;
-}
 input:focus {
     outline: none;
     box-shadow: none !important;
 }
-p {
+#Todo-list p {
     font-style: oblique;
 }
 [contenteditable] {
     outline: 0px solid transparent;
     text-align: center;
 }
-svg {
+#Todo-list svg {
     fill: white;
     opacity: 0.2;
 }
-svg:hover {
+#Todo-list svg:hover {
     opacity: unset;
-}
-textarea {
-    resize: none;
-    width: inherit;
-    box-shadow: none !important;
-    outline:none;
-    overflow: visible;
-    overflow-wrap: break-word;
 }
 
 .h-divider{
@@ -45,7 +34,7 @@ textarea {
 #todoTitle {
     background-color: transparent;
     font-family: sw, serif;
-    color:inherit;
+    color:#F9D71C;
     font-size: xx-large;
     border: none;
 }
@@ -74,10 +63,12 @@ textarea {
 }
 
 #task {
+    overflow-wrap: break-word !important;
     margin-left: 2px;
 }
 
 #checkedTask {
+    overflow-wrap: break-word !important;
     margin-left: 2px;
     text-decoration: line-through;
     opacity: 0.4;
