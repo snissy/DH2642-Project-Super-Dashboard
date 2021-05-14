@@ -12,9 +12,9 @@ const model = new DashBoardModel({name:"Luke Skywalker", height: 20},{name: "Tat
 
 auth().onAuthStateChanged((user) => {
             
-            console.log( user )
+            //console.log( user )
             model.setUser(user)
-            console.log(model.islogged)
+            //console.log(model.islogged)
             if(user) persistModel(model);
 });
 

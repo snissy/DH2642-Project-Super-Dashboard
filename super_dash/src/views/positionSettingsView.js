@@ -1,6 +1,4 @@
 import {Button} from "react-bootstrap";
-import React from "react";
-import '../css/sidebar.css';
 
 function PositionSettingsView(props){
     return (<div>

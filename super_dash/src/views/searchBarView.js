@@ -5,7 +5,6 @@ import '../css/searchBar.css';
 
 function SearchBarView(props) {
     
-    // OBS: Navbar can be removed.
     return (
         <div>
                 <Form inline>

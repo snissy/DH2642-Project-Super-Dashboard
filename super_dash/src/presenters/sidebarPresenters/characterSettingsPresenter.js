@@ -12,18 +12,11 @@ function CharacterSettings(props) {
 
     useEffect( function(){
     
-        // Lifecycle: Add observer on mount, remove it on demount.
+        // When character in model is updated, update characterSettings name in sidebar
         function characterObserver(){
             setCharacterName(props.model.character.name);
         }
 
-
-        /* 
-            The only other place where the character can be updated is when
-            the models does the initial fetch when booting up. Since this component
-            is always created after the models is created, maybe this observer is redundant?
-
-        */
         props.model.addObserver(characterObserver);
 
         // Initial fetch on component creation
@@ -35,15 +28,13 @@ function CharacterSettings(props) {
 
     },[])
 
-
     // derived states from promise using promiseHook
     const [data, error] = usePromise(promiseCharacter);
-
 
     // re-render when data arrives from promise
     useEffect(function(){
         if(data)
-            props.model.setCharacter(data,characterId)
+            props.model.setCharacter(data,characterId);
     },[data])
 
     /*

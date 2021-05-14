@@ -8,6 +8,7 @@ import CharacterDashPresenter from "./presenters/dashboardPresenters/characterDa
 import NewsPresenter from "./presenters/dashboardPresenters/newsPresenter";
 import Visible from "./presenters/functionalPresenters/visibilityPresenter";
 import ClockPresenter from "./presenters/dashboardPresenters/clockPresenter";
+import QuotePresenter from "./presenters/dashboardPresenters/quotePresenter";
 import './css/App.css';
 import './css/weatherView.css';
 import './css/newsView.css';
@@ -32,16 +33,16 @@ function App(props) {
     */
     let defaultPositions = {
         todo: {
-            x:100,
-            y:0
+            x:480,
+            y:350
         },
         weather: {
             x:800,
-            y:0
+            y:200
         },
         news:{
-            x:0,
-            y:0
+            x:10,
+            y:-100
         }
     }
 
@@ -78,9 +79,14 @@ function App(props) {
         props.model.addObserver(coordinatesObserver)
 
         }
+    ,[]);
 
-        ,[]);
-    if (spinner) return( <div><img src={Loading} className={'bg'}/> <div className={'loader'}></div></div>)
+    if (spinner){
+        return( 
+            <div><img src={Loading} className={'bg'} alt=""/> <div className={'loader'}></div></div>
+        )
+    }
+
     return (
         <div className={'App'} style={{backgroundImage: `url(${planetURL})`}}>
 
@@ -91,6 +97,11 @@ function App(props) {
             <div id={'Clock'}>
                 <ClockPresenter/>
             </div>
+            <Visible model={props.model} component="showQuote">
+                <div id={'Quote'}>
+                    <QuotePresenter model={props.model}/>
+                </div>
+            </Visible>
             <div id={'Searchbar'}>
                 <SearchBarPresenter/>
             </div>

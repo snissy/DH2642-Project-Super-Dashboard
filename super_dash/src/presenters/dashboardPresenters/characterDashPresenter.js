@@ -1,6 +1,5 @@
 import CharacterDashView from "../../views/characterDashView";
 import CharacterInfoPresenter from "./characterInfoPresenter";
-import Visible from "../functionalPresenters/visibilityPresenter";
 import {useState, useEffect} from 'react';
 import '../../css/characterDash.css';
 
@@ -22,8 +21,6 @@ function CharacterDashPresenter(props) {
         }
 
     },[])
-
-
 
      // handler for when the information icon is clicked
     function infoClick(event){

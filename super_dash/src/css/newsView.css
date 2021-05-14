@@ -82,7 +82,11 @@
     border:2px solid #ffca0a;
     margin:8px 12px 12px;
     padding:8px;
-    border-radius:5px
+    border-radius:5px;
+    width: 265px;
+    height: 360px;
+    overflow: auto;
+
 }
 .newsView-picture-medium {
     height:88px;

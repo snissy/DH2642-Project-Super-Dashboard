@@ -1,9 +1,7 @@
-
 import PositionSettingsView from "../../views/positionSettingsView";
 import React, {useState} from "react";
 import GeographicNameSource from "../../api/geograficData";
 import {roundToDecimal} from "../../helpFunctions/mathFunctions";
-
 
 function PositionSettingsPresenter(props){
 

@@ -5,11 +5,10 @@ import NewsView from "../../views/newsView";
 import ExtendedNewsView from "../../views/extendedNewsView";
 import NewsSource from "../../api/newsSource";
 
-
 function NewsPresenter(props){
 
-    const [askedDetails,setAskedDetails ] = useState(null);
-    const [detailedNews , setdetailedNews ] = useState(0)
+    const [askedDetails, setAskedDetails] = useState(null);
+    const [detailedNews, setdetailedNews] = useState(0)
 
     const [promise, setPromise] = useState(null);
 
@@ -18,7 +17,6 @@ function NewsPresenter(props){
     },[])
 
     const [data, error] = usePromise(promise);
-
 
     return(promiseNoData(promise, data , error) ||
         <div className="newsPresenter">

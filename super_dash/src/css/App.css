@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     margin-left: -150px;
-    top: 80%;
+    top: 50%;
     left: 50%
 }
 #Todo-list {
@@ -46,8 +46,15 @@ h2 {
     top: 20%;
 }
 #Clock h1{
-    font-size: 70px;
+    font-size: 100px;
 }
+
+#Quote{
+    position: fixed;
+    top: 38%;
+    width: 100%;
+}
+
 
 #Weather {
     position: fixed;
@@ -76,9 +83,12 @@ h2 {
         top: 20%;
     }
     #Searchbar {
-        top:90%
+        top:60%;
     }
     #News {
+        display: none;
+    }
+    #Quote h3{
         display: none;
     }
 }
@@ -91,7 +101,7 @@ h2 {
         display: none;
     }
     #Clock {
-        top: 0;
+        top: 20%;
         margin-top: 0;
     }
     #Weather {
@@ -109,7 +119,7 @@ h2 {
         left: 50%
     }
     #Searchbar {
-        bottom: 10px;
+        top:60%;
         flex: none;
     }
 }

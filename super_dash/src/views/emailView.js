@@ -1,8 +1,6 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export function EmailView(props){
-
 
     //if the user is not logged the sign in button appears
     if(!props.islogged){
@@ -11,7 +9,7 @@ export function EmailView(props){
             <strong >Anonymous User</strong>
         </div>)
     }
-    //if the user is logged then the log out button will appear
+    //if the user is logged then the sign out button will appear
     return(
 
         <div className="mt-4 mb-4">

@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "react-sidebar";
-import CharacterSettingsPresenter from "../presenters/sidebarPresenters/characterSettingsPresenter"
 import SettingIcon from "../resources/setting-icon.png";
 import AppsIcon from "../resources/Apps-Google-Chrome-App-List-icon.png";
 import ChromeIcon from "../resources/chrome.png"
@@ -10,6 +9,7 @@ import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
 import { MDBCloseIcon } from "mdbreact"
+import CharacterSettingsPresenter from "../presenters/sidebarPresenters/characterSettingsPresenter"
 import {LogPresenter} from "../presenters/sidebarPresenters/logPresenter";
 import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSettingsPresenter";
 import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibilitySettingsPresenter";
@@ -18,11 +18,9 @@ import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
 import '../css/sidebar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function SideBarView (props) {
     //React stles for the React-Sidebar component
-    const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"},
-        root:{ textAlign: "center"} }
+    const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"}, root:{ textAlign: "center"} }
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
@@ -51,6 +49,7 @@ function SideBarView (props) {
 
     //Html Content inside the sidebar for GoogleApps Button
     const appsContent = [
+
 <div>
     <Button id={"close-button"} onClick={() => props.setopen(false)} className={'float-left m-3'}><MDBCloseIcon/></Button>
        <br/>
@@ -75,27 +74,20 @@ function SideBarView (props) {
                 </a>
             </div>
 
-            <div className="col m-4">
-                <a href={'https://www.youtube.com' }>
-                    <img src={YtIcon} className={'m-2'} height={'70px'} alt={'YouTube'}/>
-                </a>
+                <div className="col m-4">
+                    <a href={'https://www.youtube.com' }>
+                        <img src={YtIcon} className={'m-2'} height={'70px'} alt={'YouTube'}/>
+                    </a>
+                </div>
+
+                <div className="col m-4">
+                    <a href={'https://maps.google.com' }>
+                        <img src={MapsIcon} className={'m-2'} height={'70px'} alt={'Maps'}/>
+                    </a>
+                </div>
             </div>
-
-            <div className="col m-4">
-                <a href={'https://maps.google.com' }>
-                    <img src={MapsIcon} className={'m-2'} height={'70px'} alt={'Maps'}/>
-                </a>
-            </div>
-
-
-    </div>
-
-
-</div>
+        </div>
     ]
-
-
-
     return (
         <div className="spinImage">
             <Sidebar
@@ -105,16 +97,10 @@ function SideBarView (props) {
                 styles={styles}
                 pullRight={true}           //property for putting the sidebar on the right side
             >
-
-                <img onClick={() =>{props.setopen(true); props.setcontent(settingContent);} } src={SettingIcon} height="75px" style={{ cursor: 'pointer'}} className="float-right m-1" alt={'cogwheel icon'}/>
-                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className="float-right m-1" alt={'Google Apps'}/>
-
+                <img onClick={() =>{props.setopen(true); props.setcontent(settingContent);} } src={SettingIcon} height="75px" style={{ cursor: 'pointer'}} className="float-right m-1" alt={'cogwheel icon'} draggable="false"/>
+                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className="float-right m-1" alt={'Google Apps'} draggable="false"/>
             </Sidebar>
-
-
-
         </div>
     );
-
 }
 export default SideBarView;

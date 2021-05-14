@@ -3,7 +3,6 @@ import {useState, useEffect} from "react"
 import SwapiSource from "../../api/starwarsAPI"
 import CharacterSettingsView from "../../views/characterSettingsView";
 
-
 function PlanetSettings(props) {
     const [promisePlanet, setPromisePlanet] = useState();
     
@@ -29,10 +28,8 @@ function PlanetSettings(props) {
 
     },[])
 
-
     // derived states from promise using promiseHook
     const [data, error] = usePromise(promisePlanet);
-
 
     // re-render when data arrives from promise
     useEffect(function(){

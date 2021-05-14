@@ -1,10 +1,8 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Gicon from "../resources/google-logo.png"
 import '../css/sidebar.css';
 
 export function Log(props){
-
 
     //if the user is not logged the sign in button appears
     if(!props.islogged){
@@ -26,7 +24,7 @@ export function Log(props){
                 src={Gicon}
                 alt="google icon"
             />
-           Log Out
+           Sign Out
          </button>
      </div>
     )
