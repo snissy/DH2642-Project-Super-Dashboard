@@ -90,8 +90,8 @@ function SideBarView (props) {
                 styles={styles}
                 pullRight={true}           //property for putting the sidebar on the right side
             >
-                <img onClick={() =>{props.setopen(true); props.setcontent(settingContent);} } src={SettingIcon} height="75px" style={{ cursor: 'pointer'}} className="float-right m-1" alt={'cogwheel icon'}/>
-                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className="float-right m-1" alt={'Google Apps'}/>
+                <img onClick={() =>{props.setopen(true); props.setcontent(settingContent);} } src={SettingIcon} height="75px" style={{ cursor: 'pointer'}} className="float-right m-1" alt={'cogwheel icon'} draggable="false"/>
+                <img onClick={() => {props.setopen(true); props.setcontent(appsContent);}} src={AppsIcon} height="75px" style={{marginRight : 30, cursor: 'pointer'}} className="float-right m-1" alt={'Google Apps'} draggable="false"/>
             </Sidebar>
         </div>
     );
