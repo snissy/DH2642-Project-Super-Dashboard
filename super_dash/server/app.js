@@ -6,28 +6,6 @@ const path = require("path");
 
 
 
-/*/
-To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
-
-The function signature is:
-
-express.static(root, [options])
-
-The root argument specifies the root directory from which to serve static assets. For more information on the options argument, see express.static.
-
-For example, use the following code to serve images, CSS files, and JavaScript files in a directory named public:
-
-app.use(express.static('public'))
-
-Now, you can load the files that are in the public directory:
-
-http://localhost:3000/images/kitten.jpg
-http://localhost:3000/css/style.css
-http://localhost:3000/js/app.js
-http://localhost:3000/images/bg.png
-http://localhost:3000/hello.html
-
- */
 app.use(express.static(path.join(__dirname, '..', 'build')));
 
 app.get('/', function (req, res) {
@@ -48,7 +26,7 @@ app.get('/news',(req, res) =>{
     console.log("<--------------------------->\nI've received a news request")
 })
 
-app.listen(port, ()=>{
+app.listen(port, '0.0.0.0',()=>{
     console.log('Server is listening at http://localhost:' + port)
 })
 
