@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     margin-left: -150px;
-    top: 50%;
+    top: 40%;
     left: 50%
 }
 #Todo-list {
@@ -51,7 +51,7 @@ h2 {
 
 #Quote{
     position: fixed;
-    top: 38%;
+    top: 80%;
     width: 100%;
 }
 

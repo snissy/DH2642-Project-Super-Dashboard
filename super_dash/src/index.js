@@ -7,8 +7,7 @@ import {auth, signInWithGoogle} from "./firebase/firebase";
 import {loadBackgrounds} from "./helpFunctions/loadBackgrounds";
 
 
-const model = new DashBoardModel({name:"Luke Skywalker", height: 20},{name: "Tatooine"}, "Todo")
-
+const model = new DashBoardModel({name:"Luke Skywalker", height: 20, mass:77,hair_color:"blond",skin_color:"fair",eye_color:"blue",birth_year: "19BBY",gender: "male"},{name: "Tatooine"}, "Todo")
 
 auth().onAuthStateChanged((user) => {
             
