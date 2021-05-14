@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Gicon from "../resources/google-logo.png"
+import '../css/sidebar.css';
 
 export function Log(props){
 
@@ -7,9 +8,9 @@ export function Log(props){
     if(!props.islogged){
 
         return ( <div className="login-buttons">
-            <button className="login-provider-button btn btn-success" onClick={props.login}>
+            <button id={"log-button"} className="login-provider-button btn btn-info" onClick={props.login}>
                 <img src={Gicon} alt="google icon"/>
-                Sign In
+                <span style={{color: "black"}}> Sign In</span>                
             </button>
         </div>)
     }

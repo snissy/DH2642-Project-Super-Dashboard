@@ -8,6 +8,7 @@ import GmailIcon from "../resources/gmail.png"
 import MapsIcon from "../resources/maps.png"
 import YtIcon from  "../resources/yt.png"
 import {Button} from "react-bootstrap";
+import { MDBCloseIcon } from "mdbreact"
 import CharacterSettingsPresenter from "../presenters/sidebarPresenters/characterSettingsPresenter"
 import {LogPresenter} from "../presenters/sidebarPresenters/logPresenter";
 import PlanetSettingsPresenter from "../presenters/sidebarPresenters/planetSettingsPresenter";
@@ -15,17 +16,18 @@ import VisibilitySettingsPresenter from "../presenters/sidebarPresenters/visibil
 import PositionSettingsPresenter from "../presenters/sidebarPresenters/positionSettingPresenter";
 import {EmailPresenter} from "../presenters/sidebarPresenters/emailPresenter"
 import '../css/sidebar.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SideBarView (props) {
-    //Styles for the React-Sidebar component
-    const styles = { sidebar: { background: "white" , width: 500}, root:{ textAlign: "center"} }
+    //React stles for the React-Sidebar component
+    const styles = { sidebar: { background: "#343A40" , maxWidth: 400, width: "30%"}, root:{ textAlign: "center"} }
 
     //Html content inside the sidebar for Settings Button
     const settingContent = [
-        <div>
-            <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
-                <Button variant="danger" onClick={() => props.setopen(false)} >X</Button>
-            </div>
+        <div className={"sidebar"}>
+        <div style={{position:"absolute"}} className={'float-left ml-3 mt-3 '} >
+            <Button id={"close-button"} type="button" onClick={() => props.setopen(false)}><MDBCloseIcon/></Button>
+        </div>
             <LogPresenter model={props.model}/>
             <br/>
             <div className={'position-static'}>
@@ -47,25 +49,30 @@ function SideBarView (props) {
 
     //Html Content inside the sidebar for GoogleApps Button
     const appsContent = [
-        <div>
-            <Button variant="danger" onClick={() => props.setopen(false)} className={'float-left m-3'}>X</Button>
-            <br/>
-            <div className="row" >
-                <div className="col m-4">
-                    <a href={'https://www.google.com'}>
-                        <img src={ChromeIcon} className={'m-2'} height={'70px'} alt={'Google'}/>
-                    </a>
-                </div>
-                <div className="col m-4">
-                    <a href={'https://www.gmail.com'}>
-                        <img src={GmailIcon} className={'m-2'} height={'70px'} alt={'Gmail'}/>
-                    </a>
-                </div>
-                <div className="col m-4">
-                    <a href={'https://drive.google.com/'}>
-                        <img src={DriveIcon} className={'m-2'} height={'70px'} alt={'Drive'}/>
-                    </a>
-                </div>
+
+<div>
+    <Button id={"close-button"} onClick={() => props.setopen(false)} className={'float-left m-3'}><MDBCloseIcon/></Button>
+       <br/>
+        <div className="row" >
+
+            <div className="col m-4">
+                <a href={'https://www.google.com'}>
+                    <img src={ChromeIcon} className={'m-2'} height={'70px'} alt={'Google'}/>
+                </a>
+            </div>
+
+
+
+            <div className="col m-4">
+                <a href={'https://www.gmail.com'}>
+                    <img src={GmailIcon} className={'m-2'} height={'70px'} alt={'Gmail'}/>
+                </a>
+            </div>
+            <div className="col m-4">
+                <a href={'https://drive.google.com/'}>
+                    <img src={DriveIcon} className={'m-2'} height={'70px'} alt={'Drive'}/>
+                </a>
+            </div>
 
                 <div className="col m-4">
                     <a href={'https://www.youtube.com' }>

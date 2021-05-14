@@ -15,6 +15,7 @@
 .visibilitySettings{
     text-align: left;
     margin-left: 35%;
+    margin-bottom: 5px;
 }
 .visibilitySettings span{
     display: inline-block;
@@ -23,6 +24,59 @@
 
 .visibilitySettings button{
     margin-right: 10%;
+    background: transparent;
+    border-radius: 25px;
+    color: #dae0e5;
+    opacity: 0.6;
+}
+.visibilitySettings button:hover{
+    transform: scale3d(1.1, 1.1, 1.1);
+    opacity: 1.0;
+}
+
+.sidebar p, strong, span {
+    color: #dae0e5;
+}
+#close-button {
+    background: transparent;
+    border: none;
+}
+
+.settings {
+    background: transparent;
+    border-color: transparent;
+    color: #dae0e5;
+}
+@font-face {
+    font-family: sw;
+    src: url('fonts/Starjhol.ttf');
+    font-style: normal;
+}
+
+#coordinate-button {
+
+    font-family: sw, serif;
+    color: #F9D71C;
+    background: transparent;
+    border-color: #F9D71C;
+}
+
+#coordinate-button:hover {
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+#log-button {
+    background: #F9D71C;
+    border-color: #F9D71C;
+    filter: brightness(85%);
+    margin-bottom: 25px;
+}
+#log-button:hover {
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+
+#close-button {
+    background: transparent;
+    border-color: transparent;
 }
 
 .spinImage img {
