@@ -4,7 +4,6 @@ import { ImSearch } from 'react-icons/im';
 
 function SearchBarView(props) {
     
-    // OBS: Navbar can be removed.
     return (
         <div>
                 <Form inline>

@@ -1,4 +1,4 @@
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 function ExtendedWeatherView(props) {
     return(<div className="weather-view-extended">
