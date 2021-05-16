@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import DashBoardModel from "./models/DashBoardModel";
 import {persistModel} from "./firebase/firebaseModel";
-import {auth, signInWithGoogle} from "./firebase/firebase";
+import {auth} from "firebase/app";
 import {loadBackgrounds} from "./helpFunctions/loadBackgrounds";
 
 
