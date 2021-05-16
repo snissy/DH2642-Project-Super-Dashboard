@@ -20,7 +20,7 @@ function CharacterSettings(props) {
         props.model.addObserver(characterObserver);
 
         // Initial fetch on component creation
-        setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId));
+        //setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId));
 
         return function(){
             props.model.removeObserver(characterObserver);
@@ -58,7 +58,7 @@ function CharacterSettings(props) {
 
         // If new id is out of bounds, don't update id
         if (newId < 1 || newId > 20){
-            console.log("Invalid character ID")
+            // pass
         }
         // If the new number is not in the character array, continue until next valid id
         else if (!characters.includes(newId)){

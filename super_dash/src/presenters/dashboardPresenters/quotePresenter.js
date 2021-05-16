@@ -1,57 +1,54 @@
 import QuoteView from "../../views/quoteView";
 import {useState, useEffect} from "react";
+import {quotes} from "../../helpFunctions/quotes";
 
 function QuotePresenter(props) {
     
-    // Would've been nice to implement this with a larger library from an API instead.
-    let quotes = {  
-        "Luke Skywalker":{
-            1:"Your overconfidence is your weakness.",
-            2:"You’ll find I’m full of surprises.",
-        },
-        "C-3PO":{
-            1:"Oh, my dear friend. How I’ve missed you."
-        },
-        "R2-D2":{
-            1:"beep boop.", 
-        },
-        "Darth Vader":{
-            1: "No. I am your father.",
-            2: "I find your lack of faith disturbing.",
-            3: "You don't know the power of the dark side."
-        },
-        "Leia Organa":{
-            1: "Aren’t you a little short for a stormtrooper?",
-        },
-        "Obi-Wan Kenobi":{
-            1:"The Force will be with you. Always.",
-        },
-        "Chewbacca":{
-            1:"GGGWARRRHHWWWW",
-            2:"WWWRRRRRRGWWWRRRR",
-            3:"RWGWGWARAHHHHWWRGGWRWRW",
-        },
-        "Han Solo":{
-            1:"You know, sometimes I amaze even myself.",
-            2:"Let’s keep a little optimism here.",
-        },
-        "Jabba Desilijic Tiure":{
-            1:"You will soon learn to appreciate me.",
-        },
-        "Yoda":{
-            1:"Do. Or do not. There is no try.",
-        }
+    // Code partially borrowed from user "Fransisc" at https://stackoverflow.com/questions/4959975
+    function randomQuoteInt() { // min and max included 
+        
+        // Count number of quotes for the given character.
+        let c = 0;
+        Object.keys(quotes[props.model.character.name]).forEach(function(key) {
+
+            // Don't count easter egg quotes.
+            if (key < 10){
+                c += 1;
+            }
+        });
+        
+        return Math.floor(Math.random() * (c - 1 + 1) + 1);
     }
 
-     
-    const [quote, setQuote] = useState(quotes[props.model.character.name][1]);
+    function pickQuote(){
+
+        // Easter eggs: A list of boolean conditions leading to a special quote.
+
+        // Cold robot
+        if(props.model.character.name === "C-3PO" && props.model.planet.name === "Hoth")
+            return 10;
+
+        // Cold Han
+        if(props.model.character.name === "Han Solo" && props.model.planet.name === "Hoth")
+            return 10;
+            
+        // Luke about his home planet
+        if(props.model.character.name === "Luke Skywalker" && props.model.planet.name === "Tatooine")
+            return 10;
+
+        return randomQuoteInt();
+    }
+    
+
+    const [quote, setQuote] = useState(quotes[props.model.character.name][pickQuote()]);
     const [character, setCharacter] = useState(props.model.character.name);
 
+    
     useEffect( function(){
 
         function characterObserver(){
             setCharacter(props.model.character.name);
-            setQuote(quotes[props.model.character.name][1])
+            setQuote(quotes[props.model.character.name][pickQuote()]);
         }
         
         props.model.addObserver(characterObserver);
@@ -59,7 +56,6 @@ function QuotePresenter(props) {
         return function(){
             props.model.removeObserver(characterObserver);
         }
-
     },[])
 
     return (
