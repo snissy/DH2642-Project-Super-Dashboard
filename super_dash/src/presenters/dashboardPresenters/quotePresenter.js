@@ -1,49 +1,18 @@
 import QuoteView from "../../views/quoteView";
 import {useState, useEffect} from "react";
-import {quotes} from "../../../server/quotes";
+import QuoteSource from "../../api/quotesAPI";
+import usePromise from "../../customHooks/promiseHook";
+import promiseNoData from "../functionalPresenters/promiseNoDataPresenter";
 
 function QuotePresenter(props) {
     
-    // Code partially borrowed from user "Fransisc" at https://stackoverflow.com/questions/4959975
-    function randomQuoteInt() { // min and max included 
-        
-        // Count number of quotes for the given character.
-        let c = 0;
-        Object.keys(quotes[props.model.character.name]).forEach(function(key) {
-
-            // Don't count easter egg quotes.
-            if (key < 10){
-                c += 1;
-            }
-        });
-        
-        return Math.floor(Math.random() * (c - 1 + 1) + 1);
-    }
-
-    function pickQuote(){
-
-        // Easter eggs: A list of boolean conditions leading to a special quote.
-
-        // Cold robot
-        if(props.model.character.name === "C-3PO" && props.model.planet.name === "Hoth")
-            return 10;
-
-        // Cold Han
-        if(props.model.character.name === "Han Solo" && props.model.planet.name === "Hoth")
-            return 10;
-            
-        // Luke about his home planet
-        if(props.model.character.name === "Luke Skywalker" && props.model.planet.name === "Tatooine")
-            return 10;
-
-        return randomQuoteInt();
-    }
-    
-
-    const [quote, setQuote] = useState(quotes[props.model.character.name][pickQuote()]);
+    const [quote, setQuote] = useState("");
     const [character, setCharacter] = useState(props.model.character.name);
 
-    
+    const [promise, setPromise] = useState();
+    const [data, error] = usePromise(promise);
+
+    // Set up observer so when the character is update the quote is also updated down in the effect hook.
     useEffect( function(){
 
         function characterObserver(){
@@ -52,17 +21,26 @@ function QuotePresenter(props) {
         
         props.model.addObserver(characterObserver);
 
+        setPromise(QuoteSource.getRandomQuote(character,props.model.planet.name))
+
         return function(){
             props.model.removeObserver(characterObserver);
         }
     },[])
 
+    // New character means fetching a new quote from the API
     useEffect( function(){
-        setQuote(quotes[character][pickQuote()]);
+        setPromise(QuoteSource.getRandomQuote(character,props.model.planet.name))
     },[character])
 
-
-    return (
+    // When data arrives from the API
+    useEffect( function(){
+        if(data){
+            setQuote(data.quote);
+        }
+    },[data])
+    
+    return (promiseNoData(promise, data , error) ||
         <QuoteView  quote={quote}
                     character={character}
         />

@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Gicon from "../resources/google-logo.png"
+import Gicon from "../assets/img/google-logo.png"
 import '../css/sidebar.css';
 
 export function Log(props){

@@ -4,7 +4,7 @@ const port = process.env.PORT || 5000;
 const omniGetter = require('./omniGetter.js');
 const path = require("path");
 
-const starWarsQ = require("./quotes.js");
+const quotes = require("./quotes.js");
 
 
 
@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 });
 
 // Set server to listen too localhost:5000/news
-app.get('npm ',(req, res) =>{
+app.get('/news',(req, res) =>{
 
     // Server recieved http request, fetch omni items
     let newsItems = omniGetter.fetchNewsArticles();
@@ -28,15 +28,21 @@ app.get('npm ',(req, res) =>{
     console.log("<--------------------------->\nI've received a news request")
 })
 
-app.get('/starwars', (req, res)=>{
+app.get('/quotes', (req, res)=>{
 
-    res.json(starWarsQ.data);
+    /* 
+        Example Request: 
+        /quotes?character=Han+Solo&planet=Hoth
+    */
+
+    // Calls getQuote(), passing the query parameters from request.
+    let quote_as_string = quotes.getQuote(req.query.character, req.query.planet);
+    let jsonQ = {quote: quote_as_string}
+    res.json(jsonQ);
 
 })
 
 app.listen(port, '0.0.0.0',()=>{
     console.log('Server is listening at http://localhost:' + port)
 })
-
-
 

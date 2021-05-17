@@ -19,9 +19,6 @@ function PlanetSettings(props) {
 
         props.model.addObserver(planetObserver);
 
-        // Initial fetch on component creation
-        //setPromisePlanet(SwapiSource.getSwapiDetails("planets", planetId));
-
         return function(){
             props.model.removeObserver(planetObserver);
         }
