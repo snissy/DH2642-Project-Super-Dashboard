@@ -1,32 +1,31 @@
 # DH2642-Project-Super-Dashboard
 This is the project repository for group 20 in the course DH2642
 
-Link to deployed app: https://super-dash3.herokuapp.com/ 
+Link to deployed app: https://the-super-dash.herokuapp.com/
 
-# How to install and run the project
 
-## Requirements
+## Requirements:
 You will need npm and node for this project. 
 
 Guide for installing npm is here https://www.npmjs.com/get-npm 
 
 Guide for installing node is here https://nodejs.org/en/download/ 
 
-## Installing
+## Installing:
 Clone the repository. Open up your terminal, navigate to the folder super_dash. Run the following command in the directory.
 npm install
 
 Now npm has installed all the required dependencies for the project. To run the application type the following command in the terminal in the super dash folder.
 npm start
 
-## Dependencies
+## Dependencies:
 - node.js
 - npm
 - javascript.js
 
 There are more dependencies that the project uses but npm will handle everything. 
 
-## Userstudies 
+## User studies: 
 Here is the user studies that was conducted during the project. 
 https://docs.google.com/document/d/1kj-fWwcI0Mx2XwBGgvK3FW5I9JuTGJEC3pKUXZklPQQ/edit?usp=sharing 
 
