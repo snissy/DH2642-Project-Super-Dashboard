@@ -26,7 +26,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "echo The build is done starting node ",
+    "prestart": "react-scripts build",
+    "start": "echo The build is done starting node",
     "poststart": "node server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
