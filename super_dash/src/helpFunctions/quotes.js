@@ -9,7 +9,7 @@ export const quotes = {
     "C-3PO":{
         1:"Oh, my dear friend. How I’ve missed you.",
         2:"We seem to be made to suffer. It's our lot in life.",
-        3:"Sometimes, I Just Don't Understand Human Behavior",
+        3:"Sometimes, I just don't understand human behavior",
         4:"We're doomed.",
         5:"R2D2 where are you?",
         6:"I am C-3PO, human-cyborg relations.",

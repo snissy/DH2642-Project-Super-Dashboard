@@ -48,7 +48,6 @@ function QuotePresenter(props) {
 
         function characterObserver(){
             setCharacter(props.model.character.name);
-            setQuote(quotes[props.model.character.name][pickQuote()]);
         }
         
         props.model.addObserver(characterObserver);
@@ -57,6 +56,11 @@ function QuotePresenter(props) {
             props.model.removeObserver(characterObserver);
         }
     },[])
+
+    useEffect( function(){
+        setQuote(quotes[character][pickQuote()]);
+    },[character])
+
 
     return (
         <QuoteView  quote={quote}
