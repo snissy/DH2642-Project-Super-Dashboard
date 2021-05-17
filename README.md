@@ -26,6 +26,10 @@ npm start
 
 There are more dependencies that the project uses but npm will handle everything. 
 
+## Userstudies 
+Here is the user studies that was conducted during the project. 
+https://docs.google.com/document/d/1kj-fWwcI0Mx2XwBGgvK3FW5I9JuTGJEC3pKUXZklPQQ/edit?usp=sharing 
+
 ## Statement of contributions:
 
 ### Adam Särnell
