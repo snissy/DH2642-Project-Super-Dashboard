@@ -4,6 +4,8 @@ const port = process.env.PORT || 5000;
 const omniGetter = require('./omniGetter.js');
 const path = require("path");
 
+const quotes = require("./quotes.js");
+
 
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
@@ -26,9 +28,21 @@ app.get('/news',(req, res) =>{
     console.log("<--------------------------->\nI've received a news request")
 })
 
+app.get('/quotes', (req, res)=>{
+
+    /* 
+        Example Request: 
+        /quotes?character=Han+Solo&planet=Hoth
+    */
+
+    // Calls getQuote(), passing the query parameters from request.
+    let quote_as_string = quotes.getQuote(req.query.character, req.query.planet);
+    let jsonQ = {quote: quote_as_string}
+    res.json(jsonQ);
+
+})
+
 app.listen(port, '0.0.0.0',()=>{
     console.log('Server is listening at http://localhost:' + port)
 })
-
-
 

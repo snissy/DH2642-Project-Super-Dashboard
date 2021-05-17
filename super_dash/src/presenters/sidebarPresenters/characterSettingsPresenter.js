@@ -19,9 +19,6 @@ function CharacterSettings(props) {
 
         props.model.addObserver(characterObserver);
 
-        // Initial fetch on component creation
-        //setPromiseCharacter(SwapiSource.getSwapiDetails("people", characterId));
-
         return function(){
             props.model.removeObserver(characterObserver);
         }

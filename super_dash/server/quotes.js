@@ -1,5 +1,5 @@
-// Would've been nice to implement this with a larger library from an API instead.
-export const quotes = {  
+
+const quotes = {
     "Luke Skywalker":{
         1:"Your overconfidence is your weakness.",
         2:"You’ll find I’m full of surprises.",
@@ -65,3 +65,52 @@ export const quotes = {
         7:"A Jedi uses the Force for knowledge and defense, never for attack."
     }
 }
+
+
+// Skicka med karaktär och planet. Returnera en slumpmässig quote såvida det inte är en easter egg.
+
+function getQuote(character, planet){
+    
+    // Code partially borrowed from user "Fransisc" at https://stackoverflow.com/questions/4959975
+    function randomQuoteInt() { // min and max included 
+
+        // Count number of quotes for the given character.
+        let c = 0;
+        Object.keys(quotes[character]).forEach(function(key) {
+
+            // Don't count easter egg quotes.
+            if (key < 10){
+                c += 1;
+            }
+        });
+
+        return Math.floor(Math.random() * (c - 1 + 1) + 1);
+    }
+
+    function pickQuote(){
+
+        // Easter eggs: A list of boolean conditions leading to a special quote.
+
+        // Cold robot
+        if(character === "C-3PO" && planet === "Hoth")
+            return 10;
+
+        // Cold Han
+        if(character === "Han Solo" && planet === "Hoth")
+            return 10;
+            
+        // Luke about his home planet
+        if(character === "Luke Skywalker" && planet === "Tatooine")
+            return 10;
+
+        return randomQuoteInt();
+    }
+    
+    // Returns a quote based on the number picked.
+    return quotes[character][pickQuote()];
+}
+
+
+module.exports = {
+    getQuote: getQuote
+};
