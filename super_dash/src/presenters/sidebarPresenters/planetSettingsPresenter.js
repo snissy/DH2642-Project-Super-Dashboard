@@ -20,7 +20,7 @@ function PlanetSettings(props) {
         props.model.addObserver(planetObserver);
 
         // Initial fetch on component creation
-        setPromisePlanet(SwapiSource.getSwapiDetails("planets", planetId));
+        //setPromisePlanet(SwapiSource.getSwapiDetails("planets", planetId));
 
         return function(){
             props.model.removeObserver(planetObserver);
@@ -49,7 +49,7 @@ function PlanetSettings(props) {
 
         // if planet id is valid, fetch new promise
         if (planetId + direction < 1 || planetId + direction > 4){
-            console.log("Invalid planet ID")
+            // pass
         }
         else {
             setPlanetId(planetId+direction)

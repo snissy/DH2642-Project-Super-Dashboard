@@ -18,7 +18,7 @@ firebase.initializeApp({
     - googleprovider: is the library which lets the google login
 */
 export const auth = firebase.auth;
-const googleProvider = new firebase.auth.GoogleAuthProvider
+const googleProvider = new firebase.auth.GoogleAuthProvider()
 
 
 //function for loginwith Google account
