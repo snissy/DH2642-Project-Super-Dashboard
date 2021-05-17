@@ -27,9 +27,9 @@ function WeatherPresenter(props){
     const [data, error] = usePromise(promise);
 
     return(<div className="weather-presenter">
-            {promiseNoData(promise, data , error, "normal") ||
-            (props.model.userPosition.latitude ? <WeatherView weatherDays={data} position = {props.model.userPosition}/>:<NoCoordinatesView/>)
-            }
+            {(props.model.userPosition.latitude ?
+                promiseNoData(promise, data , error, "normal") || <WeatherView weatherDays={data} position = {props.model.userPosition}/>:
+                <NoCoordinatesView/>)}
         </div>
     )
 }
