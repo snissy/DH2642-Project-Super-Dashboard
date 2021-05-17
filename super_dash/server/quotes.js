@@ -1,5 +1,5 @@
 // Would've been nice to implement this with a larger library from an API instead.
-export const quotes = {  
+const quotes = {
     "Luke Skywalker":{
         1:"Your overconfidence is your weakness.",
         2:"You’ll find I’m full of surprises.",
@@ -65,3 +65,7 @@ export const quotes = {
         7:"A Jedi uses the Force for knowledge and defense, never for attack."
     }
 }
+
+module.exports = {
+    data: quotes
+};

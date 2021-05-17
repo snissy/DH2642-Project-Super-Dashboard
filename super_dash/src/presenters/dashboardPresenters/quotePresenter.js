@@ -1,6 +1,6 @@
 import QuoteView from "../../views/quoteView";
 import {useState, useEffect} from "react";
-import {quotes} from "../../helpFunctions/quotes";
+import {quotes} from "../../../server/quotes";
 
 function QuotePresenter(props) {
     
